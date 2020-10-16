@@ -1,0 +1,17 @@
+C:\Users\tesli\Desktop\OOP\hotel\hotel\bin\Debug\hotel.exe.config
+C:\Users\tesli\Desktop\OOP\hotel\hotel\bin\Debug\hotel.exe
+C:\Users\tesli\Desktop\OOP\hotel\hotel\bin\Debug\hotel.pdb
+C:\Users\tesli\Desktop\OOP\hotel\hotel\obj\Debug\hotel.Properties.Resources.resources
+C:\Users\tesli\Desktop\OOP\hotel\hotel\obj\Debug\hotel.csproj.GenerateResource.cache
+C:\Users\tesli\Desktop\OOP\hotel\hotel\obj\Debug\hotel.exe
+C:\Users\tesli\Desktop\OOP\hotel\hotel\obj\Debug\hotel.pdb
+C:\Users\tesli\Desktop\OOP\hotel\hotel\obj\Debug\hotel.AdminLogin.resources
+C:\Users\tesli\Desktop\OOP\hotel\hotel\obj\Debug\hotel.newUserR.resources
+C:\Users\tesli\Desktop\OOP\hotel\hotel\obj\Debug\hotel.MainPage.resources
+C:\Users\tesli\Desktop\OOP\hotel\hotel\obj\Debug\hotel.CheckInOut.resources
+C:\Users\tesli\Desktop\OOP\hotel\hotel\obj\Debug\hotel.Customers.resources
+C:\Users\tesli\Desktop\OOP\hotel\hotel\obj\Debug\hotel.csproj.CoreCompileInputs.cache
+C:\Users\tesli\Desktop\OOP\hotel\hotel\obj\Debug\hotel.csprojAssemblyReference.cache
+C:\Users\tesli\Desktop\OOP\hotel\hotel\obj\Debug\hotel.roomControl.resources
+C:\Users\tesli\Desktop\OOP\hotel\hotel\obj\Debug\hotel.Invoice.resources
+C:\Users\tesli\Desktop\OOP\hotel\hotel\obj\Debug\hotel.invoiceAddPage.resources
