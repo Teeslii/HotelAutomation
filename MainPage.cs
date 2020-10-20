@@ -51,5 +51,12 @@ namespace hotel
             customers.Show();
             this.Hide();
         }
+
+        private void btnAboutUs_Click(object sender, EventArgs e)
+        {
+            AboutUs aboutUs = new AboutUs();
+            aboutUs.Show();
+            this.Hide();
+        }
     }
 }
