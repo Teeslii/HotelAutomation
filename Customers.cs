@@ -144,6 +144,7 @@ namespace hotel
         private void btnhomeback_Click(object sender, EventArgs e)
         {
             MainPage mainPage = new MainPage();
+
             mainPage.Show();
             this.Hide();
         }
