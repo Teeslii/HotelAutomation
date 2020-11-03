@@ -7,24 +7,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
 using System.Data.Sql;
 using System.Data.SqlClient;
 namespace hotel
 {
     public partial class Customers : Form
     {
+       
         public Customers()
         {
             InitializeComponent();
         }
 
-        SqlConnection connectn = new SqlConnection("Data Source=LAPTOP-VBIOM4D2;Initial Catalog=Octopus;Integrated Security=True");
+        
+       SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["hotel.Properties.Settings.Setting"].ConnectionString);
       
         private void showdata()
         {
             listShowdata.Items.Clear();
-            connectn.Open();
-            SqlCommand command = new SqlCommand("select * from customer", connectn);
+            connection.Open();
+            SqlCommand command = new SqlCommand("select ID, firstName, lastName, telephone, mail, TC, price, loginDate, exitDate from customer", connection);
             SqlDataReader reader = command.ExecuteReader();
 
             while (reader.Read())
@@ -41,12 +44,10 @@ namespace hotel
                 add.SubItems.Add(reader["loginDate"].ToString());
                 add.SubItems.Add(reader["exitDate"].ToString());
                 
-
-
                 listShowdata.Items.Add(add);
             }
             reader.Close();
-            connectn.Close();
+            connection.Close();
         }
 
         private void btnShowData_Click(object sender, EventArgs e)
@@ -55,7 +56,7 @@ namespace hotel
 
         }
 
-        int id = 0;
+        private int id = 0;
         private void listShowdata_DoubleClick(object sender, EventArgs e)
         {
             id = int.Parse(listShowdata.SelectedItems[0].SubItems[0].Text);
@@ -69,13 +70,15 @@ namespace hotel
             txtExitDate.Text = listShowdata.SelectedItems[0].SubItems[8].Text;
             
         }
-
+        // to delete the first record -- booking
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            connectn.Open();
-            SqlCommand sqlCommand = new SqlCommand("delete from customer join  Room  on customer.ID = Room.ID  where ID = (" + id + ")", connectn);
+            connection.Open();
+            string DeleteQuery = "delete from customer where ID = @id";
+            SqlCommand sqlCommand = new SqlCommand(DeleteQuery, connection);
+            sqlCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@id", SqlDbType.Int, 3) { Value = id });
             sqlCommand.ExecuteNonQuery();
-            connectn.Close();
+            connection.Close();
             showdata();
         }
 
@@ -85,7 +88,6 @@ namespace hotel
             txtLastName.Clear();
             txtTelephone.Clear();
             txtMail.Clear();
-           
             txtID.Clear();
             txtPrice.Clear();
             txtLoginDate.Text= "";
@@ -94,20 +96,27 @@ namespace hotel
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            connectn.Open();
-            SqlCommand command = new SqlCommand("update customer set firstName='"+txtFirstName.Text+ "', lastName='" +txtLastName.Text+ "', telephone='"+txtTelephone.Text+ "', mail='" +txtMail.Text+ "', TC='" +ID.Text+ "', price='" +txtPrice.Text+ "' where ID = (" + id + ")",connectn);
+            connection.Open();
+            SqlCommand command = new SqlCommand("update customer set firstName= @firstName , lastName= @lastName, telephone= @telephone, mail= @mail, TC= @TC, price= @price where ID = @id", connection);
+            command.Parameters.Add(new System.Data.SqlClient.SqlParameter("@id", SqlDbType.Int, 3) { Value = id });
+            command.Parameters.Add(new System.Data.SqlClient.SqlParameter("@firstName", SqlDbType.VarChar, 50) { Value = txtFirstName.Text });
+            command.Parameters.Add(new System.Data.SqlClient.SqlParameter("@lastName", SqlDbType.NVarChar, 50) { Value = txtLastName.Text });
+            command.Parameters.Add(new System.Data.SqlClient.SqlParameter("@telephone", SqlDbType.VarChar, 11) { Value = txtTelephone.Text });
+            command.Parameters.Add(new System.Data.SqlClient.SqlParameter("@mail", SqlDbType.VarChar, 11) { Value = txtMail.Text });
+            command.Parameters.Add(new System.Data.SqlClient.SqlParameter("@TC", SqlDbType.VarChar, 50) { Value = ID.Text });
+            command.Parameters.Add(new System.Data.SqlClient.SqlParameter("@price", SqlDbType.Int , 20) { Value = txtPrice.Text });
+
             command.ExecuteNonQuery();
-            connectn.Close();
+            connection.Close();
             showdata();
         }
 
         private void btnResearch_Click(object sender, EventArgs e)
         {
-            int convertID;
-            convertID = Convert.ToInt32(txtResearchID.Text);
             listShowdata.Items.Clear();
-            connectn.Open();
-            SqlCommand command = new SqlCommand("select * from customer where ID=(" + convertID + ")", connectn);
+            connection.Open();
+            SqlCommand command = new SqlCommand("select ID, firstName, lastName, telephone, mail, TC, price, loginDate, exitDate from customer where ID= @researchID", connection);
+            command.Parameters.Add(new System.Data.SqlClient.SqlParameter("@researchID", SqlDbType.Int, 3) { Value = txtResearchID.Text });
             SqlDataReader reader = command.ExecuteReader();
 
             while (reader.Read())
@@ -129,7 +138,7 @@ namespace hotel
                 listShowdata.Items.Add(add);
             }
             reader.Close();
-            connectn.Close();
+            connection.Close();
         }
 
         private void btnhomeback_Click(object sender, EventArgs e)

@@ -16,5 +16,8 @@ namespace hotel
         {
             InitializeComponent();
         }
+
+       // take lblAboutUs text https://crimsonhotel.com/mactan/about-us
+        
     }
 }
