@@ -40,12 +40,16 @@
             this.btnhomeback = new System.Windows.Forms.Button();
             this.btnCardPayment = new System.Windows.Forms.Button();
             this.txtPullDate = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtIcNumber = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
+            this.txtCardPart1 = new System.Windows.Forms.TextBox();
+            this.txtCardPart2 = new System.Windows.Forms.TextBox();
+            this.txtCardPart3 = new System.Windows.Forms.TextBox();
+            this.txtCardPart4 = new System.Windows.Forms.TextBox();
             this.pnlCard.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -129,10 +133,14 @@
             // pnlCard
             // 
             this.pnlCard.BackColor = System.Drawing.Color.Transparent;
+            this.pnlCard.Controls.Add(this.txtCardPart1);
+            this.pnlCard.Controls.Add(this.txtCardPart2);
+            this.pnlCard.Controls.Add(this.txtCardPart3);
+            this.pnlCard.Controls.Add(this.txtCardPart4);
             this.pnlCard.Controls.Add(this.btnhomeback);
             this.pnlCard.Controls.Add(this.btnCardPayment);
             this.pnlCard.Controls.Add(this.txtPullDate);
-            this.pnlCard.Controls.Add(this.textBox1);
+            this.pnlCard.Controls.Add(this.txtIcNumber);
             this.pnlCard.Controls.Add(this.label6);
             this.pnlCard.Controls.Add(this.label5);
             this.pnlCard.Controls.Add(this.label2);
@@ -175,16 +183,16 @@
             this.txtPullDate.Font = new System.Drawing.Font("Lucida Sans", 14.25F);
             this.txtPullDate.Location = new System.Drawing.Point(301, 153);
             this.txtPullDate.Name = "txtPullDate";
-            this.txtPullDate.Size = new System.Drawing.Size(200, 30);
+            this.txtPullDate.Size = new System.Drawing.Size(211, 30);
             this.txtPullDate.TabIndex = 89;
             // 
-            // textBox1
+            // txtIcNumber
             // 
-            this.textBox1.Font = new System.Drawing.Font("Lucida Sans", 14.25F);
-            this.textBox1.Location = new System.Drawing.Point(301, 103);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(200, 30);
-            this.textBox1.TabIndex = 88;
+            this.txtIcNumber.Font = new System.Drawing.Font("Lucida Sans", 14.25F);
+            this.txtIcNumber.Location = new System.Drawing.Point(301, 103);
+            this.txtIcNumber.Name = "txtIcNumber";
+            this.txtIcNumber.Size = new System.Drawing.Size(211, 30);
+            this.txtIcNumber.TabIndex = 88;
             // 
             // label6
             // 
@@ -204,9 +212,9 @@
             this.label5.Font = new System.Drawing.Font("Lucida Sans", 14.25F);
             this.label5.Location = new System.Drawing.Point(18, 111);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(113, 22);
+            this.label5.Size = new System.Drawing.Size(116, 22);
             this.label5.TabIndex = 86;
-            this.label5.Text = "ıc Number:";
+            this.label5.Text = "IC Number:";
             // 
             // label2
             // 
@@ -235,8 +243,36 @@
             this.txtName.Font = new System.Drawing.Font("Lucida Sans", 14.25F);
             this.txtName.Location = new System.Drawing.Point(301, 17);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(200, 30);
+            this.txtName.Size = new System.Drawing.Size(211, 30);
             this.txtName.TabIndex = 82;
+            // 
+            // txtCardPart1
+            // 
+            this.txtCardPart1.Location = new System.Drawing.Point(301, 74);
+            this.txtCardPart1.Name = "txtCardPart1";
+            this.txtCardPart1.Size = new System.Drawing.Size(48, 20);
+            this.txtCardPart1.TabIndex = 86;
+            // 
+            // txtCardPart2
+            // 
+            this.txtCardPart2.Location = new System.Drawing.Point(355, 74);
+            this.txtCardPart2.Name = "txtCardPart2";
+            this.txtCardPart2.Size = new System.Drawing.Size(48, 20);
+            this.txtCardPart2.TabIndex = 87;
+            // 
+            // txtCardPart3
+            // 
+            this.txtCardPart3.Location = new System.Drawing.Point(409, 74);
+            this.txtCardPart3.Name = "txtCardPart3";
+            this.txtCardPart3.Size = new System.Drawing.Size(48, 20);
+            this.txtCardPart3.TabIndex = 88;
+            // 
+            // txtCardPart4
+            // 
+            this.txtCardPart4.Location = new System.Drawing.Point(463, 74);
+            this.txtCardPart4.Name = "txtCardPart4";
+            this.txtCardPart4.Size = new System.Drawing.Size(48, 20);
+            this.txtCardPart4.TabIndex = 89;
             // 
             // Invoice
             // 
@@ -274,12 +310,16 @@
         private System.Windows.Forms.Panel pnlCard;
         private System.Windows.Forms.Button btnCardPayment;
         private System.Windows.Forms.TextBox txtPullDate;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtIcNumber;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Button btnhomeback;
+        private System.Windows.Forms.TextBox txtCardPart1;
+        private System.Windows.Forms.TextBox txtCardPart2;
+        private System.Windows.Forms.TextBox txtCardPart3;
+        private System.Windows.Forms.TextBox txtCardPart4;
     }
 }

@@ -20,7 +20,7 @@ namespace hotel
         }
         SqlConnection linkedd = new SqlConnection("Data Source=LAPTOP-VBIOM4D2;Initial Catalog=Octopus;Integrated Security=True");
 
-        public int RoomNoInvoice;
+        private int RoomNoInvoice;
         private void cbFeePayable_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbFeePayable.SelectedIndex==0)
@@ -46,7 +46,7 @@ namespace hotel
         {
             RoomNoInvoice = Convert.ToInt32(txtResearchRoom.Text);
             linkedd.Open();
-            SqlCommand roomFee = new SqlCommand("select price from customer join Room on customer.ID= Room.ID where Room.roomNo=("+RoomNoInvoice +")", linkedd);
+            SqlCommand roomFee = new SqlCommand("select price from customer join Room on customer.ID = Room.ID where Room.roomNo=("+ RoomNoInvoice +")", linkedd);
             roomFee.ExecuteNonQuery();
             SqlDataReader dataReader = roomFee.ExecuteReader();
 
@@ -54,6 +54,7 @@ namespace hotel
             {
                TxtFeePayable.Text = dataReader["price"].ToString();
             }
+            linkedd.Close();
         }
 
         private void btnPaid_Click(object sender, EventArgs e)
