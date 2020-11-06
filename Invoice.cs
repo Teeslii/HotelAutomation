@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
 using System.Data.Sql;
 using System.Data.SqlClient;
 
@@ -18,8 +19,9 @@ namespace hotel
         {
             InitializeComponent();
         }
-        SqlConnection linkedd = new SqlConnection("Data Source=LAPTOP-VBIOM4D2;Initial Catalog=Octopus;Integrated Security=True");
-
+      
+        SqlConnection linkedd = new SqlConnection(ConfigurationManager.ConnectionStrings["hotel.Properties.Settings.Setting"].ConnectionString);
+      
         private int RoomNoInvoice;
         private void cbFeePayable_SelectedIndexChanged(object sender, EventArgs e)
         {
