@@ -102,8 +102,8 @@ namespace hotel
             command.Parameters.Add(new System.Data.SqlClient.SqlParameter("@firstName", SqlDbType.VarChar, 50) { Value = txtFirstName.Text });
             command.Parameters.Add(new System.Data.SqlClient.SqlParameter("@lastName", SqlDbType.NVarChar, 50) { Value = txtLastName.Text });
             command.Parameters.Add(new System.Data.SqlClient.SqlParameter("@telephone", SqlDbType.VarChar, 11) { Value = txtTelephone.Text });
-            command.Parameters.Add(new System.Data.SqlClient.SqlParameter("@mail", SqlDbType.VarChar, 11) { Value = txtMail.Text });
-            command.Parameters.Add(new System.Data.SqlClient.SqlParameter("@TC", SqlDbType.VarChar, 50) { Value = ID.Text });
+            command.Parameters.Add(new System.Data.SqlClient.SqlParameter("@mail", SqlDbType.VarChar, 50) { Value = txtMail.Text });
+            command.Parameters.Add(new System.Data.SqlClient.SqlParameter("@TC", SqlDbType.VarChar, 11) { Value = ID.Text });
             command.Parameters.Add(new System.Data.SqlClient.SqlParameter("@price", SqlDbType.Int , 20) { Value = txtPrice.Text });
 
             command.ExecuteNonQuery();
