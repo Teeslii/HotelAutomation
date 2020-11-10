@@ -20,7 +20,7 @@ namespace hotel
             InitializeComponent();
         }
       
-        SqlConnection CString = new SqlConnection(ConfigurationManager.ConnectionStrings["hotel.Properties.Settings.Setting"].ConnectionString);
+        SqlConnection connectionString = new SqlConnection(ConfigurationManager.ConnectionStrings["hotel.Properties.Settings.Setting"].ConnectionString);
       
         private int RoomNoInvoice;
         private void cbFeePayable_SelectedIndexChanged(object sender, EventArgs e)
@@ -47,7 +47,7 @@ namespace hotel
         private void btnResearch_Click(object sender, EventArgs e)
         {
             RoomNoInvoice = Convert.ToInt32(txtResearchRoom.Text);
-            CString.Open();
+            connectionString.Open();
             SqlCommand roomFee = new SqlCommand("select price from customer join Room on customer.ID = Room.ID where Room.roomNo= @roomNo", CString);
             roomFee.Parameters.Add(new System.Data.SqlClient.SqlParameter("@roomNo", SqlDbType.Int, 5) { Value = RoomNoInvoice });
             roomFee.ExecuteNonQuery();
@@ -57,7 +57,7 @@ namespace hotel
             {
                TxtFeePayable.Text = dataReader["price"].ToString();
             }
-            CString.Close();
+            connectionString.Close();
         }
 
         private void btnPaid_Click(object sender, EventArgs e)
