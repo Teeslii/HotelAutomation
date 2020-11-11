@@ -57,7 +57,7 @@ namespace hotel
             {
                TxtFeePayable.Text = dataReader["price"].ToString();
             }
-            connectionString.Close();
+        
         }
 
         private void btnPaid_Click(object sender, EventArgs e)
