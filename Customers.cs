@@ -102,7 +102,7 @@ namespace hotel
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings[ConnectionString].ConnectionString))
+            using (var connection = new SqlConnection(ConnectionString))
             {
                     connection.Open();
                     SqlCommand command = new SqlCommand("update customer set firstName= @firstName , lastName= @lastName, telephone= @telephone, mail= @mail, TC= @TC, price= @price where ID = @id", connection);
