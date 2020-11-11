@@ -20,13 +20,10 @@ namespace hotel
             InitializeComponent();
         }
 
-       //SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["hotel.Properties.Settings.Setting"].ConnectionString);
-       
-        
-        private string ConnectionString = "hotel.Properties.Settings.Setting";
+        private string ConnectionString = ConfigurationManager.ConnectionStrings["hotel.Properties.Settings.Setting"].ConnectionString;
         private void showdata()
         {
-            using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings[ConnectionString].ConnectionString))
+            using (var connection = new SqlConnection(ConnectionString))
             {
                 listShowdata.Items.Clear();
 
