@@ -20,34 +20,39 @@ namespace hotel
             InitializeComponent();
         }
 
+       //SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["hotel.Properties.Settings.Setting"].ConnectionString);
+       
         
-       SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["hotel.Properties.Settings.Setting"].ConnectionString);
-      
+        private string ConnectionString = "hotel.Properties.Settings.Setting";
         private void showdata()
         {
-            listShowdata.Items.Clear();
-            connection.Open();
-            SqlCommand command = new SqlCommand("select ID, firstName, lastName, telephone, mail, TC, price, loginDate, exitDate from customer", connection);
-            SqlDataReader reader = command.ExecuteReader();
-
-            while (reader.Read())
+            using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings[ConnectionString].ConnectionString))
             {
-                ListViewItem add = new ListViewItem();
-                add.Text = reader["ID"].ToString();
-                add.SubItems.Add(reader["firstName"].ToString());
-                add.SubItems.Add(reader["lastName"].ToString());
-                add.SubItems.Add(reader["telephone"].ToString());
-                add.SubItems.Add(reader["mail"].ToString());
-                
-                add.SubItems.Add(reader["TC"].ToString());
-                add.SubItems.Add(reader["price"].ToString());
-                add.SubItems.Add(reader["loginDate"].ToString());
-                add.SubItems.Add(reader["exitDate"].ToString());
-                
-                listShowdata.Items.Add(add);
+                listShowdata.Items.Clear();
+
+                connection.Open();
+                SqlCommand command = new SqlCommand("select ID, firstName, lastName, telephone, mail, TC, price, loginDate, exitDate from customer", connection);
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    ListViewItem add = new ListViewItem();
+                    add.Text = reader["ID"].ToString();
+                    add.SubItems.Add(reader["firstName"].ToString());
+                    add.SubItems.Add(reader["lastName"].ToString());
+                    add.SubItems.Add(reader["telephone"].ToString());
+                    add.SubItems.Add(reader["mail"].ToString());
+
+                    add.SubItems.Add(reader["TC"].ToString());
+                    add.SubItems.Add(reader["price"].ToString());
+                    add.SubItems.Add(reader["loginDate"].ToString());
+                    add.SubItems.Add(reader["exitDate"].ToString());
+
+                    listShowdata.Items.Add(add);
+                }
+                reader.Close();
+                connection.Close();
             }
-            reader.Close();
-            connection.Close();
         }
 
         private void btnShowData_Click(object sender, EventArgs e)
@@ -73,13 +78,17 @@ namespace hotel
         // to delete the first record -- booking
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            connection.Open();
-            string DeleteQuery = "delete from customer where ID = @id";
-            SqlCommand sqlCommand = new SqlCommand(DeleteQuery, connection);
-            sqlCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@id", SqlDbType.Int, 3) { Value = id });
-            sqlCommand.ExecuteNonQuery();
-            connection.Close();
-            showdata();
+            using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings[ConnectionString].ConnectionString))
+            {
+                    connection.Open();
+                    string DeleteQuery = "delete from customer where ID = @id";
+                    SqlCommand sqlCommand = new SqlCommand(DeleteQuery, connection);
+                    sqlCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@id", SqlDbType.Int, 3) { Value = id });
+                    sqlCommand.ExecuteNonQuery();
+                    connection.Close();
+                    showdata();
+            }
+            
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -96,6 +105,7 @@ namespace hotel
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+
             connection.Open();
             SqlCommand command = new SqlCommand("update customer set firstName= @firstName , lastName= @lastName, telephone= @telephone, mail= @mail, TC= @TC, price= @price where ID = @id", connection);
             command.Parameters.Add(new System.Data.SqlClient.SqlParameter("@id", SqlDbType.Int, 3) { Value = id });
