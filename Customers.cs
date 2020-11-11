@@ -105,8 +105,9 @@ namespace hotel
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-
-            connection.Open();
+            using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings[ConnectionString].ConnectionString))
+            {
+              connection.Open();
             SqlCommand command = new SqlCommand("update customer set firstName= @firstName , lastName= @lastName, telephone= @telephone, mail= @mail, TC= @TC, price= @price where ID = @id", connection);
             command.Parameters.Add(new System.Data.SqlClient.SqlParameter("@id", SqlDbType.Int, 3) { Value = id });
             command.Parameters.Add(new System.Data.SqlClient.SqlParameter("@firstName", SqlDbType.VarChar, 50) { Value = txtFirstName.Text });
@@ -119,6 +120,8 @@ namespace hotel
             command.ExecuteNonQuery();
             connection.Close();
             showdata();
+            }
+           
         }
 
         private void btnResearch_Click(object sender, EventArgs e)
