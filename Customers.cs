@@ -75,7 +75,7 @@ namespace hotel
         // to delete the first record -- booking
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings[ConnectionString].ConnectionString))
+            using (var connection = new SqlConnection(ConnectionString))
             {
                     connection.Open();
                     string DeleteQuery = "delete from customer where ID = @id";
