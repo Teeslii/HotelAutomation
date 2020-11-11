@@ -123,7 +123,7 @@ namespace hotel
 
         private void btnResearch_Click(object sender, EventArgs e)
         {
-            using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings[ConnectionString].ConnectionString))
+            using (var connection = new SqlConnection(ConnectionString))
             {
                 listShowdata.Items.Clear();
                 connection.Open();
