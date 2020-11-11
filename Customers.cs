@@ -107,51 +107,54 @@ namespace hotel
         {
             using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings[ConnectionString].ConnectionString))
             {
-              connection.Open();
-            SqlCommand command = new SqlCommand("update customer set firstName= @firstName , lastName= @lastName, telephone= @telephone, mail= @mail, TC= @TC, price= @price where ID = @id", connection);
-            command.Parameters.Add(new System.Data.SqlClient.SqlParameter("@id", SqlDbType.Int, 3) { Value = id });
-            command.Parameters.Add(new System.Data.SqlClient.SqlParameter("@firstName", SqlDbType.VarChar, 50) { Value = txtFirstName.Text });
-            command.Parameters.Add(new System.Data.SqlClient.SqlParameter("@lastName", SqlDbType.NVarChar, 50) { Value = txtLastName.Text });
-            command.Parameters.Add(new System.Data.SqlClient.SqlParameter("@telephone", SqlDbType.VarChar, 11) { Value = txtTelephone.Text });
-            command.Parameters.Add(new System.Data.SqlClient.SqlParameter("@mail", SqlDbType.VarChar, 50) { Value = txtMail.Text });
-            command.Parameters.Add(new System.Data.SqlClient.SqlParameter("@TC", SqlDbType.VarChar, 11) { Value = ID.Text });
-            command.Parameters.Add(new System.Data.SqlClient.SqlParameter("@price", SqlDbType.Int , 20) { Value = txtPrice.Text });
+                    connection.Open();
+                    SqlCommand command = new SqlCommand("update customer set firstName= @firstName , lastName= @lastName, telephone= @telephone, mail= @mail, TC= @TC, price= @price where ID = @id", connection);
+                    command.Parameters.Add(new System.Data.SqlClient.SqlParameter("@id", SqlDbType.Int, 3) { Value = id });
+                    command.Parameters.Add(new System.Data.SqlClient.SqlParameter("@firstName", SqlDbType.VarChar, 50) { Value = txtFirstName.Text });
+                    command.Parameters.Add(new System.Data.SqlClient.SqlParameter("@lastName", SqlDbType.NVarChar, 50) { Value = txtLastName.Text });
+                    command.Parameters.Add(new System.Data.SqlClient.SqlParameter("@telephone", SqlDbType.VarChar, 11) { Value = txtTelephone.Text });
+                    command.Parameters.Add(new System.Data.SqlClient.SqlParameter("@mail", SqlDbType.VarChar, 50) { Value = txtMail.Text });
+                    command.Parameters.Add(new System.Data.SqlClient.SqlParameter("@TC", SqlDbType.VarChar, 11) { Value = ID.Text });
+                    command.Parameters.Add(new System.Data.SqlClient.SqlParameter("@price", SqlDbType.Int , 20) { Value = txtPrice.Text });
 
-            command.ExecuteNonQuery();
-            connection.Close();
-            showdata();
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                    showdata();
             }
            
         }
 
         private void btnResearch_Click(object sender, EventArgs e)
         {
-            listShowdata.Items.Clear();
-            connection.Open();
-            SqlCommand command = new SqlCommand("select ID, firstName, lastName, telephone, mail, TC, price, loginDate, exitDate from customer where ID= @researchID", connection);
-            command.Parameters.Add(new System.Data.SqlClient.SqlParameter("@researchID", SqlDbType.Int, 3) { Value = txtResearchID.Text });
-            SqlDataReader reader = command.ExecuteReader();
-
-            while (reader.Read())
+            using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings[ConnectionString].ConnectionString))
             {
-                ListViewItem add = new ListViewItem();
-                add.Text = reader["ID"].ToString();
-                add.SubItems.Add(reader["firstName"].ToString());
-                add.SubItems.Add(reader["lastName"].ToString());
-                add.SubItems.Add(reader["telephone"].ToString());
-                add.SubItems.Add(reader["mail"].ToString());
-                 
-                add.SubItems.Add(reader["TC"].ToString());
-                add.SubItems.Add(reader["price"].ToString());
-                add.SubItems.Add(reader["loginDate"].ToString());
-                add.SubItems.Add(reader["exitDate"].ToString());
+                listShowdata.Items.Clear();
+                connection.Open();
+                SqlCommand command = new SqlCommand("select ID, firstName, lastName, telephone, mail, TC, price, loginDate, exitDate from customer where ID= @researchID", connection);
+                command.Parameters.Add(new System.Data.SqlClient.SqlParameter("@researchID", SqlDbType.Int, 3) { Value = txtResearchID.Text });
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    ListViewItem add = new ListViewItem();
+                    add.Text = reader["ID"].ToString();
+                    add.SubItems.Add(reader["firstName"].ToString());
+                    add.SubItems.Add(reader["lastName"].ToString());
+                    add.SubItems.Add(reader["telephone"].ToString());
+                    add.SubItems.Add(reader["mail"].ToString());
+                    add.SubItems.Add(reader["TC"].ToString());
+                    add.SubItems.Add(reader["price"].ToString());
+                    add.SubItems.Add(reader["loginDate"].ToString());
+                    add.SubItems.Add(reader["exitDate"].ToString());
 
 
 
-                listShowdata.Items.Add(add);
+                    listShowdata.Items.Add(add);
+                }
+                reader.Close();
+                connection.Close();
             }
-            reader.Close();
-            connection.Close();
+           
         }
 
         private void btnhomeback_Click(object sender, EventArgs e)

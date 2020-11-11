@@ -48,7 +48,7 @@ namespace hotel
         {
             RoomNoInvoice = Convert.ToInt32(txtResearchRoom.Text);
             connectionString.Open();
-            SqlCommand roomFee = new SqlCommand("select price from customer join Room on customer.ID = Room.ID where Room.roomNo= @roomNo", CString);
+            SqlCommand roomFee = new SqlCommand("select price from customer join Room on customer.ID = Room.ID where Room.roomNo= @roomNo", connectionString);
             roomFee.Parameters.Add(new System.Data.SqlClient.SqlParameter("@roomNo", SqlDbType.Int, 5) { Value = RoomNoInvoice });
             roomFee.ExecuteNonQuery();
             SqlDataReader dataReader = roomFee.ExecuteReader();
@@ -57,7 +57,8 @@ namespace hotel
             {
                TxtFeePayable.Text = dataReader["price"].ToString();
             }
-        
+            dataReader.Close();
+            connectionString.Close();
         }
 
         private void btnPaid_Click(object sender, EventArgs e)
