@@ -30,12 +30,12 @@ namespace hotel
             using (var connection = new SqlConnection(ConnectionString))
             {  
                 connection.Open();
-                 string  = " select firstName, lastName, telephone, price, howManyDay, Room.roomNo from customer inner join Room  on customer.ID = Room.ID where Room.roomNo= @convertID ";
-                SqlCommand sqlCommand = new SqlCommand(  , connection);
-                sqlCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@convertID", SqlDbType.Int, 3) { Value =  });
+                string ResearchChart = " select firstName, lastName, telephone, price, howManyDay, Room.roomNo from customer inner join Room  on customer.ID = Room.ID where Room.roomNo= @convertID ";
+                SqlCommand sqlCommand = new SqlCommand(ResearchChart, connection);
+                sqlCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@convertID", SqlDbType.Int, 3) { Value = convertID });
                 sqlCommand.ExecuteNonQuery();
-                SqlDataReader readerInOut =  .ExecuteReader();
-                 while (readerInOut.Read())
+                SqlDataReader readerInOut =  sqlCommand.ExecuteReader();
+                while (readerInOut.Read())
                 {
                     txtFirstName.Text = readerInOut["firstName"].ToString();
                     txtLastName.Text = readerInOut["lastName"].ToString();
