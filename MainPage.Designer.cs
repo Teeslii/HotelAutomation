@@ -35,7 +35,7 @@
             this.btninvoice = new System.Windows.Forms.Button();
             this.btnCustomers = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAboutUs = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -120,18 +120,19 @@
             this.pictureBox1.TabIndex = 18;
             this.pictureBox1.TabStop = false;
             // 
-            // button1
+            // btnAboutUs
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Lucida Sans", 14.25F);
-            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(859, 421);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(242, 89);
-            this.button1.TabIndex = 19;
-            this.button1.Text = "About us";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnAboutUs.BackColor = System.Drawing.Color.Transparent;
+            this.btnAboutUs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAboutUs.Font = new System.Drawing.Font("Lucida Sans", 14.25F);
+            this.btnAboutUs.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnAboutUs.Location = new System.Drawing.Point(859, 421);
+            this.btnAboutUs.Name = "btnAboutUs";
+            this.btnAboutUs.Size = new System.Drawing.Size(242, 89);
+            this.btnAboutUs.TabIndex = 19;
+            this.btnAboutUs.Text = "About us";
+            this.btnAboutUs.UseVisualStyleBackColor = false;
+            this.btnAboutUs.Click += new System.EventHandler(this.btnAboutUs_Click);
             // 
             // MainPage
             // 
@@ -139,7 +140,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1215, 633);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnAboutUs);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnCustomers);
             this.Controls.Add(this.btninvoice);
@@ -164,6 +165,6 @@
         private System.Windows.Forms.Button btninvoice;
         private System.Windows.Forms.Button btnCustomers;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAboutUs;
     }
 }
