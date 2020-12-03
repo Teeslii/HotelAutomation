@@ -21,11 +21,11 @@ namespace hotel
         }
         private string ConnectionString = ConfigurationManager.ConnectionStrings["hotel.Properties.Settings.Setting"].ConnectionString;
 
-        public int convertID;
+        private int convertID;
        
         private void btnResearch_Click(object sender, EventArgs e)
         {
-              convertID = Convert.ToInt32(txtResearchRoom.Text);
+            convertID = Convert.ToInt32(txtResearchRoom.Text);
 
             using (var connection = new SqlConnection(ConnectionString))
             {  
