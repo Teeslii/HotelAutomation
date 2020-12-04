@@ -28,9 +28,13 @@ namespace hotel
             using(var connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();
-                SqlCommand pushIt = new SqlCommand("select firstName, howmanyday, price, loginDate, exitDate from customer join Room on customer.ID= Room.ID where Room.roomNo=(" +room + ")", linkedd);
 
-                SqlDataReader reader = pushIt.ExecuteReader();
+                string pushIt = "select firstName, howmanyday, price, loginDate, exitDate from customer join Room on customer.ID= Room.ID where Room.roomNo=  @room  ";
+                SqlCommand sqlCommand = new SqlCommand(pushIt, connection);
+                sqlCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@room", SqlDbType.Int, 3) { Value = room });
+                sqlCommand.ExecuteNonQuery();
+
+                SqlDataReader reader = sqlCommand.ExecuteReader();
                 while(reader.Read())
                 {
                 
@@ -42,7 +46,8 @@ namespace hotel
                     txtRoom.Text = room.ToString();
                 }
                 reader.Close();
-                SqlCommand deleteOut = new SqlCommand("delete from Room where roomNo=("+room+")",linkedd);
+
+                SqlCommand deleteOut = new SqlCommand("delete from Room where roomNo=("+room+")", connection);
                 deleteOut.ExecuteNonQuery();
                 connection.Close();
             }
