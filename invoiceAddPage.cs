@@ -29,8 +29,8 @@ namespace hotel
             {
                 connection.Open();
 
-                string pushIt = "select firstName, howmanyday, price, loginDate, exitDate from customer join Room on customer.ID= Room.ID where Room.roomNo=  @room  ";
-                SqlCommand sqlCommand = new SqlCommand(pushIt, connection);
+                string pushCustomerInfo = "select firstName, howmanyday, price, loginDate, exitDate from customer join Room on customer.ID= Room.ID where Room.roomNo=  @room  ";
+                SqlCommand sqlCommand = new SqlCommand(pushCustomerInfo, connection);
                 sqlCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@room", SqlDbType.Int, 3) { Value = room });
                 sqlCommand.ExecuteNonQuery();
 
@@ -47,8 +47,10 @@ namespace hotel
                 }
                 reader.Close();
 
-                SqlCommand deleteOut = new SqlCommand("delete from Room where roomNo=("+room+")", connection);
-                deleteOut.ExecuteNonQuery();
+                string deleteOut = "delete from Room where roomNo= @room ";
+                SqlCommand deletecommand = new SqlCommand(deleteOut, connection);
+                deletecommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@room", SqlDbType.Int, 3) { Value = room });
+                deletecommand.ExecuteNonQuery();
                 connection.Close();
             }
         }
