@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
 using System.Data.Sql;
 using System.Data.SqlClient;
 
@@ -21,13 +22,13 @@ namespace hotel
         }
 
 
-        SqlConnection linkedd = new SqlConnection("Data Source=LAPTOP-VBIOM4D2;Initial Catalog=Octopus;Integrated Security=True");
+        private string ConnectionString = ConfigurationManager.ConnectionStrings["hotel.Properties.Settings.Setting"].ConnectionString;
 
-        
-        public  int DayMany;
+
+        public int DayMany;
         private void txtExitDate_ValueChanged(object sender, EventArgs e)
         {
-            
+           
             int price;
            
             DateTime loginDate = Convert.ToDateTime(txtLoginDate.Text);
@@ -41,16 +42,20 @@ namespace hotel
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            linkedd.Open();
+            using (var connection = new SqlConnection(ConnectionString))
+            {
 
-            SqlCommand commandd = new SqlCommand();
-            commandd.CommandText = "Insert INTO customer (firstName, lastName, telephone, mail,  TC, price,  loginDate, exitDate, reservationType) values('" + txtFirstName.Text + "','" + txtLastName.Text + "','" + txtTelephone.Text + "','" + txtMail.Text + "'," +
-            "'" + txtID.Text + "','" + txtPrice.Text + "', '" + txtLoginDate.Text + "','" + txtExitDate.Text + "', '" + cBoxChoose.SelectedItem.ToString() + "')";
-            commandd.Connection= linkedd;
-            commandd.ExecuteNonQuery();
-            linkedd.Close();
-            MessageBox.Show("Recorded.");
+                connection.Open();
 
+                SqlCommand commandd = new SqlCommand();
+                commandd.CommandText = "Insert INTO customer (firstName, lastName, telephone, mail,  TC, price,  loginDate, exitDate, reservationType) values('" + txtFirstName.Text + "','" + txtLastName.Text + "','" + txtTelephone.Text + "','" + txtMail.Text + "'," +
+                "'" + txtID.Text + "','" + txtPrice.Text + "', '" + txtLoginDate.Text + "','" + txtExitDate.Text + "', '" + cBoxChoose.SelectedItem.ToString() + "')";
+                commandd.Connection = connection;
+                commandd.ExecuteNonQuery();
+
+                connection.Close();
+                MessageBox.Show("Recorded.");
+            }
              
         }
 
