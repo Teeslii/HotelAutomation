@@ -47,15 +47,15 @@ namespace hotel
 
                 connection.Open();
 
-                SqlCommand commandd = new SqlCommand();
-                commandd.CommandText = "Insert INTO customer (firstName, lastName, telephone, mail,  TC, price,  loginDate, exitDate, reservationType) values('"  + txtLastName.Text + "','" + txtTelephone.Text + "','" + txtMail.Text + "'," +
-                "'" + txtID.Text + "','" + txtPrice.Text + "', '" + txtLoginDate.Text + "','" + txtExitDate.Text + "', '" + cBoxChoose.SelectedItem.ToString() + "')";
-                commandd.Connection = connection;
-                commandd.ExecuteNonQuery();
+                //"Insert INTO customer (firstName, lastName, telephone, mail,  TC, price,  loginDate, exitDate, reservationType) values('"  txtTelephone.Text + "','" + txtMail.Text + "'," +
+               // "'" + txtID.Text + "','" + txtPrice.Text + "', '" + txtLoginDate.Text + "','" + txtExitDate.Text + "', '" + cBoxChoose.SelectedItem.ToString() + "')";
+               
 
-                string insertUserInfo = "Insert INTO customer (firstName, lastName, telephone, mail,  TC, price,  loginDate, exitDate, reservationType) values(@firstName, ";
+                string insertUserInfo = "Insert INTO customer (firstName, lastName, telephone, mail,  TC, price,  loginDate, exitDate, reservationType) values(@firstName, @lastName ";
                 SqlCommand sqlCommand = new SqlCommand(insertUserInfo, connection);
                 sqlCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@firstName", SqlDbType.VarChar, 50) { Value = txtFirstName.Text });
+                sqlCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@lastName", SqlDbType.NVarChar, 50) { Value = txtLastName.Text });
+
                 sqlCommand.ExecuteNonQuery();
                 connection.Close();
                 MessageBox.Show("Recorded.");
