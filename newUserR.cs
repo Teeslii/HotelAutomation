@@ -47,14 +47,11 @@ namespace hotel
 
                 connection.Open();
 
-                //"Insert INTO customer (firstName, lastName, telephone, mail,  TC, price,  loginDate, exitDate, reservationType) values('"  txtTelephone.Text + "','" + txtMail.Text + "'," +
-               // "'" + txtID.Text + "','" + txtPrice.Text + "', '" + txtLoginDate.Text + "','" + txtExitDate.Text + "', '" + cBoxChoose.SelectedItem.ToString() + "')";
-               
-
-                string insertUserInfo = "Insert INTO customer (firstName, lastName, telephone, mail,  TC, price,  loginDate, exitDate, reservationType) values(@firstName, @lastName ";
+                string insertUserInfo = "Insert INTO customer (firstName, lastName, telephone, mail,  TC, price,  loginDate, exitDate, reservationType) values(@firstName, @lastName, @telephone ";
                 SqlCommand sqlCommand = new SqlCommand(insertUserInfo, connection);
                 sqlCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@firstName", SqlDbType.VarChar, 50) { Value = txtFirstName.Text });
                 sqlCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@lastName", SqlDbType.NVarChar, 50) { Value = txtLastName.Text });
+                sqlCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@telephone", SqlDbType.VarChar, 11) { Value = txtTelephone.Text });
 
                 sqlCommand.ExecuteNonQuery();
                 connection.Close();
