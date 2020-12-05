@@ -47,11 +47,12 @@ namespace hotel
 
                 connection.Open();
 
-                string insertUserInfo = "Insert INTO customer (firstName, lastName, telephone, mail,  TC, price,  loginDate, exitDate, reservationType) values(@firstName, @lastName, @telephone ";
+                string insertUserInfo = "Insert INTO customer (firstName, lastName, telephone, mail,  TC, price,  loginDate, exitDate, reservationType) values(@firstName, @lastName, @telephone, @mail ";
                 SqlCommand sqlCommand = new SqlCommand(insertUserInfo, connection);
                 sqlCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@firstName", SqlDbType.VarChar, 50) { Value = txtFirstName.Text });
                 sqlCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@lastName", SqlDbType.NVarChar, 50) { Value = txtLastName.Text });
                 sqlCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@telephone", SqlDbType.VarChar, 11) { Value = txtTelephone.Text });
+                sqlCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@mail", SqlDbType.NVarChar, 60) { Value = txtMail.Text });
 
                 sqlCommand.ExecuteNonQuery();
                 connection.Close();
