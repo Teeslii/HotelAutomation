@@ -48,11 +48,15 @@ namespace hotel
                 connection.Open();
 
                 SqlCommand commandd = new SqlCommand();
-                commandd.CommandText = "Insert INTO customer (firstName, lastName, telephone, mail,  TC, price,  loginDate, exitDate, reservationType) values('" + txtFirstName.Text + "','" + txtLastName.Text + "','" + txtTelephone.Text + "','" + txtMail.Text + "'," +
+                commandd.CommandText = "Insert INTO customer (firstName, lastName, telephone, mail,  TC, price,  loginDate, exitDate, reservationType) values('"  + txtLastName.Text + "','" + txtTelephone.Text + "','" + txtMail.Text + "'," +
                 "'" + txtID.Text + "','" + txtPrice.Text + "', '" + txtLoginDate.Text + "','" + txtExitDate.Text + "', '" + cBoxChoose.SelectedItem.ToString() + "')";
                 commandd.Connection = connection;
                 commandd.ExecuteNonQuery();
 
+                string insertUserInfo = "Insert INTO customer (firstName, lastName, telephone, mail,  TC, price,  loginDate, exitDate, reservationType) values(@firstName, ";
+                SqlCommand sqlCommand = new SqlCommand(insertUserInfo, connection);
+                sqlCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@firstName", SqlDbType.VarChar, 50) { Value = txtFirstName.Text });
+                sqlCommand.ExecuteNonQuery();
                 connection.Close();
                 MessageBox.Show("Recorded.");
             }
