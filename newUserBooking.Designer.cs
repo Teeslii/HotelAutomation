@@ -1,6 +1,6 @@
 ﻿namespace hotel
 {
-    partial class newUserR
+    partial class newUserBooking
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(newUserR));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(newUserBooking));
             this.lblFirstName = new System.Windows.Forms.Label();
             this.LblID = new System.Windows.Forms.Label();
             this.LblMail = new System.Windows.Forms.Label();
