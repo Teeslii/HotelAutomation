@@ -13,10 +13,10 @@ using System.Data.SqlClient;
 
 namespace hotel
 {
-    public partial class newUserR : Form
+    public partial class newUserBooking : Form
     {
         
-        public newUserR()
+        public newUserBooking()
         {
             InitializeComponent();
         }
