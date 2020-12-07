@@ -25,7 +25,7 @@ namespace hotel
         private string ConnectionString = ConfigurationManager.ConnectionStrings["hotel.Properties.Settings.Setting"].ConnectionString;
 
 
-        public int DayMany;
+        private int manyDay;
         private void txtExitDate_ValueChanged(object sender, EventArgs e)
         {
            
@@ -35,8 +35,8 @@ namespace hotel
             DateTime exitDate = Convert.ToDateTime(txtExitDate.Text);
 
             TimeSpan result = exitDate - loginDate;
-            DayMany = Convert.ToInt32(result.TotalDays);
-            price = DayMany * 50;
+            manyDay = Convert.ToInt32(result.TotalDays);
+            price = manyDay * 50;
             txtPrice.Text = price.ToString();
         }
 
