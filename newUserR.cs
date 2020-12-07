@@ -47,7 +47,7 @@ namespace hotel
 
                 connection.Open();
 
-                string insertUserInfo = "Insert INTO customer (firstName, lastName, telephone, mail,  TC, price, loginDate, exitDate) values(@firstName, @lastName, @telephone, @mail, @TC, @price, @loginDate, @exitDate)";
+                string insertUserInfo = "Insert INTO customer (firstName, lastName, telephone, mail,  TC, price, loginDate, exitDate, reservationType) values(@firstName, @lastName, @telephone, @mail, @TC, @price, @loginDate, @exitDate, @reservationType)";
                 SqlCommand sqlCommand = new SqlCommand(insertUserInfo, connection);
                 sqlCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@firstName", SqlDbType.VarChar, 50) { Value = txtFirstName.Text });
                 sqlCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@lastName", SqlDbType.NVarChar, 50) { Value = txtLastName.Text });
@@ -57,10 +57,11 @@ namespace hotel
                 sqlCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@price", SqlDbType.Int) { Value = txtPrice.Text });
                 sqlCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@loginDate", SqlDbType.Date) { Value = txtLoginDate.Text });
                 sqlCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@exitDate", SqlDbType.Date) { Value = txtExitDate.Text });
-
+                sqlCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@reservationType", SqlDbType.NVarChar, 70) { Value = cBoxChoose.SelectedItem.ToString() });
 
                 sqlCommand.ExecuteNonQuery();
                 connection.Close();
+
                 MessageBox.Show("Recorded.");
             }
              
