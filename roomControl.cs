@@ -23,8 +23,8 @@ namespace hotel
 
         private string ConnectionString = ConfigurationManager.ConnectionStrings["hotel.Properties.Settings.Setting"].ConnectionString;
       
-        private int convertID ;  
-        
+        private int convertID ;
+        private TimeSpan result;
         private void addingRoom(int number)
         {
             convertID = Convert.ToInt32(txtResearchRoom.Text);
