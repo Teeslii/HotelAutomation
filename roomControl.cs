@@ -57,60 +57,63 @@ namespace hotel
 
         private void Colorupdate()
         {
-            connectn.Open();
-            Color myColor = Color.Salmon;
-
-            SqlCommand command = new SqlCommand("select roomColor, roomNo from Room  ", connectn);
-            SqlDataReader reader = command.ExecuteReader();
-
-
-            while (reader.Read())
+            using (var connection = new SqlConnection(ConnectionString))
             {
+                connection.Open();
+                Color myColor = Color.Salmon;
 
-                renk = reader["roomColor"].ToString();
-                RoomNo = Convert.ToInt32(reader["roomNo"]);
+                SqlCommand command = new SqlCommand("select roomColor, roomNo from Room  ", connection);
+                SqlDataReader reader = command.ExecuteReader();
 
-                myColor = Color.FromName(renk);  // string değeri color'a çevirme
-                if (RoomNo == 1)
-                {
-                    Room1.BackColor = myColor;
-                }
-                else if (RoomNo == 2)
-                {
-                    Room2.BackColor = myColor;
-                }
-                else if (RoomNo == 3)
-                {
-                    Room3.BackColor = myColor;
-                }
-                else if (RoomNo == 4)
-                {
-                    Room4.BackColor = myColor;
-                }
-                else if (RoomNo == 5)
-                {
-                    Room5.BackColor = myColor;
-                }
-                else if (RoomNo == 6)
-                {
-                    Room6.BackColor = myColor;
-                }
-                else if (RoomNo == 7)
-                {
-                    Room7.BackColor = myColor;
-                }
-                else if (RoomNo == 8)
-                {
-                    Room8.BackColor = myColor;
-                }
-                else if (RoomNo == 9)
-                {
-                    Room9.BackColor = myColor;
-                }
 
+                while (reader.Read())
+                {
+
+                    renk = reader["roomColor"].ToString();
+                    RoomNo = Convert.ToInt32(reader["roomNo"]);
+
+                    myColor = Color.FromName(renk);  // string değeri color'a çevirme
+                    if (RoomNo == 1)
+                    {
+                        Room1.BackColor = myColor;
+                    }
+                    else if (RoomNo == 2)
+                    {
+                        Room2.BackColor = myColor;
+                    }
+                    else if (RoomNo == 3)
+                    {
+                        Room3.BackColor = myColor;
+                    }
+                    else if (RoomNo == 4)
+                    {
+                        Room4.BackColor = myColor;
+                    }
+                    else if (RoomNo == 5)
+                    {
+                        Room5.BackColor = myColor;
+                    }
+                    else if (RoomNo == 6)
+                    {
+                        Room6.BackColor = myColor;
+                    }
+                    else if (RoomNo == 7)
+                    {
+                        Room7.BackColor = myColor;
+                    }
+                    else if (RoomNo == 8)
+                    {
+                        Room8.BackColor = myColor;
+                    }
+                    else if (RoomNo == 9)
+                    {
+                        Room9.BackColor = myColor;
+                    }
+
+                }
+                reader.Close();
+                connection.Close();
             }
-            reader.Close();
-            connectn.Close();
         }
 
         private void delete (int Dnumber )
