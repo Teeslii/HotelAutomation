@@ -28,11 +28,8 @@ namespace hotel
        
         private string price;
         
-        private void aadd(int number)
+        private void addingRoom(int number)
         {
-          
-           
-            
             convertID = Convert.ToInt32(txtResearchRoom.Text);
             connectn.Open();
             SqlCommand commandd = new SqlCommand(" select  price from customer where  ID = (" + convertID + ")", connectn);
@@ -135,7 +132,7 @@ namespace hotel
         {
             if (Room1.BackColor == Color.Lime)
             {
-                aadd(1);
+                addingRoom(1);
                 Room1.BackColor = Color.Salmon;
             }
             else
@@ -149,7 +146,7 @@ namespace hotel
         {
             if (Room2.BackColor == Color.Lime)
             {
-                aadd(2);
+                addingRoom(2);
                 Room2.BackColor = Color.Salmon;
             }
             else
@@ -163,7 +160,7 @@ namespace hotel
         {
             if (Room3.BackColor == Color.Lime)
             {
-                aadd(3);
+                addingRoom(3);
                 Room3.BackColor = Color.Salmon;
             }
             else
@@ -178,7 +175,7 @@ namespace hotel
 
             if (Room4.BackColor == Color.Lime)
             {
-                aadd(4);
+                addingRoom(4);
                 Room4.BackColor = Color.Salmon;
             }
             else
@@ -192,7 +189,7 @@ namespace hotel
         {
             if (Room5.BackColor == Color.Lime)
             {
-                aadd(5);
+                addingRoom(5);
                 Room5.BackColor = Color.Salmon;
             }
             else
@@ -206,7 +203,7 @@ namespace hotel
         {
             if (Room6.BackColor == Color.Lime)
             {
-                aadd(6);
+                addingRoom(6);
                 Room6.BackColor = Color.Salmon;
             }
             else
@@ -220,7 +217,7 @@ namespace hotel
         {
             if (Room7.BackColor == Color.Lime)
             {
-                aadd(7);
+                addingRoom(7);
                 Room7.BackColor = Color.Salmon;
             }
             else
@@ -234,7 +231,7 @@ namespace hotel
         {
             if (Room8.BackColor == Color.Lime)
             {
-                aadd(8);
+                addingRoom(8);
                 Room8.BackColor = Color.Salmon;
             }
             else
@@ -248,7 +245,7 @@ namespace hotel
         {
             if (Room9.BackColor == Color.Lime)
             {
-                aadd(9);
+                addingRoom(9);
                 Room9.BackColor = Color.Salmon;
             }
             else
