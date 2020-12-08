@@ -116,12 +116,16 @@ namespace hotel
             }
         }
 
-        private void delete (int Dnumber )
+        private void delete (int idNumber )
         {
             using (var connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();
-                SqlCommand sqlDelete = new SqlCommand("delete * from Room where ID =(" + Dnumber + ")", connection);
+               
+                string DeleteQuery = "delete roomColor, roomNo, howManyDay, checkIn, checkOut, ID from Room where ID = idNumber ";
+                SqlCommand sqlCommand = new SqlCommand(DeleteQuery, connection);
+                sqlCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@idNumber", SqlDbType.Int, 3) { Value = idNumber });
+                sqlCommand.ExecuteNonQuery();
 
                 connection.Close();
 
