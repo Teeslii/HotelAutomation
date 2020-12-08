@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
 using System.Data.Sql;
 using System.Data.SqlClient;
 
@@ -20,9 +21,9 @@ namespace hotel
             InitializeComponent();
         }
 
-        SqlConnection connectn = new SqlConnection("Data Source=LAPTOP-VBIOM4D2;Initial Catalog=Octopus;Integrated Security=True");
-        //Data Source=LAPTOP-VBIOM4D2;Initial Catalog=Octopus;Integrated Security=True
-       
+        private string ConnectionString = ConfigurationManager.ConnectionStrings["hotel.Properties.Settings.Setting"].ConnectionString;
+      
+
         private int convertID ;
        
        
