@@ -118,14 +118,18 @@ namespace hotel
 
         private void delete (int Dnumber )
         {
-            connectn.Open();
-            SqlCommand sqlDelete = new SqlCommand("delete * from Room where ID =("+ Dnumber +")",connectn);
+            using (var connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                SqlCommand sqlDelete = new SqlCommand("delete * from Room where ID =(" + Dnumber + ")", connection);
 
-            connectn.Close();
+                connection.Close();
+
+            }
         }
         private void roomControl_Load(object sender, EventArgs e)
         {
-            Colorupdate();  // Açıldığı an renkleri veritabanından yüklesin.
+            colorUpdate();  
         }
 
         private void Room1_Click(object sender, EventArgs e)
