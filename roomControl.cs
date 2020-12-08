@@ -23,37 +23,33 @@ namespace hotel
 
         private string ConnectionString = ConfigurationManager.ConnectionStrings["hotel.Properties.Settings.Setting"].ConnectionString;
       
-
-        private int convertID ;
-       
-       
-        private string price;
-        
+        private int convertID ;   
         private void addingRoom(int number)
         {
             convertID = Convert.ToInt32(txtResearchRoom.Text);
-            connectn.Open();
-            SqlCommand commandd = new SqlCommand(" select  price from customer where  ID = (" + convertID + ")", connectn);
-            commandd.ExecuteNonQuery();
-            SqlDataReader read = commandd.ExecuteReader();
-           
-            while (read.Read())
+            using (var connection = new SqlConnection(ConnectionString))
             {
+
+
+                connection.Open();
+                SqlCommand commandd = new SqlCommand(" select  price from customer where  ID = (" + convertID + ")", connection);
+                commandd.ExecuteNonQuery();
+                SqlDataReader read = commandd.ExecuteReader();
+
+                while (read.Read())
+                {
+
+                    
+                }
+
+                read.Close();
+                connection.Close();
                
-                price = read["price"].ToString();
-           }
-           
-            read.Close();
-            connectn.Close();
-            int howmanyday = 0;
-             int numb= 0;
-           
-            numb = Convert.ToInt32(price);
-            howmanyday = (numb/50);
-           connectn.Open(); 
-           SqlCommand insert = new SqlCommand("Insert into Room(ID, roomNo, roomColor, howManyDay, checkIn) values ('" + convertID + "','" + number + "', 'Salmon','" + howmanyday + "', GETDATE() )", connectn);
-           insert.ExecuteNonQuery();
-           connectn.Close();
+                connection.Open();
+                SqlCommand insert = new SqlCommand("Insert into Room(ID, roomNo, roomColor, howManyDay, checkIn) values ('" + convertID + "','" + number + "', 'Salmon','" + howmanyday + "', GETDATE() )", connection);
+                insert.ExecuteNonQuery();
+                connection.Close();
+            }
         }
 
         private string renk;
