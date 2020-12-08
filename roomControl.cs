@@ -55,7 +55,7 @@ namespace hotel
         private string renk;
         private int RoomNo;
 
-        private void Colorupdate()
+        private void colorUpdate()
         {
             using (var connection = new SqlConnection(ConnectionString))
             {
