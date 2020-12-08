@@ -23,15 +23,17 @@ namespace hotel
 
         private string ConnectionString = ConfigurationManager.ConnectionStrings["hotel.Properties.Settings.Setting"].ConnectionString;
       
-        private int convertID ;   
+        private int convertID ;  
+        
         private void addingRoom(int number)
         {
             convertID = Convert.ToInt32(txtResearchRoom.Text);
             using (var connection = new SqlConnection(ConnectionString))
             {
-
-
+               
                 connection.Open();
+                DateTime loginDate;
+                DateTime exitDate;
                 SqlCommand commandd = new SqlCommand(" select  price from customer where  ID = (" + convertID + ")", connection);
                 commandd.ExecuteNonQuery();
                 SqlDataReader read = commandd.ExecuteReader();
@@ -72,7 +74,7 @@ namespace hotel
                     renk = reader["roomColor"].ToString();
                     RoomNo = Convert.ToInt32(reader["roomNo"]);
 
-                    myColor = Color.FromName(renk);  // string değeri color'a çevirme
+                    myColor = Color.FromName(renk);   
                     if (RoomNo == 1)
                     {
                         Room1.BackColor = myColor;
