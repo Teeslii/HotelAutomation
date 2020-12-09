@@ -45,6 +45,8 @@ namespace hotel
                 while (read.Read())
                 {
                     loginDate = Convert.ToDateTime(read["loginDate"]);
+                    exitDate = Convert.ToDateTime(read["exitDate"]);
+
 
                 }
 
