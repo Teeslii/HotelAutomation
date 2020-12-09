@@ -24,7 +24,7 @@ namespace hotel
         private string ConnectionString = ConfigurationManager.ConnectionStrings["hotel.Properties.Settings.Setting"].ConnectionString;
       
         private int convertID ;
-        private TimeSpan result;
+        private TimeSpan sumDay;
         private void addingRoom(int number)
         {
             convertID = Convert.ToInt32(txtResearchRoom.Text);
@@ -34,9 +34,13 @@ namespace hotel
                 connection.Open();
                 DateTime loginDate;
                 DateTime exitDate;
-                SqlCommand commandd = new SqlCommand(" select  price from customer where  ID = (" + convertID + ")", connection);
-                commandd.ExecuteNonQuery();
-                SqlDataReader read = commandd.ExecuteReader();
+
+                string timeQuery = "select  loginDate, exitDate from customer where  ID = @ID ";
+                SqlCommand sqlCommand = new SqlCommand(timeQuery, connection);
+                sqlCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@ID", SqlDbType.Int, 3) { Value = convertID });
+                sqlCommand.ExecuteNonQuery();
+
+                SqlDataReader read = sqlCommand.ExecuteReader();
 
                 while (read.Read())
                 {
@@ -48,7 +52,7 @@ namespace hotel
                 connection.Close();
                
                 connection.Open();
-                SqlCommand insert = new SqlCommand("Insert into Room(ID, roomNo, roomColor, howManyDay, checkIn) values ('" + convertID + "','" + number + "', 'Salmon','" + howmanyday + "', GETDATE() )", connection);
+                SqlCommand insert = new SqlCommand("Insert into Room(ID, roomNo, roomColor, howManyDay, checkIn) values ('" + convertID + "','" + number + "', 'Salmon','" + sumDay.TotalDays + "', GETDATE() )", connection);
                 insert.ExecuteNonQuery();
                 connection.Close();
             }
