@@ -55,8 +55,15 @@ namespace hotel
                 connection.Close();
                
                 connection.Open();
-                SqlCommand insert = new SqlCommand("Insert into Room(ID, roomNo, roomColor, howManyDay, checkIn) values ('" + convertID + "','" + number + "', 'Salmon','" + sumDay.TotalDays + "', GETDATE() )", connection);
-                insert.ExecuteNonQuery();
+             
+
+                string insertRoom = "Insert into Room(ID, roomNo, roomColor, howManyDay, checkIn) values ( @ID)";
+                SqlCommand sqlCommandInsert = new SqlCommand(insertRoom, connection);
+                sqlCommandInsert.Parameters.Add(new System.Data.SqlClient.SqlParameter("@ID", SqlDbType.Int, 3) { Value = convertID });
+               
+
+                sqlCommandInsert.ExecuteNonQuery();
+
                 connection.Close();
             }
         }
