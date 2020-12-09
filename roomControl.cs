@@ -47,6 +47,7 @@ namespace hotel
                     loginDate = Convert.ToDateTime(read["loginDate"]);
                     exitDate = Convert.ToDateTime(read["exitDate"]);
 
+                    sumDay = exitDate - loginDate;
 
                 }
 
