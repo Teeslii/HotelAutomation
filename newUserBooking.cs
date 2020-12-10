@@ -7,50 +7,63 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
 using System.Data.Sql;
 using System.Data.SqlClient;
 
 namespace hotel
 {
-    public partial class newUserR : Form
+    public partial class newUserBooking : Form
     {
         
-        public newUserR()
+        public newUserBooking()
         {
             InitializeComponent();
         }
 
 
-        SqlConnection linkedd = new SqlConnection("Data Source=LAPTOP-VBIOM4D2;Initial Catalog=Octopus;Integrated Security=True");
+        private string ConnectionString = ConfigurationManager.ConnectionStrings["hotel.Properties.Settings.Setting"].ConnectionString;
 
-        
-        public  int DayMany;
+
+        private int manyDay;
         private void txtExitDate_ValueChanged(object sender, EventArgs e)
         {
-            
+           
             int price;
            
             DateTime loginDate = Convert.ToDateTime(txtLoginDate.Text);
             DateTime exitDate = Convert.ToDateTime(txtExitDate.Text);
 
             TimeSpan result = exitDate - loginDate;
-            DayMany = Convert.ToInt32(result.TotalDays);
-            price = DayMany * 50;
+            manyDay = Convert.ToInt32(result.TotalDays);
+            price = manyDay * 50;
             txtPrice.Text = price.ToString();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            linkedd.Open();
+            using (var connection = new SqlConnection(ConnectionString))
+            {
 
-            SqlCommand commandd = new SqlCommand();
-            commandd.CommandText = "Insert INTO customer (firstName, lastName, telephone, mail,  TC, price,  loginDate, exitDate, reservationType) values('" + txtFirstName.Text + "','" + txtLastName.Text + "','" + txtTelephone.Text + "','" + txtMail.Text + "'," +
-            "'" + txtID.Text + "','" + txtPrice.Text + "', '" + txtLoginDate.Text + "','" + txtExitDate.Text + "', '" + cBoxChoose.SelectedItem.ToString() + "')";
-            commandd.Connection= linkedd;
-            commandd.ExecuteNonQuery();
-            linkedd.Close();
-            MessageBox.Show("Recorded.");
+                connection.Open();
 
+                string insertUserInfo = "Insert INTO customer (firstName, lastName, telephone, mail,  TC, price, loginDate, exitDate, reservationType) values(@firstName, @lastName, @telephone, @mail, @TC, @price, @loginDate, @exitDate, @reservationType)";
+                SqlCommand sqlCommand = new SqlCommand(insertUserInfo, connection);
+                sqlCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@firstName", SqlDbType.VarChar, 50) { Value = txtFirstName.Text });
+                sqlCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@lastName", SqlDbType.NVarChar, 50) { Value = txtLastName.Text });
+                sqlCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@telephone", SqlDbType.VarChar, 11) { Value = txtTelephone.Text });
+                sqlCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@mail", SqlDbType.NVarChar, 60) { Value = txtMail.Text });
+                sqlCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@TC", SqlDbType.VarChar, 11) { Value = txtID.Text });
+                sqlCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@price", SqlDbType.Int) { Value = txtPrice.Text });
+                sqlCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@loginDate", SqlDbType.Date) { Value = txtLoginDate.Text });
+                sqlCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@exitDate", SqlDbType.Date) { Value = txtExitDate.Text });
+                sqlCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@reservationType", SqlDbType.NVarChar, 70) { Value = cBoxChoose.SelectedItem.ToString() });
+
+                sqlCommand.ExecuteNonQuery();
+                connection.Close();
+
+                MessageBox.Show("Recorded.");
+            }
              
         }
 
