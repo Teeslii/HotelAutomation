@@ -59,7 +59,7 @@ namespace hotel
 
                 string insertRoom = "Insert into Room(ID, roomNo, roomColor, howManyDay, checkIn) values ( @ID, @number, Salmon, @howManyDay, GETDATE())";
                 SqlCommand sqlCommandInsert = new SqlCommand(insertRoom, connection);
-                sqlCommandInsert.Parameters.Add(new System.Data.SqlClient.SqlParameter("@ID", SqlDbType.Int, 3) { Value = convertID });
+                sqlCommandInsert.Parameters.Add(new System.Data.SqlClient.SqlParameter("@ID", SqlDbType.Int) { Value = convertID });
                 sqlCommandInsert.Parameters.Add(new System.Data.SqlClient.SqlParameter("@number", SqlDbType.Int) { Value = number });
                 sqlCommandInsert.Parameters.Add(new System.Data.SqlClient.SqlParameter("@howManyDay", SqlDbType.Int) { Value = sumDay.TotalDays });
 
