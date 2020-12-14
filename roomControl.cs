@@ -37,7 +37,7 @@ namespace hotel
 
                 string timeQuery = "select  loginDate, exitDate from customer where  ID = @ID ";
                 SqlCommand sqlCommand = new SqlCommand(timeQuery, connection);
-                sqlCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@ID", SqlDbType.Int, 3) { Value = convertID });
+                sqlCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@ID", SqlDbType.Int ) { Value = convertID });
                 sqlCommand.ExecuteNonQuery();
 
                 SqlDataReader read = sqlCommand.ExecuteReader();
