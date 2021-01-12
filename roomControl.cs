@@ -69,7 +69,7 @@ namespace hotel
             }
         }
 
-        private string renk;
+        private string color;
         private int RoomNo;
 
         private void colorUpdate()
@@ -86,7 +86,7 @@ namespace hotel
                 while (reader.Read())
                 {
                     
-                    renk = reader["roomColor"].ToString();
+                    color = reader["roomColor"].ToString();
 
                     if (!int.TryParse(reader["roomNo"].ToString(), out RoomNo))
                     {
@@ -96,7 +96,7 @@ namespace hotel
 
 
 
-                    myColor = Color.FromName(renk);   
+                    myColor = Color.FromName(color);   
                     if (RoomNo == 1)
                     {
                         Room1.BackColor = myColor;
