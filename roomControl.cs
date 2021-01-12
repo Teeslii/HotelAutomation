@@ -85,9 +85,16 @@ namespace hotel
 
                 while (reader.Read())
                 {
-
+                    
                     renk = reader["roomColor"].ToString();
-                    RoomNo = Convert.ToInt32(reader["roomNo"]);
+
+                    if (!int.TryParse(reader["roomNo"].ToString(), out RoomNo))
+                    {
+                        MessageBox.Show("Data processing error has occurred.");
+                    }
+
+
+
 
                     myColor = Color.FromName(renk);   
                     if (RoomNo == 1)
