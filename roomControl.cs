@@ -159,11 +159,14 @@ namespace hotel
 
                 if (!IsDelete)
                 {
-                    
+                    string UpdateQuery = "update Room set IsDelete='True' where roomNo = @idNumber ";
+                    SqlCommand sqlCommand = new SqlCommand(UpdateQuery, connection);
+                    sqlCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@idNumber", SqlDbType.Int) { Value = idNumber });
+                    sqlCommand.ExecuteNonQuery();
                 }
                 else
                 {
-                   
+                    MessageBox.Show("An error was received while processing.");
                 }
 
                 connection.Close();
