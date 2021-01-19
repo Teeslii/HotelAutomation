@@ -148,7 +148,7 @@ namespace hotel
                 string IsDeleteQuery = "select IsDelete from Room where roomNo = @idNumber ";
                 SqlCommand sqlreader = new SqlCommand(IsDeleteQuery, connection);
                 sqlreader.Parameters.Add(new System.Data.SqlClient.SqlParameter("@idNumber", SqlDbType.Int) { Value = idNumber });
-
+                sqlreader.ExecuteNonQuery();
 
                 string DeleteQuery = "delete roomColor, roomNo, howManyDay, checkIn, checkOut, ID from Room where ID = idNumber ";
                 SqlCommand sqlCommand = new SqlCommand(DeleteQuery, connection);
