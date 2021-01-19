@@ -157,10 +157,14 @@ namespace hotel
                 }
                 reader.Close();
 
-                string DeleteQuery = "delete roomColor, roomNo, howManyDay, checkIn, checkOut, ID from Room where ID = idNumber ";
-                SqlCommand sqlCommand = new SqlCommand(DeleteQuery, connection);
-                sqlCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@idNumber", SqlDbType.Int) { Value = idNumber });
-                sqlCommand.ExecuteNonQuery();
+                if (!IsDelete)
+                {
+                    
+                }
+                else
+                {
+                   
+                }
 
                 connection.Close();
 
