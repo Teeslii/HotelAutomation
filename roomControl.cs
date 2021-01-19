@@ -153,8 +153,9 @@ namespace hotel
                 SqlDataReader reader = sqlreader.ExecuteReader();
                 while (reader.Read())
                 {
-                   
+                    IsDelete = Convert.ToBoolean(reader["IsDelete"]);
                 }
+                reader.Close();
 
                 string DeleteQuery = "delete roomColor, roomNo, howManyDay, checkIn, checkOut, ID from Room where ID = idNumber ";
                 SqlCommand sqlCommand = new SqlCommand(DeleteQuery, connection);
