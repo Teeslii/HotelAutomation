@@ -150,6 +150,12 @@ namespace hotel
                 sqlreader.Parameters.Add(new System.Data.SqlClient.SqlParameter("@idNumber", SqlDbType.Int) { Value = idNumber });
                 sqlreader.ExecuteNonQuery();
 
+                SqlDataReader reader = sqlreader.ExecuteReader();
+                while (reader.Read())
+                {
+                   
+                }
+
                 string DeleteQuery = "delete roomColor, roomNo, howManyDay, checkIn, checkOut, ID from Room where ID = idNumber ";
                 SqlCommand sqlCommand = new SqlCommand(DeleteQuery, connection);
                 sqlCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@idNumber", SqlDbType.Int) { Value = idNumber });
