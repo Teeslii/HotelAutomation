@@ -139,7 +139,7 @@ namespace hotel
                 connection.Close();
             }
         }
-
+        private bool IsDelete;
         private void delete (int idNumber )
         {
             using (var connection = new SqlConnection(ConnectionString))
