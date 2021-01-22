@@ -146,7 +146,7 @@ namespace hotel
             {
                 connection.Open();
                
-                SqlCommand sqlreader = new SqlCommand(IsDeleteQuery, connection);
+               
                 sqlreader.Parameters.Add(new System.Data.SqlClient.SqlParameter("@idNumber", SqlDbType.Int) { Value = idNumber });
                 sqlreader.ExecuteNonQuery();
 
