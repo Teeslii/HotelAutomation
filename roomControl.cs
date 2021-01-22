@@ -150,12 +150,7 @@ namespace hotel
                 
                
 
-                SqlDataReader reader = sqlreader.ExecuteReader();
-                while (reader.Read())
-                {
-                    IsDelete = Convert.ToBoolean(reader["IsDelete"]);
-                }
-                reader.Close();
+               
 
                 if (!IsDelete)
                 {
