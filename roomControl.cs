@@ -147,7 +147,7 @@ namespace hotel
                 connection.Open();
                
                
-                sqlreader.Parameters.Add(new System.Data.SqlClient.SqlParameter("@idNumber", SqlDbType.Int) { Value = idNumber });
+                
                 sqlreader.ExecuteNonQuery();
 
                 SqlDataReader reader = sqlreader.ExecuteReader();
