@@ -148,7 +148,7 @@ namespace hotel
                
                
                 
-                sqlreader.ExecuteNonQuery();
+               
 
                 SqlDataReader reader = sqlreader.ExecuteReader();
                 while (reader.Read())
