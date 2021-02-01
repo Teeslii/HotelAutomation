@@ -92,11 +92,11 @@
     <Compile Include="MainPage.Designer.cs">
       <DependentUpon>MainPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="newUserR.cs">
+    <Compile Include="newUserBooking.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="newUserR.Designer.cs">
-      <DependentUpon>newUserR.cs</DependentUpon>
+    <Compile Include="newUserBooking.Designer.cs">
+      <DependentUpon>newUserBooking.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -127,8 +127,8 @@
     <EmbeddedResource Include="MainPage.resx">
       <DependentUpon>MainPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="newUserR.resx">
-      <DependentUpon>newUserR.cs</DependentUpon>
+    <EmbeddedResource Include="newUserBooking.resx">
+      <DependentUpon>newUserBooking.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
