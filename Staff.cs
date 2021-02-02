@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace hotel
 {
-    class Staff
+     public  class Staff
     {
+        private string _name;
+        
 
     }
 }
