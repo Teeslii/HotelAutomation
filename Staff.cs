@@ -10,6 +10,7 @@ namespace hotel
     {
         private string _name;
         private string _surname;
+        private string password;
         
 
     }
