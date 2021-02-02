@@ -9,6 +9,7 @@ namespace hotel
      public  class Staff
     {
         private string _name;
+        private string _surname;
         
 
     }
