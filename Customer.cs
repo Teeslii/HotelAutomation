@@ -13,5 +13,6 @@ namespace hotel
 
         private int _id = 0;
         private string _firstName;
+        private string _lastName;
     }
 }
