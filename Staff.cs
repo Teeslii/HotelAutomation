@@ -12,6 +12,7 @@ namespace hotel
         private string _surname;
         private string password;
         private string _workingArea;
+        private string _workingID;
 
     }
 }
