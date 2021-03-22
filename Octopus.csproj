@@ -68,6 +68,7 @@
     <Compile Include="CheckInOut.Designer.cs">
       <DependentUpon>CheckInOut.cs</DependentUpon>
     </Compile>
+    <Compile Include="Customer.cs" />
     <Compile Include="Customers.cs">
       <SubType>Form</SubType>
     </Compile>
