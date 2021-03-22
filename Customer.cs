@@ -11,7 +11,7 @@ namespace hotel
 
 
 
-        private int ID = 0; 
-        
+        private int _id = 0;
+        private string _firstName;
     }
 }
