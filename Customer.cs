@@ -8,5 +8,10 @@ namespace hotel
 {
     public class Customer
     {
+
+
+
+        private int ID = 0; 
+        
     }
 }
