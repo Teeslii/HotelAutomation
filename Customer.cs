@@ -15,6 +15,6 @@ namespace hotel
         private string _firstName;
         private string _lastName;
         private string _mail;
-
+        private long _telephone;
     }
 }
