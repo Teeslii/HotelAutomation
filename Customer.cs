@@ -17,5 +17,6 @@ namespace hotel
         private string _mail;
         private long _telephone;
         private long _TC;
+        private int _price;
     }
 }
