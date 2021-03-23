@@ -18,5 +18,7 @@ namespace hotel
         private long _telephone;
         private long _TC;
         private int _price;
+        private DateTime _loginDate;
+        private DateTime _exitDate;
     }
 }
