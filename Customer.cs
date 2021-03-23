@@ -20,5 +20,6 @@ namespace hotel
         private int _price;
         private DateTime _loginDate;
         private DateTime _exitDate;
+        private string _reservationType;
     }
 }
