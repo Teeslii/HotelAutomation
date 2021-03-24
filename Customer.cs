@@ -49,6 +49,7 @@ namespace hotel
             _loginDate = Convert.ToDateTime(loginDate);
             _exitDate = Convert.ToDateTime(exitDate);
 
+            TimeSpan result = _exitDate - _loginDate;
 
             return _price.ToString();
         }
