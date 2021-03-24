@@ -37,6 +37,10 @@ namespace hotel
             {
                 typeMessage = "The reservation can be made at any time. \n And it can be changed at any time. \n Payment is made at the end of the stay. \n You must enter your credit card number when booking. \n If there is less than 3 days left, the reservation will be canceled. \n And if you do not arrive on the first day of stay, the penalty the price is deducted from the card.";
             }
+            else if (reservationNo == 3)
+            {
+                typeMessage = "For a reservation made more than 30 days before the start of the stay; If the expected average occupancy is 60 % or less, the price is paid 20 % lower.\nFOR EXAMPLE,\nGet a reservation for 4 nights after 25 days from Sunday to Thursday.\nThe average number of rooms kept for these 4 nights at that time is 22.5, and the expected average job rate is 50 %.\nThe price for 4 nights is 80 % of the base price.\nFee is paid at the end of the stay.\nCancellation and change of days(standard(classic) reservation).";
+            }
             return typeMessage;
         }
     }
