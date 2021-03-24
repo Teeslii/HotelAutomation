@@ -22,7 +22,7 @@ namespace hotel
         private DateTime _exitDate;
         private string _reservationType;
 
-        private string reservationSelection(int reservationNo)
+        public string reservationSelection(int reservationNo)
         {
             string typeMessage="";
             if(reservationNo == 0)
