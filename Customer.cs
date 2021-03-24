@@ -43,5 +43,11 @@ namespace hotel
             }
             return typeMessage;
         }
+
+        public string paymentCalculation(string loginDate, string exitDate)
+        {
+
+            return _price.ToString();
+        }
     }
 }
