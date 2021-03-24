@@ -46,6 +46,9 @@ namespace hotel
 
         public string paymentCalculation(string loginDate, string exitDate)
         {
+            _loginDate = Convert.ToDateTime(loginDate);
+            _exitDate = Convert.ToDateTime(exitDate);
+
 
             return _price.ToString();
         }
