@@ -33,6 +33,10 @@ namespace hotel
             {
                 typeMessage = "We will e - mail 45 days prior to payment.\nPayment is made 15 days before booking.\nIf payment is not made, the reservation will be canceled.\nIt pays 85 % of the base price.\nThere is no refund.\nChange on the day of reservation takes place with an additional fee. \nThe surcharge price is 110 % of the base price.\nIf it is lower than the old wage, the remaining amount is not paid.\n";
             }
+            else if(reservationNo == 2)
+            {
+                typeMessage = "The reservation can be made at any time. \n And it can be changed at any time. \n Payment is made at the end of the stay. \n You must enter your credit card number when booking. \n If there is less than 3 days left, the reservation will be canceled. \n And if you do not arrive on the first day of stay, the penalty the price is deducted from the card.";
+            }
             return typeMessage;
         }
     }
