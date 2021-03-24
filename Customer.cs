@@ -51,6 +51,8 @@ namespace hotel
 
             TimeSpan result = _exitDate - _loginDate;
 
+            int manyDay = Convert.ToInt32(result.TotalDays);
+
             return _price.ToString();
         }
     }
