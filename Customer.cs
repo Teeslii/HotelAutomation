@@ -21,5 +21,12 @@ namespace hotel
         private DateTime _loginDate;
         private DateTime _exitDate;
         private string _reservationType;
+
+        private string reservationSelection(int reservationNo)
+        {
+            string typeMessage="";
+           
+            return typeMessage;
+        }
     }
 }
