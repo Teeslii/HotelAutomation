@@ -25,16 +25,10 @@ namespace hotel
         private string ConnectionString = ConfigurationManager.ConnectionStrings["hotel.Properties.Settings.Setting"].ConnectionString;
 
 
-        private int manyDay;
+        
         private void txtExitDate_ValueChanged(object sender, EventArgs e)
         {
-           
-            int price;
-           
-            DateTime loginDate = Convert.ToDateTime(txtLoginDate.Text);
-            DateTime exitDate = Convert.ToDateTime(txtExitDate.Text);
-
-           
+       
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
