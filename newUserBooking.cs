@@ -34,10 +34,7 @@ namespace hotel
             DateTime loginDate = Convert.ToDateTime(txtLoginDate.Text);
             DateTime exitDate = Convert.ToDateTime(txtExitDate.Text);
 
-            TimeSpan result = exitDate - loginDate;
-            manyDay = Convert.ToInt32(result.TotalDays);
-            price = manyDay * 50;
-            txtPrice.Text = price.ToString();
+           
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
