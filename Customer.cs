@@ -22,6 +22,7 @@ namespace hotel
         private DateTime _exitDate;
         private string _reservationType;
 
+
         public string reservationSelection(int reservationNo)
         {
             string typeMessage="";
@@ -51,8 +52,8 @@ namespace hotel
 
             TimeSpan result = _exitDate - _loginDate;
 
-            int manyDay = Convert.ToInt32(result.TotalDays);
-            _price = manyDay * 50;
+            = Convert.ToInt32(result.TotalDays);
+            _price = * 50;
             return _price.ToString();
         }
     }
