@@ -21,7 +21,7 @@ namespace hotel
             InitializeComponent();
         }
 
-        private string ConnectionString = ConfigurationManager.ConnectionStrings["hotel.Properties.Settings.Setting"].ConnectionString;
+        private string ConnectionString;
       
         private int convertID ;
         private TimeSpan sumDay;
