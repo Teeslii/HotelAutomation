@@ -73,7 +73,8 @@ namespace hotel
         private int RoomNo;
 
         private void colorUpdate()
-        {
+        { 
+            /*
             using (var connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();
@@ -137,7 +138,7 @@ namespace hotel
                 }
                 reader.Close();
                 connection.Close();
-            }
+            }*/
         }
        
         private void delete (int idNumber )
