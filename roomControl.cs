@@ -141,7 +141,7 @@ namespace hotel
         }
        
         private void delete (int idNumber )
-        {
+        { /*
             using (var connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();
@@ -156,7 +156,7 @@ namespace hotel
 
                 connection.Close();
 
-            }
+            }*/
         }
         private void roomControl_Load(object sender, EventArgs e)
         {
