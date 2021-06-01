@@ -21,14 +21,15 @@ namespace hotel
             InitializeComponent();
         }
 
-        private string ConnectionString;
-      
+        private string _connectionString;
+
+        
         private int convertID ;
         private TimeSpan sumDay;
         private void addingRoom(int number)
         {
             convertID = Convert.ToInt32(txtResearchRoom.Text);
-            using (var connection = new SqlConnection(ConnectionString))
+            using (var connection = new SqlConnection())
             {
                
                 connection.Open();
