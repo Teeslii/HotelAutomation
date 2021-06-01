@@ -40,7 +40,7 @@ namespace hotel
         private void addingRoom(int number)
         {
             convertID = Convert.ToInt32(txtResearchRoom.Text);
-            using (var connection = new SqlConnection())
+            using (var connection = new SqlConnection(_connectionString))
             {
                
                 connection.Open();
