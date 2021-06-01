@@ -47,7 +47,7 @@
             this.txtResearchRoom = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.roomControl1 = new hotel.roomControl();
+            this.roomControlCheck = new hotel.roomControl();
             this.SuspendLayout();
             // 
             // txtRoomNo
@@ -250,14 +250,13 @@
             this.label4.TabIndex = 76;
             this.label4.Text = "Room No:";
             // 
-            // roomControl1
+            // roomControlCheck
             // 
-            this.roomControl1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("roomControl1.BackgroundImage")));
-            this.roomControl1.Location = new System.Drawing.Point(29, 35);
-            this.roomControl1.Name = "roomControl1";
-            this.roomControl1.Size = new System.Drawing.Size(580, 514);
-            this.roomControl1.TabIndex = 77;
-          
+            this.roomControlCheck.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("roomControlCheck.BackgroundImage")));
+            this.roomControlCheck.Location = new System.Drawing.Point(29, 35);
+            this.roomControlCheck.Name = "roomControlCheck";
+            this.roomControlCheck.Size = new System.Drawing.Size(580, 514);
+            this.roomControlCheck.TabIndex = 77;
             // 
             // CheckInOut
             // 
@@ -265,7 +264,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1215, 633);
-            this.Controls.Add(this.roomControl1);
+            this.Controls.Add(this.roomControlCheck);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnhomeback);
             this.Controls.Add(this.label3);
@@ -312,6 +311,6 @@
         private System.Windows.Forms.TextBox txtResearchRoom;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private roomControl roomControl1;
+        private roomControl roomControlCheck;
     }
 }
