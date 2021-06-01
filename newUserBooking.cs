@@ -19,6 +19,7 @@ namespace hotel
         public newUserBooking()
         {
             InitializeComponent();
+            roomControlBooking.ConnectionString = ConnectionString;
         }
 
 
