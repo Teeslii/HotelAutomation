@@ -122,6 +122,7 @@ namespace hotel
         }
         private void Room1_Click(object sender, EventArgs e)
         {
+            RoomControlService.AddingRoom(1, _convertID());
             if (Room1.BackColor == Color.Lime)
             {
                  Room1.BackColor = Color.Salmon;
