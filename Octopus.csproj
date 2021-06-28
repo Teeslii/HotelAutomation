@@ -107,6 +107,7 @@
     <Compile Include="roomControl.Designer.cs">
       <DependentUpon>roomControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="RoomControlService.cs" />
     <Compile Include="Staff.cs" />
     <EmbeddedResource Include="AboutUs.resx">
       <DependentUpon>AboutUs.cs</DependentUpon>
