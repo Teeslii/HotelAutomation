@@ -115,7 +115,11 @@ namespace hotel
         {
             colorUpdate();  
         }
-
+        private int _convertID()
+        {
+            int.TryParse(txtCustomerID.Text, out int customerID);
+            return customerID;
+        }
         private void Room1_Click(object sender, EventArgs e)
         {
             if (Room1.BackColor == Color.Lime)
