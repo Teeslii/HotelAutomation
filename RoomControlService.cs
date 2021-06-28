@@ -16,8 +16,8 @@ namespace hotel
         public static void AddingRoom(int RoomNo, int ID)
         {
             using (var connection = new SqlConnection(_connectionString))
-            { 
-
+            {
+                connection.Open();
             }
         }
         
