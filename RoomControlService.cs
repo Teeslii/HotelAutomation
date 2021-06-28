@@ -23,6 +23,7 @@ namespace hotel
                 Insert.Parameters.Add(new System.Data.SqlClient.SqlParameter("@ID", SqlDbType.Int) { Value = ID });
                 Insert.Parameters.Add(new System.Data.SqlClient.SqlParameter("@roomNo", SqlDbType.Int) { Value = RoomNo });
                 Insert.ExecuteNonQuery();
+                connection.Close();
             }
         }
         
