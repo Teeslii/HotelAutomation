@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Configuration;
+using System.Data.Sql;
 
 namespace hotel
 {
