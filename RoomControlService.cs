@@ -19,6 +19,7 @@ namespace hotel
             {
                 connection.Open();
                 string insertRoom = "Insert into Room(ID, roomNo, roomColor, checkIn) values ( @ID, @roomNo, 'Salmon', GETDATE())";
+                SqlCommand Insert = new SqlCommand(insertRoom, connection);
             }
         }
         
