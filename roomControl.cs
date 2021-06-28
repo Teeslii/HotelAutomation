@@ -21,52 +21,6 @@ namespace hotel
             InitializeComponent();
         }
 
-        private int convertID ;
-        private TimeSpan sumDay;
-        private void addingRoom(int number)
-        {
-            convertID = Convert.ToInt32(txtResearchRoom.Text);
-            using (var connection = new SqlConnection())
-            {
-               
-                connection.Open();
-                DateTime loginDate;
-                DateTime exitDate;
-
-                string timeQuery = "select  loginDate, exitDate from customer where  ID = @ID ";
-                SqlCommand sqlCommand = new SqlCommand(timeQuery, connection);
-                sqlCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@ID", SqlDbType.Int ) { Value = convertID });
-                
-
-                SqlDataReader read = sqlCommand.ExecuteReader();
-
-                while (read.Read())
-                {
-                    loginDate = Convert.ToDateTime(read["loginDate"]);
-                    exitDate = Convert.ToDateTime(read["exitDate"]);
-
-                    sumDay = exitDate - loginDate;
-
-                }
-
-                read.Close();
-                connection.Close();
-               
-                connection.Open();
-             
-
-                string insertRoom = "Insert into Room(ID, roomNo, roomColor, howManyDay, checkIn) values ( @ID, @number, 'Salmon', @howManyDay, GETDATE())";
-                SqlCommand sqlCommandInsert = new SqlCommand(insertRoom, connection);
-                sqlCommandInsert.Parameters.Add(new System.Data.SqlClient.SqlParameter("@ID", SqlDbType.Int) { Value = convertID });
-                sqlCommandInsert.Parameters.Add(new System.Data.SqlClient.SqlParameter("@number", SqlDbType.Int) { Value = number });
-                sqlCommandInsert.Parameters.Add(new System.Data.SqlClient.SqlParameter("@howManyDay", SqlDbType.Int) { Value = sumDay.TotalDays });
-
-                sqlCommandInsert.ExecuteNonQuery();
-                
-                connection.Close();
-            }
-        }
-
         private string color;
         private int RoomNo;
 
@@ -166,8 +120,7 @@ namespace hotel
         {
             if (Room1.BackColor == Color.Lime)
             {
-                addingRoom(1);
-                Room1.BackColor = Color.Salmon;
+                 Room1.BackColor = Color.Salmon;
             }
             else
             {
@@ -180,8 +133,7 @@ namespace hotel
         {
             if (Room2.BackColor == Color.Lime)
             {
-                addingRoom(2);
-                Room2.BackColor = Color.Salmon;
+                 Room2.BackColor = Color.Salmon;
             }
             else
             {
@@ -194,8 +146,7 @@ namespace hotel
         {
             if (Room3.BackColor == Color.Lime)
             {
-                addingRoom(3);
-                Room3.BackColor = Color.Salmon;
+                 Room3.BackColor = Color.Salmon;
             }
             else
             {
@@ -209,8 +160,7 @@ namespace hotel
 
             if (Room4.BackColor == Color.Lime)
             {
-                addingRoom(4);
-                Room4.BackColor = Color.Salmon;
+                 Room4.BackColor = Color.Salmon;
             }
             else
             {
@@ -223,8 +173,7 @@ namespace hotel
         {
             if (Room5.BackColor == Color.Lime)
             {
-                addingRoom(5);
-                Room5.BackColor = Color.Salmon;
+                 Room5.BackColor = Color.Salmon;
             }
             else
             {
@@ -237,8 +186,7 @@ namespace hotel
         {
             if (Room6.BackColor == Color.Lime)
             {
-                addingRoom(6);
-                Room6.BackColor = Color.Salmon;
+                 Room6.BackColor = Color.Salmon;
             }
             else
             {
@@ -251,8 +199,7 @@ namespace hotel
         {
             if (Room7.BackColor == Color.Lime)
             {
-                addingRoom(7);
-                Room7.BackColor = Color.Salmon;
+                 Room7.BackColor = Color.Salmon;
             }
             else
             {
@@ -265,8 +212,7 @@ namespace hotel
         {
             if (Room8.BackColor == Color.Lime)
             {
-                addingRoom(8);
-                Room8.BackColor = Color.Salmon;
+                 Room8.BackColor = Color.Salmon;
             }
             else
             {
@@ -279,8 +225,7 @@ namespace hotel
         {
             if (Room9.BackColor == Color.Lime)
             {
-                addingRoom(9);
-                Room9.BackColor = Color.Salmon;
+                 Room9.BackColor = Color.Salmon;
             }
             else
             {
