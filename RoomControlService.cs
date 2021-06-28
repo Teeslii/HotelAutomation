@@ -15,7 +15,10 @@ namespace hotel
         private static string _connectionString = ConfigurationManager.ConnectionStrings["hotel.Properties.Settings.Setting"].ConnectionString;
         public static void AddingRoom(int RoomNo, int ID)
         {
+            using (var connection = new SqlConnection())
+            { 
 
+            }
         }
         
     }
