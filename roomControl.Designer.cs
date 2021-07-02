@@ -314,7 +314,7 @@
             this.Controls.Add(this.Room1);
             this.Name = "roomControl";
             this.Size = new System.Drawing.Size(580, 514);
-            this.Load += new System.EventHandler(this.roomControl_Load);
+         
             ((System.ComponentModel.ISupportInitialize)(this.Room9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Room8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Room7)).EndInit();

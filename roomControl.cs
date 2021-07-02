@@ -39,10 +39,7 @@ namespace hotel
 
             }*/
         }
-        private void roomControl_Load(object sender, EventArgs e)
-        {
-         
-        }
+       
         private int _convertID()
         {
             int.TryParse(txtCustomerID.Text, out int customerID);
