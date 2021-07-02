@@ -26,6 +26,10 @@ namespace hotel
                 connection.Close();
             }
         }
+        public static List<roomControl> UpdateColor()
+        {
         
+        }
+
     }
 }
