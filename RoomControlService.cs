@@ -26,6 +26,7 @@ namespace hotel
                 connection.Close();
             }
         }
+        public static string ErrorMessage;
         public static List<roomControl> UpdateColor()
         {
             using (var connectionIsDelete = new SqlConnection(_connectionString))
@@ -40,7 +41,7 @@ namespace hotel
                 {
                     if (!int.TryParse(readerQuery["roomNo"].ToString(), out int roomNo))
                     {
-                        
+                        ErrorMessage = "Data processing error has occurred when processing Room Number data.";
                     }
                 }
                     return isDeleteRead;
