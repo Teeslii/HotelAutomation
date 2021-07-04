@@ -34,6 +34,7 @@ namespace hotel
 
                 List<roomControl> isDeleteRead = new List<roomControl>();
                 string queryIsDelete = "select roomNo from Room where IsDelete= 'False'";
+                SqlCommand query = new SqlCommand(queryIsDelete, connectionIsDelete);
 
 
                 return isDeleteRead;
