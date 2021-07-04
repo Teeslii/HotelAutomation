@@ -36,8 +36,11 @@ namespace hotel
                 string queryIsDelete = "select roomNo from Room where IsDelete= 'False'";
                 SqlCommand query = new SqlCommand(queryIsDelete, connectionIsDelete);
                 SqlDataReader readerQuery = query.ExecuteReader();
-
-                return isDeleteRead;
+                while (readerQuery.Read())
+                {
+                     
+                }
+                    return isDeleteRead;
 
             }
 
