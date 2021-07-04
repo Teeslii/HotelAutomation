@@ -28,7 +28,7 @@ namespace hotel
         }
         public static List<roomControl> UpdateColor()
         {
-            using (var connectionUpdate = new SqlConnection())
+            using (var connectionIsDelete = new SqlConnection(_connectionString))
             {
 
                 
