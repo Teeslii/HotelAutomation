@@ -33,7 +33,7 @@ namespace hotel
                 connectionIsDelete.Open();
 
                 List<roomControl> isDeleteRead = new List<roomControl>();
-
+                string queryIsDelete = "select roomNo from Room where IsDelete= 'False'";
 
 
                 return isDeleteRead;
