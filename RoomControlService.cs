@@ -32,6 +32,12 @@ namespace hotel
             {
                 connectionIsDelete.Open();
 
+                List<roomControl> isDeleteRead = new List<roomControl>();
+
+
+
+                return isDeleteRead;
+
             }
 
         }
