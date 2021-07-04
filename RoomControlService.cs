@@ -38,7 +38,10 @@ namespace hotel
                 SqlDataReader readerQuery = query.ExecuteReader();
                 while (readerQuery.Read())
                 {
-                     
+                    if (!int.TryParse(readerQuery["roomNo"].ToString(), out int roomNo))
+                    {
+                        
+                    }
                 }
                     return isDeleteRead;
 
