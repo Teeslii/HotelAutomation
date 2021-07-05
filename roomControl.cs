@@ -44,8 +44,10 @@ namespace hotel
         {
             foreach (roomControl roomIsDelete in RoomControlService.UpdateColor())
             {
-
-
+               switch(roomIsDelete.RoomNo)
+                {
+                    
+                }
             }
 
         }
