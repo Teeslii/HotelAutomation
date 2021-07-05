@@ -259,6 +259,7 @@
             // 
             // roomControlBooking
             // 
+            this.roomControlBooking.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("roomControlBooking.BackgroundImage")));
             this.roomControlBooking.Location = new System.Drawing.Point(501, 12);
             this.roomControlBooking.Name = "roomControlBooking";
             this.roomControlBooking.Size = new System.Drawing.Size(580, 514);
@@ -324,6 +325,7 @@
             this.Name = "newUserBooking";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "newUserR";
+            this.Load += new System.EventHandler(this.newUserBooking_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
