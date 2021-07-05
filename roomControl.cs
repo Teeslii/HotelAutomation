@@ -39,7 +39,7 @@ namespace hotel
 
             }*/
         }
-
+        public int RoomNo;
         public void ColorTransition()
         {
 
