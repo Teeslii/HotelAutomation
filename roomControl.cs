@@ -42,6 +42,11 @@ namespace hotel
         public int RoomNo;
         public void ColorTransition()
         {
+            foreach (roomControl roomIsDelete in RoomControlService.UpdateColor())
+            {
+
+
+            }
 
         }
         private int _convertID()
