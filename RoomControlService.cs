@@ -43,8 +43,10 @@ namespace hotel
                     {
                         ErrorMessage = "Data processing error has occurred when processing Room Number data.";
                     }
+                    isDeleteRead.Add(new roomControl() { RoomNo = roomNo });
                 }
-                    return isDeleteRead;
+                
+                return isDeleteRead;
 
             }
 
