@@ -45,7 +45,8 @@ namespace hotel
                     }
                     isDeleteRead.Add(new roomControl() { RoomNo = roomNo });
                 }
-                
+                readerQuery.Close();
+                connectionIsDelete.Close();
                 return isDeleteRead;
 
             }
