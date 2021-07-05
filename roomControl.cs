@@ -73,7 +73,9 @@ namespace hotel
                     case 9:
                         Room9.BackColor = Color.Salmon;
                         break;
-                    
+                    default:
+                        MessageBox.Show("No data matching the room number was found");
+                        break;
                 }
             }
 
