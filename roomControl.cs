@@ -46,6 +46,33 @@ namespace hotel
             {
                switch(roomIsDelete.RoomNo)
                 {
+                    case 1:
+                        Room1.BackColor = Color.Salmon;
+                        break;
+                    case 2:
+                        Room2.BackColor = Color.Salmon;
+                        break;
+                    case 3:
+                        Room3.BackColor = Color.Salmon;
+                        break;
+                    case 4:
+                        Room4.BackColor = Color.Salmon;
+                        break;
+                    case 5:
+                        Room5.BackColor = Color.Salmon;
+                        break;
+                    case 6:
+                        Room6.BackColor = Color.Salmon;
+                        break;
+                    case 7:
+                        Room7.BackColor = Color.Salmon;
+                        break;
+                    case 8:
+                        Room8.BackColor = Color.Salmon;
+                        break;
+                    case 9:
+                        Room9.BackColor = Color.Salmon;
+                        break;
                     
                 }
             }
