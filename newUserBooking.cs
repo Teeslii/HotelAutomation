@@ -74,7 +74,7 @@ namespace hotel
 
         private void newUserBooking_Load(object sender, EventArgs e)
         {
-
+            roomControlBooking.ColorTransition();
         }
     }
 }
