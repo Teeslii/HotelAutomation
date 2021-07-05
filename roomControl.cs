@@ -21,7 +21,7 @@ namespace hotel
             InitializeComponent();
         }
 
-        private void delete (int idNumber )
+        private void delete(int idNumber)
         { /*
             using (var connection = new SqlConnection(ConnectionString))
             {
@@ -39,7 +39,11 @@ namespace hotel
 
             }*/
         }
-       
+
+        public void ColorTransition()
+        {
+
+        }
         private int _convertID()
         {
             int.TryParse(txtCustomerID.Text, out int customerID);
