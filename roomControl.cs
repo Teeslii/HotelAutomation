@@ -76,7 +76,7 @@ namespace hotel
             }
             else
             {
-               
+                RoomControlService.DeleteRoom(1);
                 Room1.BackColor = Color.Lime;
             }
         }
@@ -89,7 +89,7 @@ namespace hotel
             }
             else
             {
-               
+                RoomControlService.DeleteRoom(2);
                 Room2.BackColor = Color.Lime;
             }
         }
@@ -102,7 +102,7 @@ namespace hotel
             }
             else
             {
-               
+                RoomControlService.DeleteRoom(3);
                 Room3.BackColor = Color.Lime;
             }
         }
@@ -116,7 +116,7 @@ namespace hotel
             }
             else
             {
-                
+                RoomControlService.DeleteRoom(4);
                 Room4.BackColor = Color.Lime;
             }
         }
@@ -129,7 +129,7 @@ namespace hotel
             }
             else
             {
-                
+                RoomControlService.DeleteRoom(5);
                 Room5.BackColor = Color.Lime;
             }
         }
@@ -142,7 +142,7 @@ namespace hotel
             }
             else
             {
-                 
+                RoomControlService.DeleteRoom(6);
                 Room6.BackColor = Color.Lime;
             }
         }
@@ -155,7 +155,7 @@ namespace hotel
             }
             else
             {
-                
+                RoomControlService.DeleteRoom(7);
                 Room7.BackColor = Color.Lime;
             }
         }
@@ -168,7 +168,7 @@ namespace hotel
             }
             else
             {
-                 
+                RoomControlService.DeleteRoom(8);
                 Room8.BackColor = Color.Lime;
             }
         }
@@ -181,8 +181,8 @@ namespace hotel
             }
             else
             {
-
-                 Room9.BackColor = Color.Lime;
+                RoomControlService.DeleteRoom(9);
+                Room9.BackColor = Color.Lime;
             }
         }
     }
