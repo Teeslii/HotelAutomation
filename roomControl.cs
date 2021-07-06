@@ -21,7 +21,18 @@ namespace hotel
             InitializeComponent();
         }
 
-        public int RoomNo;
+        private int _roomNo;
+        public int RoomNo
+        {
+            get
+            {
+                return _roomNo;
+            }
+            set
+            {
+                _roomNo = value;
+            }
+        }
         public void ColorTransition()
         {
             foreach (roomControl roomIsDelete in RoomControlService.UpdateColor())
