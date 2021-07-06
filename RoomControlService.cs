@@ -58,7 +58,7 @@ namespace hotel
         {
             using (var connectionDelete = new SqlConnection(_connectionString))
             {
-                
+                connectionDelete.Open();
             }
         }
     }
