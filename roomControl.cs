@@ -21,24 +21,6 @@ namespace hotel
             InitializeComponent();
         }
 
-        private void delete(int idNumber)
-        { /*
-            using (var connection = new SqlConnection(ConnectionString))
-            {
-                connection.Open();
-             
-             
-                    string UpdateQuery = "update Room set IsDelete='True' where roomNo = @idNumber ";
-                    SqlCommand sqlCommand = new SqlCommand(UpdateQuery, connection);
-                    sqlCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@idNumber", SqlDbType.Int) { Value = idNumber });
-                    sqlCommand.ExecuteNonQuery();
-            
-              
-
-                connection.Close();
-
-            }*/
-        }
         public int RoomNo;
         public void ColorTransition()
         {
@@ -94,7 +76,7 @@ namespace hotel
             }
             else
             {
-                delete(1);
+               
                 Room1.BackColor = Color.Lime;
             }
         }
@@ -107,7 +89,7 @@ namespace hotel
             }
             else
             {
-                delete(2);
+               
                 Room2.BackColor = Color.Lime;
             }
         }
@@ -120,7 +102,7 @@ namespace hotel
             }
             else
             {
-                delete(3);
+               
                 Room3.BackColor = Color.Lime;
             }
         }
@@ -134,7 +116,7 @@ namespace hotel
             }
             else
             {
-                delete(4);
+                
                 Room4.BackColor = Color.Lime;
             }
         }
@@ -147,7 +129,7 @@ namespace hotel
             }
             else
             {
-                delete(5);
+                
                 Room5.BackColor = Color.Lime;
             }
         }
@@ -160,7 +142,7 @@ namespace hotel
             }
             else
             {
-                delete(6);
+                 
                 Room6.BackColor = Color.Lime;
             }
         }
@@ -173,7 +155,7 @@ namespace hotel
             }
             else
             {
-                delete(7);
+                
                 Room7.BackColor = Color.Lime;
             }
         }
@@ -186,7 +168,7 @@ namespace hotel
             }
             else
             {
-                delete(8);
+                 
                 Room8.BackColor = Color.Lime;
             }
         }
@@ -199,8 +181,8 @@ namespace hotel
             }
             else
             {
-                delete(9);
-                Room9.BackColor = Color.Lime;
+
+                 Room9.BackColor = Color.Lime;
             }
         }
     }
