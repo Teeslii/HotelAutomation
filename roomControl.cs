@@ -80,10 +80,11 @@ namespace hotel
         }
         private void Room1_Click(object sender, EventArgs e)
         {
-            RoomControlService.AddingRoom(1, _convertID());
+           
             if (Room1.BackColor == Color.Lime)
             {
-                 Room1.BackColor = Color.Salmon;
+                RoomControlService.AddingRoom(1, _convertID());
+                Room1.BackColor = Color.Salmon;
             }
             else
             {
@@ -96,7 +97,8 @@ namespace hotel
         {
             if (Room2.BackColor == Color.Lime)
             {
-                 Room2.BackColor = Color.Salmon;
+                RoomControlService.AddingRoom(2, _convertID());
+                Room2.BackColor = Color.Salmon;
             }
             else
             {
@@ -109,7 +111,8 @@ namespace hotel
         {
             if (Room3.BackColor == Color.Lime)
             {
-                 Room3.BackColor = Color.Salmon;
+                RoomControlService.AddingRoom(3, _convertID());
+                Room3.BackColor = Color.Salmon;
             }
             else
             {
@@ -123,7 +126,8 @@ namespace hotel
 
             if (Room4.BackColor == Color.Lime)
             {
-                 Room4.BackColor = Color.Salmon;
+                RoomControlService.AddingRoom(4, _convertID());
+                Room4.BackColor = Color.Salmon;
             }
             else
             {
@@ -136,7 +140,8 @@ namespace hotel
         {
             if (Room5.BackColor == Color.Lime)
             {
-                 Room5.BackColor = Color.Salmon;
+                RoomControlService.AddingRoom(5, _convertID());
+                Room5.BackColor = Color.Salmon;
             }
             else
             {
@@ -149,7 +154,8 @@ namespace hotel
         {
             if (Room6.BackColor == Color.Lime)
             {
-                 Room6.BackColor = Color.Salmon;
+                RoomControlService.AddingRoom(6, _convertID());
+                Room6.BackColor = Color.Salmon;
             }
             else
             {
@@ -162,7 +168,8 @@ namespace hotel
         {
             if (Room7.BackColor == Color.Lime)
             {
-                 Room7.BackColor = Color.Salmon;
+                RoomControlService.AddingRoom(7, _convertID());
+                Room7.BackColor = Color.Salmon;
             }
             else
             {
@@ -175,7 +182,8 @@ namespace hotel
         {
             if (Room8.BackColor == Color.Lime)
             {
-                 Room8.BackColor = Color.Salmon;
+                RoomControlService.AddingRoom(8, _convertID());
+                Room8.BackColor = Color.Salmon;
             }
             else
             {
@@ -188,7 +196,8 @@ namespace hotel
         {
             if (Room9.BackColor == Color.Lime)
             {
-                 Room9.BackColor = Color.Salmon;
+                RoomControlService.AddingRoom(9, _convertID());
+                Room9.BackColor = Color.Salmon;
             }
             else
             {
