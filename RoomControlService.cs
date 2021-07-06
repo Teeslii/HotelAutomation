@@ -18,7 +18,7 @@ namespace hotel
             using (var connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
-                string insertRoom = "Insert into Room(ID, roomNo, checkIn) values ( @ID, @roomNo, GETDATE())";
+                string insertRoom = "Insert into Room(ID, roomNo, checkIn, IsDelete) values ( @ID, @roomNo, GETDATE(), 'False')";
                 SqlCommand Insert = new SqlCommand(insertRoom, connection);
                 Insert.Parameters.Add(new System.Data.SqlClient.SqlParameter("@ID", SqlDbType.Int) { Value = ID });
                 Insert.Parameters.Add(new System.Data.SqlClient.SqlParameter("@roomNo", SqlDbType.Int) { Value = RoomNo });
