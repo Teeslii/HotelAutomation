@@ -37,7 +37,7 @@ namespace hotel
         {
             foreach (roomControl roomIsDelete in RoomControlService.UpdateColor())
             {
-               switch(roomIsDelete.RoomNo)
+               switch(roomIsDelete._roomNo)
                 {
                     case 1:
                         Room1.BackColor = Color.Salmon;
