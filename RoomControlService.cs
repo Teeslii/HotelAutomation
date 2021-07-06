@@ -59,6 +59,7 @@ namespace hotel
             using (var connectionDelete = new SqlConnection(_connectionString))
             {
                 connectionDelete.Open();
+                string deleteQuery = "update Room set IsDelete='True', checkOut=GETDATE() where roomNo = @_roomNo";
             }
         }
     }
