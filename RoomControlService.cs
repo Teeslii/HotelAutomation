@@ -56,7 +56,7 @@ namespace hotel
 
         public static void DeleteRoom(int _roomNo)
         {
-            using (var connectionDelete = new SqlConnection())
+            using (var connectionDelete = new SqlConnection(_connectionString))
             {
                 
             }
