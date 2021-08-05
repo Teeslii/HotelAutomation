@@ -73,7 +73,7 @@ namespace hotel
             }
 
         }
-        private int _convertID()
+        private int ConvertID()
         {
             int.TryParse(txtCustomerID.Text, out int customerID);
             return customerID;
@@ -83,7 +83,7 @@ namespace hotel
            
             if (Room1.BackColor == Color.Lime)
             {
-                RoomControlService.AddingRoom(1, _convertID());
+                RoomControlService.AddingRoom(1, ConvertID());
                 Room1.BackColor = Color.Salmon;
             }
             else
@@ -97,7 +97,7 @@ namespace hotel
         {
             if (Room2.BackColor == Color.Lime)
             {
-                RoomControlService.AddingRoom(2, _convertID());
+                RoomControlService.AddingRoom(2, ConvertID());
                 Room2.BackColor = Color.Salmon;
             }
             else
@@ -111,7 +111,7 @@ namespace hotel
         {
             if (Room3.BackColor == Color.Lime)
             {
-                RoomControlService.AddingRoom(3, _convertID());
+                RoomControlService.AddingRoom(3, ConvertID());
                 Room3.BackColor = Color.Salmon;
             }
             else
@@ -126,7 +126,7 @@ namespace hotel
 
             if (Room4.BackColor == Color.Lime)
             {
-                RoomControlService.AddingRoom(4, _convertID());
+                RoomControlService.AddingRoom(4, ConvertID());
                 Room4.BackColor = Color.Salmon;
             }
             else
@@ -140,7 +140,7 @@ namespace hotel
         {
             if (Room5.BackColor == Color.Lime)
             {
-                RoomControlService.AddingRoom(5, _convertID());
+                RoomControlService.AddingRoom(5, ConvertID());
                 Room5.BackColor = Color.Salmon;
             }
             else
@@ -154,7 +154,7 @@ namespace hotel
         {
             if (Room6.BackColor == Color.Lime)
             {
-                RoomControlService.AddingRoom(6, _convertID());
+                RoomControlService.AddingRoom(6, ConvertID());
                 Room6.BackColor = Color.Salmon;
             }
             else
@@ -168,7 +168,7 @@ namespace hotel
         {
             if (Room7.BackColor == Color.Lime)
             {
-                RoomControlService.AddingRoom(7, _convertID());
+                RoomControlService.AddingRoom(7, ConvertID());
                 Room7.BackColor = Color.Salmon;
             }
             else
@@ -182,7 +182,7 @@ namespace hotel
         {
             if (Room8.BackColor == Color.Lime)
             {
-                RoomControlService.AddingRoom(8, _convertID());
+                RoomControlService.AddingRoom(8, ConvertID());
                 Room8.BackColor = Color.Salmon;
             }
             else
@@ -196,7 +196,7 @@ namespace hotel
         {
             if (Room9.BackColor == Color.Lime)
             {
-                RoomControlService.AddingRoom(9, _convertID());
+                RoomControlService.AddingRoom(9, ConvertID());
                 Room9.BackColor = Color.Salmon;
             }
             else
