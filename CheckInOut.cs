@@ -18,6 +18,7 @@ namespace hotel
         public CheckInOut()
         {
             InitializeComponent();
+           
         }
         private string ConnectionString = ConfigurationManager.ConnectionStrings["hotel.Properties.Settings.Setting"].ConnectionString;
 

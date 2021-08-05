@@ -21,158 +21,74 @@ namespace hotel
             InitializeComponent();
         }
 
-        private string ConnectionString = ConfigurationManager.ConnectionStrings["hotel.Properties.Settings.Setting"].ConnectionString;
-      
-        private int convertID ;
-        private TimeSpan sumDay;
-        private void addingRoom(int number)
+        private int _roomNo;
+        public int RoomNo
         {
-            convertID = Convert.ToInt32(txtResearchRoom.Text);
-            using (var connection = new SqlConnection(ConnectionString))
+            get
             {
-               
-                connection.Open();
-                DateTime loginDate;
-                DateTime exitDate;
-
-                string timeQuery = "select  loginDate, exitDate from customer where  ID = @ID ";
-                SqlCommand sqlCommand = new SqlCommand(timeQuery, connection);
-                sqlCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@ID", SqlDbType.Int ) { Value = convertID });
-                
-
-                SqlDataReader read = sqlCommand.ExecuteReader();
-
-                while (read.Read())
+                return _roomNo;
+            }
+            set
+            {
+                _roomNo = value;
+            }
+        }
+        public void ColorTransition()
+        {
+            foreach (roomControl roomIsDelete in RoomControlService.UpdateColor())
+            {
+               switch(roomIsDelete._roomNo)
                 {
-                    loginDate = Convert.ToDateTime(read["loginDate"]);
-                    exitDate = Convert.ToDateTime(read["exitDate"]);
-
-                    sumDay = exitDate - loginDate;
-
+                    case 1:
+                        Room1.BackColor = Color.Salmon;
+                        break;
+                    case 2:
+                        Room2.BackColor = Color.Salmon;
+                        break;
+                    case 3:
+                        Room3.BackColor = Color.Salmon;
+                        break;
+                    case 4:
+                        Room4.BackColor = Color.Salmon;
+                        break;
+                    case 5:
+                        Room5.BackColor = Color.Salmon;
+                        break;
+                    case 6:
+                        Room6.BackColor = Color.Salmon;
+                        break;
+                    case 7:
+                        Room7.BackColor = Color.Salmon;
+                        break;
+                    case 8:
+                        Room8.BackColor = Color.Salmon;
+                        break;
+                    case 9:
+                        Room9.BackColor = Color.Salmon;
+                        break;
+                    default:
+                        MessageBox.Show("No data matching the room number was found");
+                        break;
                 }
-
-                read.Close();
-                connection.Close();
-               
-                connection.Open();
-             
-
-                string insertRoom = "Insert into Room(ID, roomNo, roomColor, howManyDay, checkIn) values ( @ID, @number, 'Salmon', @howManyDay, GETDATE())";
-                SqlCommand sqlCommandInsert = new SqlCommand(insertRoom, connection);
-                sqlCommandInsert.Parameters.Add(new System.Data.SqlClient.SqlParameter("@ID", SqlDbType.Int) { Value = convertID });
-                sqlCommandInsert.Parameters.Add(new System.Data.SqlClient.SqlParameter("@number", SqlDbType.Int) { Value = number });
-                sqlCommandInsert.Parameters.Add(new System.Data.SqlClient.SqlParameter("@howManyDay", SqlDbType.Int) { Value = sumDay.TotalDays });
-
-                sqlCommandInsert.ExecuteNonQuery();
-                
-                connection.Close();
             }
+
         }
-
-        private string color;
-        private int RoomNo;
-
-        private void colorUpdate()
+        private int _convertID()
         {
-            using (var connection = new SqlConnection(ConnectionString))
-            {
-                connection.Open();
-                Color myColor = Color.Salmon;
-
-                SqlCommand command = new SqlCommand("select roomColor, roomNo from Room  ", connection);
-                SqlDataReader reader = command.ExecuteReader();
-
-
-                while (reader.Read())
-                {
-                    
-                    color = reader["roomColor"].ToString();
-
-                    if (!int.TryParse(reader["roomNo"].ToString(), out RoomNo))
-                    {
-                        MessageBox.Show("Data processing error has occurred.");
-                    }
-
-
-
-
-                    myColor = Color.FromName(color);   
-                    if (RoomNo == 1)
-                    {
-                        Room1.BackColor = myColor;
-                    }
-                    else if (RoomNo == 2)
-                    {
-                        Room2.BackColor = myColor;
-                    }
-                    else if (RoomNo == 3)
-                    {
-                        Room3.BackColor = myColor;
-                    }
-                    else if (RoomNo == 4)
-                    {
-                        Room4.BackColor = myColor;
-                    }
-                    else if (RoomNo == 5)
-                    {
-                        Room5.BackColor = myColor;
-                    }
-                    else if (RoomNo == 6)
-                    {
-                        Room6.BackColor = myColor;
-                    }
-                    else if (RoomNo == 7)
-                    {
-                        Room7.BackColor = myColor;
-                    }
-                    else if (RoomNo == 8)
-                    {
-                        Room8.BackColor = myColor;
-                    }
-                    else if (RoomNo == 9)
-                    {
-                        Room9.BackColor = myColor;
-                    }
-
-                }
-                reader.Close();
-                connection.Close();
-            }
+            int.TryParse(txtCustomerID.Text, out int customerID);
+            return customerID;
         }
-       
-        private void delete (int idNumber )
-        {
-            using (var connection = new SqlConnection(ConnectionString))
-            {
-                connection.Open();
-             
-             
-                    string UpdateQuery = "update Room set IsDelete='True' where roomNo = @idNumber ";
-                    SqlCommand sqlCommand = new SqlCommand(UpdateQuery, connection);
-                    sqlCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@idNumber", SqlDbType.Int) { Value = idNumber });
-                    sqlCommand.ExecuteNonQuery();
-            
-              
-
-                connection.Close();
-
-            }
-        }
-        private void roomControl_Load(object sender, EventArgs e)
-        {
-            colorUpdate();  
-        }
-
         private void Room1_Click(object sender, EventArgs e)
         {
+           
             if (Room1.BackColor == Color.Lime)
             {
-                addingRoom(1);
+                RoomControlService.AddingRoom(1, _convertID());
                 Room1.BackColor = Color.Salmon;
             }
             else
             {
-                delete(1);
+                RoomControlService.DeleteRoom(1);
                 Room1.BackColor = Color.Lime;
             }
         }
@@ -181,12 +97,12 @@ namespace hotel
         {
             if (Room2.BackColor == Color.Lime)
             {
-                addingRoom(2);
+                RoomControlService.AddingRoom(2, _convertID());
                 Room2.BackColor = Color.Salmon;
             }
             else
             {
-                delete(2);
+                RoomControlService.DeleteRoom(2);
                 Room2.BackColor = Color.Lime;
             }
         }
@@ -195,12 +111,12 @@ namespace hotel
         {
             if (Room3.BackColor == Color.Lime)
             {
-                addingRoom(3);
+                RoomControlService.AddingRoom(3, _convertID());
                 Room3.BackColor = Color.Salmon;
             }
             else
             {
-                delete(3);
+                RoomControlService.DeleteRoom(3);
                 Room3.BackColor = Color.Lime;
             }
         }
@@ -210,12 +126,12 @@ namespace hotel
 
             if (Room4.BackColor == Color.Lime)
             {
-                addingRoom(4);
+                RoomControlService.AddingRoom(4, _convertID());
                 Room4.BackColor = Color.Salmon;
             }
             else
             {
-                delete(4);
+                RoomControlService.DeleteRoom(4);
                 Room4.BackColor = Color.Lime;
             }
         }
@@ -224,12 +140,12 @@ namespace hotel
         {
             if (Room5.BackColor == Color.Lime)
             {
-                addingRoom(5);
+                RoomControlService.AddingRoom(5, _convertID());
                 Room5.BackColor = Color.Salmon;
             }
             else
             {
-                delete(5);
+                RoomControlService.DeleteRoom(5);
                 Room5.BackColor = Color.Lime;
             }
         }
@@ -238,12 +154,12 @@ namespace hotel
         {
             if (Room6.BackColor == Color.Lime)
             {
-                addingRoom(6);
+                RoomControlService.AddingRoom(6, _convertID());
                 Room6.BackColor = Color.Salmon;
             }
             else
             {
-                delete(6);
+                RoomControlService.DeleteRoom(6);
                 Room6.BackColor = Color.Lime;
             }
         }
@@ -252,12 +168,12 @@ namespace hotel
         {
             if (Room7.BackColor == Color.Lime)
             {
-                addingRoom(7);
+                RoomControlService.AddingRoom(7, _convertID());
                 Room7.BackColor = Color.Salmon;
             }
             else
             {
-                delete(7);
+                RoomControlService.DeleteRoom(7);
                 Room7.BackColor = Color.Lime;
             }
         }
@@ -266,12 +182,12 @@ namespace hotel
         {
             if (Room8.BackColor == Color.Lime)
             {
-                addingRoom(8);
+                RoomControlService.AddingRoom(8, _convertID());
                 Room8.BackColor = Color.Salmon;
             }
             else
             {
-                delete(8);
+                RoomControlService.DeleteRoom(8);
                 Room8.BackColor = Color.Lime;
             }
         }
@@ -280,12 +196,12 @@ namespace hotel
         {
             if (Room9.BackColor == Color.Lime)
             {
-                addingRoom(9);
+                RoomControlService.AddingRoom(9, _convertID());
                 Room9.BackColor = Color.Salmon;
             }
             else
             {
-                delete(9);
+                RoomControlService.DeleteRoom(9);
                 Room9.BackColor = Color.Lime;
             }
         }

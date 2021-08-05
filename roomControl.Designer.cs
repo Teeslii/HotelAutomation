@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(roomControl));
             this.label10 = new System.Windows.Forms.Label();
-            this.txtResearchRoom = new System.Windows.Forms.TextBox();
+            this.txtCustomerID = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -71,13 +71,13 @@
             this.label10.TabIndex = 100;
             this.label10.Text = "ID:";
             // 
-            // txtResearchRoom
+            // txtCustomerID
             // 
-            this.txtResearchRoom.Font = new System.Drawing.Font("Lucida Sans", 14.25F);
-            this.txtResearchRoom.Location = new System.Drawing.Point(86, 3);
-            this.txtResearchRoom.Name = "txtResearchRoom";
-            this.txtResearchRoom.Size = new System.Drawing.Size(200, 30);
-            this.txtResearchRoom.TabIndex = 99;
+            this.txtCustomerID.Font = new System.Drawing.Font("Lucida Sans", 14.25F);
+            this.txtCustomerID.Location = new System.Drawing.Point(86, 3);
+            this.txtCustomerID.Name = "txtCustomerID";
+            this.txtCustomerID.Size = new System.Drawing.Size(200, 30);
+            this.txtCustomerID.TabIndex = 99;
             // 
             // label7
             // 
@@ -293,7 +293,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.txtResearchRoom);
+            this.Controls.Add(this.txtCustomerID);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label9);
@@ -314,7 +314,7 @@
             this.Controls.Add(this.Room1);
             this.Name = "roomControl";
             this.Size = new System.Drawing.Size(580, 514);
-            this.Load += new System.EventHandler(this.roomControl_Load);
+         
             ((System.ComponentModel.ISupportInitialize)(this.Room9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Room8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Room7)).EndInit();
@@ -332,7 +332,7 @@
         #endregion
 
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtResearchRoom;
+        private System.Windows.Forms.TextBox txtCustomerID;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;

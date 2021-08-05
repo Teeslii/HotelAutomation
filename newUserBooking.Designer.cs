@@ -47,7 +47,7 @@
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.lblPrice = new System.Windows.Forms.Label();
             this.btnhomeback = new System.Windows.Forms.Button();
-            this.roomControl1 = new hotel.roomControl();
+            this.roomControlBooking = new hotel.roomControl();
             this.cBoxChoose = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -257,13 +257,13 @@
             this.btnhomeback.UseVisualStyleBackColor = false;
             this.btnhomeback.Click += new System.EventHandler(this.btnhomeback_Click);
             // 
-            // roomControl1
+            // roomControlBooking
             // 
-            this.roomControl1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("roomControl1.BackgroundImage")));
-            this.roomControl1.Location = new System.Drawing.Point(496, -55);
-            this.roomControl1.Name = "roomControl1";
-            this.roomControl1.Size = new System.Drawing.Size(580, 514);
-            this.roomControl1.TabIndex = 31;
+            this.roomControlBooking.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("roomControlBooking.BackgroundImage")));
+            this.roomControlBooking.Location = new System.Drawing.Point(501, 12);
+            this.roomControlBooking.Name = "roomControlBooking";
+            this.roomControlBooking.Size = new System.Drawing.Size(580, 514);
+            this.roomControlBooking.TabIndex = 31;
             // 
             // cBoxChoose
             // 
@@ -292,7 +292,7 @@
             this.label1.TabIndex = 33;
             this.label1.Text = "Reservation Type:";
             // 
-            // newUserR
+            // newUserBooking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -300,7 +300,7 @@
             this.ClientSize = new System.Drawing.Size(1215, 633);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cBoxChoose);
-            this.Controls.Add(this.roomControl1);
+            this.Controls.Add(this.roomControlBooking);
             this.Controls.Add(this.btnhomeback);
             this.Controls.Add(this.txtPrice);
             this.Controls.Add(this.lblPrice);
@@ -322,9 +322,10 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "newUserR";
+            this.Name = "newUserBooking";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "newUserR";
+            this.Load += new System.EventHandler(this.newUserBooking_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -351,7 +352,7 @@
         private System.Windows.Forms.Label lblPrice;
         
         private System.Windows.Forms.Button btnhomeback;
-        private roomControl roomControl1;
+        private roomControl roomControlBooking;
         private System.Windows.Forms.ComboBox cBoxChoose;
         private System.Windows.Forms.Label label1;
     }
