@@ -27,7 +27,7 @@ namespace hotel
             }
         }
         private static string ErrorMessage;
-        public static List<roomControl> UpdateColor()
+        public static List<roomControl> QueryIsDelete()
         {
             using (var connectionIsDelete = new SqlConnection(_connectionString))
             {
