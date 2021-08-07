@@ -14,6 +14,8 @@ namespace hotel.Models
         public string Mail { get; set; }
         public long Telephone { get; set; }
         public long TC { get; set; }
+        public int Price { get; set; }
+
 
 
 
