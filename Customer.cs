@@ -47,7 +47,19 @@ namespace hotel
                 value =_lastName ;
             }
         }
-       
+        public string Mail
+        {
+
+            get
+            {
+                return _mail;
+            }
+            set
+            {
+                value = _mail;
+            }
+        }
+        
 
         public string reservationSelection(int reservationNo)
         {
