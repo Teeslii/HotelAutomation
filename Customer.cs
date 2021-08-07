@@ -59,8 +59,20 @@ namespace hotel
                 value = _mail;
             }
         }
-        
+        public long Telephone
+        {
 
+            get
+            {
+                return _telephone;
+            }
+            set
+            {
+                value = _telephone;
+            }
+        }
+        
+       
         public string reservationSelection(int reservationNo)
         {
             string typeMessage="";
