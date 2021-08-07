@@ -60,8 +60,8 @@ namespace hotel
             {
                 connectionDelete.Open();
 
-                string deleteQuery = "update Room set IsDelete='True', checkOut=GETDATE() where roomNo = @_roomNo";
-                SqlCommand delete = new SqlCommand(deleteQuery, connectionDelete);
+                string updateQuery = "update Room set IsDelete='True', checkOut=GETDATE() where roomNo = @_roomNo";
+                SqlCommand delete = new SqlCommand(updateQuery, connectionDelete);
                 delete.Parameters.Add(new System.Data.SqlClient.SqlParameter("@_roomNo", SqlDbType.Int) { Value = _roomNo });
                 delete.ExecuteNonQuery();
 
