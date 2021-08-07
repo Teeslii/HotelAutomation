@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Configuration;
 using System.Data.Sql;
 using System.Data.SqlClient;
+using AutoMapper;
 
 namespace hotel
 {
