@@ -48,7 +48,7 @@ namespace hotel
             var config = new MapperConfiguration(cfg => cfg.CreateMap<Customer,CustomerDto>());
             var mapper = new Mapper(config);
             var customerDto = mapper.Map<CustomerDto>(customer);
-            
+            dataAcces.SaveCustomer(customerDto);
 
         }
 
