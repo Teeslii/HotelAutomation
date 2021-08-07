@@ -107,7 +107,19 @@ namespace hotel
                 value = _loginDate ;
             }
         }
-      
+        public DateTime ExitDate
+        {
+
+            get
+            {
+                return _exitDate;
+            }
+            set
+            {
+                value = _exitDate;
+            }
+        }
+
         public string reservationSelection(int reservationNo)
         {
             string typeMessage="";
