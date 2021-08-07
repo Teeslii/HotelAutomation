@@ -83,7 +83,18 @@ namespace hotel
                 value = _TC ;
             }
         }
+        public int Price
+        {
 
+            get
+            {
+                return _price;
+            }
+            set
+            {
+                value = _price;
+            }
+        }
 
         public string reservationSelection(int reservationNo)
         {
