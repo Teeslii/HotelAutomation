@@ -119,7 +119,7 @@ namespace hotel
                 value = _exitDate;
             }
         }
-         public  string ReservationType
+        public string ReservationType
         {
 
             get
@@ -129,6 +129,18 @@ namespace hotel
             set
             {
                 value = _reservationType;
+            }
+        }
+        public int HowManyDay
+        {
+
+            get
+            {
+                return _howManyDay;
+            }
+            set
+            {
+                value = _howManyDay;
             }
         }
         public string reservationSelection(int reservationNo)
