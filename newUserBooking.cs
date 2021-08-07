@@ -28,7 +28,10 @@ namespace hotel
 
         private string ConnectionString = ConfigurationManager.ConnectionStrings["hotel.Properties.Settings.Setting"].ConnectionString;
 
+        private void MapperCustomerDto()
+        {
 
+        }
         
         private void txtExitDate_ValueChanged(object sender, EventArgs e)
         {
