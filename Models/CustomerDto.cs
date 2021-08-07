@@ -19,7 +19,7 @@ namespace hotel.Models
         public DateTime ExitDate { get; set; }
         public string ReservationType { get; set; }
 
-
+        public int HowManyDay { get; set; }
 
     }
 }
