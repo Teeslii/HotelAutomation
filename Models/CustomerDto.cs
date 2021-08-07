@@ -8,6 +8,8 @@ namespace hotel.Models
 {
     public class CustomerDto
     {
-
+       
+        public string FirstName{ get; set; }
+       
     }
 }
