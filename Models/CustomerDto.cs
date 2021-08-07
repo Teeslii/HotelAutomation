@@ -13,7 +13,7 @@ namespace hotel.Models
         public string LastName { get; set; }
         public string Mail { get; set; }
         public long Telephone { get; set; }
-
+        public long TC { get; set; }
 
 
 
