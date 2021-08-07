@@ -15,7 +15,7 @@ namespace hotel.Models
         public long Telephone { get; set; }
         public long TC { get; set; }
         public int Price { get; set; }
-
+        public DateTime LoginDate { get; set; }
 
 
 
