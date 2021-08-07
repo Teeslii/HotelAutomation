@@ -95,7 +95,19 @@ namespace hotel
                 value = _price;
             }
         }
+        public DateTime LoginDate
+        {
 
+            get
+            {
+                return _loginDate;
+            }
+            set
+            {
+                value = _loginDate ;
+            }
+        }
+      
         public string reservationSelection(int reservationNo)
         {
             string typeMessage="";
