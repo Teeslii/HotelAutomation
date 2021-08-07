@@ -11,6 +11,7 @@ using System.Configuration;
 using System.Data.Sql;
 using System.Data.SqlClient;
 using AutoMapper;
+using hotel.Models;
 
 namespace hotel
 {
