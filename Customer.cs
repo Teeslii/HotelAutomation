@@ -23,7 +23,18 @@ namespace hotel
         private string _reservationType;
         private int _howManyDay;
         private int _dailyPrice;
-
+        
+        public string FirstName
+        {
+            get 
+            { 
+                return _firstName;
+            }
+            set
+            {
+                value = _firstName;
+            }
+        }
         public string reservationSelection(int reservationNo)
         {
             string typeMessage="";
