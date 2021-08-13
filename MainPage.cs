@@ -26,8 +26,8 @@ namespace hotel
 
         private void btnNewUser_Reservation_Click(object sender, EventArgs e)
         {
-            newUserBooking newuserR = new newUserBooking();
-            newuserR.Show();
+            NewUserBooking newUserBooking = new NewUserBooking(new DataAcces());
+            newUserBooking.Show();
             this.Hide();
         }
 

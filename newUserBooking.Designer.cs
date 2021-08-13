@@ -1,6 +1,6 @@
 ﻿namespace hotel
 {
-    partial class newUserBooking
+    partial class NewUserBooking
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(newUserBooking));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewUserBooking));
             this.lblFirstName = new System.Windows.Forms.Label();
             this.LblID = new System.Windows.Forms.Label();
             this.LblMail = new System.Windows.Forms.Label();
@@ -262,6 +262,7 @@
             this.roomControlBooking.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("roomControlBooking.BackgroundImage")));
             this.roomControlBooking.Location = new System.Drawing.Point(501, 12);
             this.roomControlBooking.Name = "roomControlBooking";
+            this.roomControlBooking.RoomNo = 0;
             this.roomControlBooking.Size = new System.Drawing.Size(580, 514);
             this.roomControlBooking.TabIndex = 31;
             // 
@@ -292,7 +293,7 @@
             this.label1.TabIndex = 33;
             this.label1.Text = "Reservation Type:";
             // 
-            // newUserBooking
+            // NewUserBooking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -322,9 +323,9 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "newUserBooking";
+            this.Name = "NewUserBooking";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "newUserR";
+            this.Text = "User Booking";
             this.Load += new System.EventHandler(this.newUserBooking_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

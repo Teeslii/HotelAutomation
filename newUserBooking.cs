@@ -15,10 +15,10 @@ using hotel.Models;
 
 namespace hotel
 {
-    public partial class newUserBooking : Form
+    public partial class NewUserBooking : Form
     {
         IDataAcces dataAcces;
-        public newUserBooking(IDataAcces dataAcces)
+        public NewUserBooking(IDataAcces dataAcces)
         {
             InitializeComponent();
             this.dataAcces = dataAcces;
