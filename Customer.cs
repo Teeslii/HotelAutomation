@@ -143,38 +143,6 @@ namespace hotel
                 value = _howManyDay;
             }
         }
-        public string reservationSelection(int reservationNo)
-        {
-            string typeMessage="";
-            if(reservationNo == 0)
-            {
-               
-            }
-            else if(reservationNo == 1)
-            {
-                
-            }
-            else if(reservationNo == 2)
-            {
-
-            }
-            else if (reservationNo == 3)
-            {
-
-            }
-            return typeMessage;
-        }
-
-        public string paymentCalculation(string loginDate, string exitDate)
-        {
-            _loginDate = Convert.ToDateTime(loginDate);
-            _exitDate = Convert.ToDateTime(exitDate);
-
-            TimeSpan result = _exitDate - _loginDate;
-
-           _howManyDay = Convert.ToInt32(result.TotalDays);
-            _price = _howManyDay * _dailyPrice;
-            return _price.ToString();
-        }
+     
     }
 }
