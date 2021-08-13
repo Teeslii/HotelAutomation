@@ -13,16 +13,13 @@ namespace hotel
 
         private int _id = 0;
         private string _firstName;
-        private string _lastName;
+      
         private string _mail;
         private long _telephone;
         private long _TC;
         private int _price;
-        private DateTime _loginDate;
-        private DateTime _exitDate;
-        private string _reservationType;
-        private int _howManyDay;
-        private int _dailyPrice;
+        
+   
 
         public string FirstName
         {
@@ -35,18 +32,7 @@ namespace hotel
                 value = _firstName;
             }
         }
-        public  string LastName
-        {
-
-            get
-            {
-                return _lastName;
-            }
-            set
-            {
-                value =_lastName ;
-            }
-        }
+       
         public string Mail
         {
 
@@ -83,66 +69,7 @@ namespace hotel
                 value = _TC ;
             }
         }
-        public int Price
-        {
-
-            get
-            {
-                return _price;
-            }
-            set
-            {
-                value = _price;
-            }
-        }
-        public DateTime LoginDate
-        {
-
-            get
-            {
-                return _loginDate;
-            }
-            set
-            {
-                value = _loginDate ;
-            }
-        }
-        public DateTime ExitDate
-        {
-
-            get
-            {
-                return _exitDate;
-            }
-            set
-            {
-                value = _exitDate;
-            }
-        }
-        public string ReservationType
-        {
-
-            get
-            {
-                return _reservationType;
-            }
-            set
-            {
-                value = _reservationType;
-            }
-        }
-        public int HowManyDay
-        {
-
-            get
-            {
-                return _howManyDay;
-            }
-            set
-            {
-                value = _howManyDay;
-            }
-        }
+       
      
     }
 }

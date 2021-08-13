@@ -10,16 +10,11 @@ namespace hotel.Models
     {
        
         public string FirstName{ get; set; }
-        public string LastName { get; set; }
+      
         public string Mail { get; set; }
         public long Telephone { get; set; }
         public long TC { get; set; }
-        public int Price { get; set; }
-        public DateTime LoginDate { get; set; }
-        public DateTime ExitDate { get; set; }
-        public string ReservationType { get; set; }
-
-        public int HowManyDay { get; set; }
+      
 
     }
 }

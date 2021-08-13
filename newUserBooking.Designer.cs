@@ -33,23 +33,13 @@
             this.LblID = new System.Windows.Forms.Label();
             this.LblMail = new System.Windows.Forms.Label();
             this.LblTelephone = new System.Windows.Forms.Label();
-            this.LblLastName = new System.Windows.Forms.Label();
-            this.LblLoginDate = new System.Windows.Forms.Label();
-            this.LblExitDate = new System.Windows.Forms.Label();
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.txtLastName = new System.Windows.Forms.TextBox();
             this.txtTelephone = new System.Windows.Forms.TextBox();
             this.txtMail = new System.Windows.Forms.TextBox();
             this.txtID = new System.Windows.Forms.TextBox();
-            this.txtLoginDate = new System.Windows.Forms.DateTimePicker();
-            this.txtExitDate = new System.Windows.Forms.DateTimePicker();
-            this.txtPrice = new System.Windows.Forms.TextBox();
-            this.lblPrice = new System.Windows.Forms.Label();
             this.btnhomeback = new System.Windows.Forms.Button();
             this.roomControlBooking = new hotel.roomControl();
-            this.cBoxChoose = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblFirstName
@@ -96,39 +86,6 @@
             this.LblTelephone.TabIndex = 5;
             this.LblTelephone.Text = "Telephone:";
             // 
-            // LblLastName
-            // 
-            this.LblLastName.AutoSize = true;
-            this.LblLastName.BackColor = System.Drawing.Color.Transparent;
-            this.LblLastName.Font = new System.Drawing.Font("Lucida Sans", 14.25F);
-            this.LblLastName.Location = new System.Drawing.Point(25, 78);
-            this.LblLastName.Name = "LblLastName";
-            this.LblLastName.Size = new System.Drawing.Size(107, 22);
-            this.LblLastName.TabIndex = 6;
-            this.LblLastName.Text = "LastName:";
-            // 
-            // LblLoginDate
-            // 
-            this.LblLoginDate.AutoSize = true;
-            this.LblLoginDate.BackColor = System.Drawing.Color.Transparent;
-            this.LblLoginDate.Font = new System.Drawing.Font("Lucida Sans", 14.25F);
-            this.LblLoginDate.Location = new System.Drawing.Point(25, 317);
-            this.LblLoginDate.Name = "LblLoginDate";
-            this.LblLoginDate.Size = new System.Drawing.Size(116, 22);
-            this.LblLoginDate.TabIndex = 8;
-            this.LblLoginDate.Text = "Login Date:";
-            // 
-            // LblExitDate
-            // 
-            this.LblExitDate.AutoSize = true;
-            this.LblExitDate.BackColor = System.Drawing.Color.Transparent;
-            this.LblExitDate.Font = new System.Drawing.Font("Lucida Sans", 14.25F);
-            this.LblExitDate.Location = new System.Drawing.Point(25, 358);
-            this.LblExitDate.Name = "LblExitDate";
-            this.LblExitDate.Size = new System.Drawing.Size(101, 22);
-            this.LblExitDate.TabIndex = 9;
-            this.LblExitDate.Text = "Exit Date:";
-            // 
             // txtFirstName
             // 
             this.txtFirstName.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -153,17 +110,6 @@
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
-            // 
-            // txtLastName
-            // 
-            this.txtLastName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtLastName.Font = new System.Drawing.Font("Lucida Sans", 14.25F);
-            this.txtLastName.ForeColor = System.Drawing.Color.Black;
-            this.txtLastName.Location = new System.Drawing.Point(153, 67);
-            this.txtLastName.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(221, 30);
-            this.txtLastName.TabIndex = 15;
             // 
             // txtTelephone
             // 
@@ -198,51 +144,6 @@
             this.txtID.Size = new System.Drawing.Size(221, 30);
             this.txtID.TabIndex = 18;
             // 
-            // txtLoginDate
-            // 
-            this.txtLoginDate.CustomFormat = "yyyy-MM-dd";
-            this.txtLoginDate.Font = new System.Drawing.Font("Lucida Sans", 14.25F);
-            this.txtLoginDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.txtLoginDate.Location = new System.Drawing.Point(153, 319);
-            this.txtLoginDate.Name = "txtLoginDate";
-            this.txtLoginDate.Size = new System.Drawing.Size(221, 30);
-            this.txtLoginDate.TabIndex = 20;
-            this.txtLoginDate.Value = new System.DateTime(2020, 7, 16, 0, 0, 0, 0);
-            // 
-            // txtExitDate
-            // 
-            this.txtExitDate.CustomFormat = "yyyy-MM-dd";
-            this.txtExitDate.Font = new System.Drawing.Font("Lucida Sans", 14.25F);
-            this.txtExitDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.txtExitDate.Location = new System.Drawing.Point(153, 360);
-            this.txtExitDate.Name = "txtExitDate";
-            this.txtExitDate.Size = new System.Drawing.Size(221, 30);
-            this.txtExitDate.TabIndex = 21;
-            this.txtExitDate.Value = new System.DateTime(2020, 7, 16, 0, 0, 0, 0);
-            this.txtExitDate.ValueChanged += new System.EventHandler(this.txtExitDate_ValueChanged);
-            // 
-            // txtPrice
-            // 
-            this.txtPrice.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtPrice.Font = new System.Drawing.Font("Lucida Sans", 14.25F);
-            this.txtPrice.ForeColor = System.Drawing.Color.Black;
-            this.txtPrice.Location = new System.Drawing.Point(153, 246);
-            this.txtPrice.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(221, 30);
-            this.txtPrice.TabIndex = 23;
-            // 
-            // lblPrice
-            // 
-            this.lblPrice.AutoSize = true;
-            this.lblPrice.BackColor = System.Drawing.Color.Transparent;
-            this.lblPrice.Font = new System.Drawing.Font("Lucida Sans", 14.25F);
-            this.lblPrice.Location = new System.Drawing.Point(25, 257);
-            this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(66, 22);
-            this.lblPrice.TabIndex = 22;
-            this.lblPrice.Text = "Price :";
-            // 
             // btnhomeback
             // 
             this.btnhomeback.BackColor = System.Drawing.Color.Transparent;
@@ -266,56 +167,19 @@
             this.roomControlBooking.Size = new System.Drawing.Size(580, 514);
             this.roomControlBooking.TabIndex = 31;
             // 
-            // cBoxChoose
-            // 
-            this.cBoxChoose.Font = new System.Drawing.Font("Lucida Sans", 14.25F);
-            this.cBoxChoose.FormattingEnabled = true;
-            this.cBoxChoose.Items.AddRange(new object[] {
-            "Pre-paid",
-            "60 days in advance",
-            "Standard reservation",
-            "Incentive booking"});
-            this.cBoxChoose.Location = new System.Drawing.Point(207, 409);
-            this.cBoxChoose.Name = "cBoxChoose";
-            this.cBoxChoose.Size = new System.Drawing.Size(167, 30);
-            this.cBoxChoose.TabIndex = 32;
-            this.cBoxChoose.Text = "Choose...";
-            this.cBoxChoose.SelectedIndexChanged += new System.EventHandler(this.cBoxChoose_SelectedIndexChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Lucida Sans", 14.25F);
-            this.label1.Location = new System.Drawing.Point(25, 412);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(176, 22);
-            this.label1.TabIndex = 33;
-            this.label1.Text = "Reservation Type:";
-            // 
             // NewUserBooking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1215, 633);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.cBoxChoose);
             this.Controls.Add(this.roomControlBooking);
             this.Controls.Add(this.btnhomeback);
-            this.Controls.Add(this.txtPrice);
-            this.Controls.Add(this.lblPrice);
-            this.Controls.Add(this.txtExitDate);
-            this.Controls.Add(this.txtLoginDate);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.txtMail);
             this.Controls.Add(this.txtTelephone);
-            this.Controls.Add(this.txtLastName);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtFirstName);
-            this.Controls.Add(this.LblExitDate);
-            this.Controls.Add(this.LblLoginDate);
-            this.Controls.Add(this.LblLastName);
             this.Controls.Add(this.LblTelephone);
             this.Controls.Add(this.LblMail);
             this.Controls.Add(this.LblID);
@@ -338,23 +202,13 @@
         private System.Windows.Forms.Label LblID;
         private System.Windows.Forms.Label LblMail;
         private System.Windows.Forms.Label LblTelephone;
-        private System.Windows.Forms.Label LblLastName;
-        private System.Windows.Forms.Label LblLoginDate;
-        private System.Windows.Forms.Label LblExitDate;
         private System.Windows.Forms.TextBox txtFirstName;
         private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.TextBox txtLastName;
         private System.Windows.Forms.TextBox txtTelephone;
         private System.Windows.Forms.TextBox txtMail;
         private System.Windows.Forms.TextBox txtID;
-        private System.Windows.Forms.DateTimePicker txtLoginDate;
-        private System.Windows.Forms.DateTimePicker txtExitDate;
-        private System.Windows.Forms.TextBox txtPrice;
-        private System.Windows.Forms.Label lblPrice;
         
         private System.Windows.Forms.Button btnhomeback;
         private roomControl roomControlBooking;
-        private System.Windows.Forms.ComboBox cBoxChoose;
-        private System.Windows.Forms.Label label1;
     }
 }
