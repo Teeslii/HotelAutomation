@@ -26,7 +26,6 @@ namespace hotel
 
         Customer customer = new Customer();
 
-        private string ConnectionString = ConfigurationManager.ConnectionStrings["hotel.Properties.Settings.Setting"].ConnectionString;
 
         private void MapperCustomerDto()
         {
