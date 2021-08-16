@@ -17,7 +17,7 @@ namespace hotel
 {
     public partial class NewUserBooking : Form
     {
-        IDataAcces dataAcces;
+        public IDataAcces dataAcces;
         public NewUserBooking(IDataAcces dataAcces)
         {
             InitializeComponent();
@@ -29,14 +29,20 @@ namespace hotel
 
         private void MapperCustomerDto()
         {
-            customer.FirstName = txtFirstName.Text;
+            customer.NameSurname = txtNameSurname.Text;
            
             long.TryParse(txtTelephone.Text, out long Telephone);
             customer.Telephone = Telephone;
+            
             customer.Mail = txtMail.Text;
-            long.TryParse(txtID.Text, out long ID);
-            customer.TC = ID;
-           
+
+            customer.Country = txtCountry.Text;
+
+            long.TryParse(txtTc.Text, out long Tc);
+            customer.Tc = Tc;
+
+            customer.Address = txtAddress.Text;
+
             var config = new MapperConfiguration(cfg => cfg.CreateMap<Customer,CustomerDto>());
             var mapper = new Mapper(config);
             var customerDto = mapper.Map<CustomerDto>(customer);
@@ -48,13 +54,11 @@ namespace hotel
         {
        
         }
-
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void btnSignIn_Click(object sender, EventArgs e)
         {
-            
-             
+            MapperCustomerDto();
         }
-
+       
 
         private void btnhomeback_Click(object sender, EventArgs e)
         {
@@ -72,6 +76,8 @@ namespace hotel
         {
             roomControlBooking.ColorTransition();
         }
+
+        
     }
 }
 

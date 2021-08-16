@@ -9,12 +9,12 @@ namespace hotel.Models
     public class CustomerDto
     {
        
-        public string FirstName{ get; set; }
-      
-        public string Mail { get; set; }
+        public string NameSurname { get; set; }
         public long Telephone { get; set; }
-        public long TC { get; set; }
-      
+        public string Mail { get; set; }
+        public string Country { get; set; }
+        public long Tc { get; set; }
+        public string Address { get; set; }
 
     }
 }

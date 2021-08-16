@@ -29,47 +29,51 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewUserBooking));
-            this.lblFirstName = new System.Windows.Forms.Label();
-            this.LblID = new System.Windows.Forms.Label();
+            this.lblNameSurname = new System.Windows.Forms.Label();
+            this.LblTc = new System.Windows.Forms.Label();
             this.LblMail = new System.Windows.Forms.Label();
             this.LblTelephone = new System.Windows.Forms.Label();
-            this.txtFirstName = new System.Windows.Forms.TextBox();
-            this.btnLogin = new System.Windows.Forms.Button();
+            this.txtNameSurname = new System.Windows.Forms.TextBox();
+            this.btnSignIn = new System.Windows.Forms.Button();
             this.txtTelephone = new System.Windows.Forms.TextBox();
             this.txtMail = new System.Windows.Forms.TextBox();
-            this.txtID = new System.Windows.Forms.TextBox();
+            this.txtTc = new System.Windows.Forms.TextBox();
             this.btnhomeback = new System.Windows.Forms.Button();
             this.roomControlBooking = new hotel.roomControl();
+            this.txtAddress = new System.Windows.Forms.TextBox();
+            this.lblAddress = new System.Windows.Forms.Label();
+            this.txtCountry = new System.Windows.Forms.TextBox();
+            this.lblCountry = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // lblFirstName
+            // lblNameSurname
             // 
-            this.lblFirstName.AutoSize = true;
-            this.lblFirstName.BackColor = System.Drawing.Color.Transparent;
-            this.lblFirstName.Font = new System.Drawing.Font("Lucida Sans", 14.25F);
-            this.lblFirstName.Location = new System.Drawing.Point(25, 30);
-            this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(112, 22);
-            this.lblFirstName.TabIndex = 0;
-            this.lblFirstName.Text = "FirstName:";
+            this.lblNameSurname.AutoSize = true;
+            this.lblNameSurname.BackColor = System.Drawing.Color.Transparent;
+            this.lblNameSurname.Font = new System.Drawing.Font("Lucida Sans", 14.25F);
+            this.lblNameSurname.Location = new System.Drawing.Point(65, 54);
+            this.lblNameSurname.Name = "lblNameSurname";
+            this.lblNameSurname.Size = new System.Drawing.Size(155, 22);
+            this.lblNameSurname.TabIndex = 0;
+            this.lblNameSurname.Text = "Name Surname:";
             // 
-            // LblID
+            // LblTc
             // 
-            this.LblID.AutoSize = true;
-            this.LblID.BackColor = System.Drawing.Color.Transparent;
-            this.LblID.Font = new System.Drawing.Font("Lucida Sans", 14.25F);
-            this.LblID.Location = new System.Drawing.Point(25, 211);
-            this.LblID.Name = "LblID";
-            this.LblID.Size = new System.Drawing.Size(36, 22);
-            this.LblID.TabIndex = 3;
-            this.LblID.Text = "ID:";
+            this.LblTc.AutoSize = true;
+            this.LblTc.BackColor = System.Drawing.Color.Transparent;
+            this.LblTc.Font = new System.Drawing.Font("Lucida Sans", 14.25F);
+            this.LblTc.Location = new System.Drawing.Point(65, 215);
+            this.LblTc.Name = "LblTc";
+            this.LblTc.Size = new System.Drawing.Size(41, 22);
+            this.LblTc.TabIndex = 3;
+            this.LblTc.Text = "TC:";
             // 
             // LblMail
             // 
             this.LblMail.AutoSize = true;
             this.LblMail.BackColor = System.Drawing.Color.Transparent;
             this.LblMail.Font = new System.Drawing.Font("Lucida Sans", 14.25F);
-            this.LblMail.Location = new System.Drawing.Point(25, 168);
+            this.LblMail.Location = new System.Drawing.Point(65, 137);
             this.LblMail.Name = "LblMail";
             this.LblMail.Size = new System.Drawing.Size(55, 22);
             this.LblMail.TabIndex = 4;
@@ -80,43 +84,43 @@
             this.LblTelephone.AutoSize = true;
             this.LblTelephone.BackColor = System.Drawing.Color.Transparent;
             this.LblTelephone.Font = new System.Drawing.Font("Lucida Sans", 14.25F);
-            this.LblTelephone.Location = new System.Drawing.Point(25, 125);
+            this.LblTelephone.Location = new System.Drawing.Point(65, 94);
             this.LblTelephone.Name = "LblTelephone";
             this.LblTelephone.Size = new System.Drawing.Size(112, 22);
             this.LblTelephone.TabIndex = 5;
             this.LblTelephone.Text = "Telephone:";
             // 
-            // txtFirstName
+            // txtNameSurname
             // 
-            this.txtFirstName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtFirstName.Font = new System.Drawing.Font("Lucida Sans", 14.25F);
-            this.txtFirstName.ForeColor = System.Drawing.Color.Black;
-            this.txtFirstName.Location = new System.Drawing.Point(153, 19);
-            this.txtFirstName.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(221, 30);
-            this.txtFirstName.TabIndex = 10;
+            this.txtNameSurname.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtNameSurname.Font = new System.Drawing.Font("Lucida Sans", 14.25F);
+            this.txtNameSurname.ForeColor = System.Drawing.Color.Black;
+            this.txtNameSurname.Location = new System.Drawing.Point(268, 46);
+            this.txtNameSurname.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.txtNameSurname.Name = "txtNameSurname";
+            this.txtNameSurname.Size = new System.Drawing.Size(221, 30);
+            this.txtNameSurname.TabIndex = 10;
             // 
-            // btnLogin
+            // btnSignIn
             // 
-            this.btnLogin.BackColor = System.Drawing.Color.Transparent;
-            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.Font = new System.Drawing.Font("Lucida Sans", 14.25F);
-            this.btnLogin.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnLogin.Location = new System.Drawing.Point(235, 506);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(139, 56);
-            this.btnLogin.TabIndex = 12;
-            this.btnLogin.Text = "Login";
-            this.btnLogin.UseVisualStyleBackColor = false;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            this.btnSignIn.BackColor = System.Drawing.Color.Transparent;
+            this.btnSignIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSignIn.Font = new System.Drawing.Font("Lucida Sans", 14.25F);
+            this.btnSignIn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnSignIn.Location = new System.Drawing.Point(350, 423);
+            this.btnSignIn.Name = "btnSignIn";
+            this.btnSignIn.Size = new System.Drawing.Size(139, 56);
+            this.btnSignIn.TabIndex = 12;
+            this.btnSignIn.Text = "Sign In";
+            this.btnSignIn.UseVisualStyleBackColor = false;
+            this.btnSignIn.Click += new System.EventHandler(this.btnSignIn_Click);
             // 
             // txtTelephone
             // 
             this.txtTelephone.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtTelephone.Font = new System.Drawing.Font("Lucida Sans", 14.25F);
             this.txtTelephone.ForeColor = System.Drawing.Color.Black;
-            this.txtTelephone.Location = new System.Drawing.Point(153, 114);
+            this.txtTelephone.Location = new System.Drawing.Point(268, 86);
             this.txtTelephone.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtTelephone.Name = "txtTelephone";
             this.txtTelephone.Size = new System.Drawing.Size(221, 30);
@@ -127,22 +131,22 @@
             this.txtMail.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtMail.Font = new System.Drawing.Font("Lucida Sans", 14.25F);
             this.txtMail.ForeColor = System.Drawing.Color.Black;
-            this.txtMail.Location = new System.Drawing.Point(153, 157);
+            this.txtMail.Location = new System.Drawing.Point(268, 129);
             this.txtMail.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtMail.Name = "txtMail";
             this.txtMail.Size = new System.Drawing.Size(221, 30);
             this.txtMail.TabIndex = 17;
             // 
-            // txtID
+            // txtTc
             // 
-            this.txtID.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtID.Font = new System.Drawing.Font("Lucida Sans", 14.25F);
-            this.txtID.ForeColor = System.Drawing.Color.Black;
-            this.txtID.Location = new System.Drawing.Point(153, 200);
-            this.txtID.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(221, 30);
-            this.txtID.TabIndex = 18;
+            this.txtTc.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtTc.Font = new System.Drawing.Font("Lucida Sans", 14.25F);
+            this.txtTc.ForeColor = System.Drawing.Color.Black;
+            this.txtTc.Location = new System.Drawing.Point(268, 207);
+            this.txtTc.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.txtTc.Name = "txtTc";
+            this.txtTc.Size = new System.Drawing.Size(221, 30);
+            this.txtTc.TabIndex = 18;
             // 
             // btnhomeback
             // 
@@ -150,7 +154,7 @@
             this.btnhomeback.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnhomeback.Font = new System.Drawing.Font("Lucida Sans", 14.25F);
             this.btnhomeback.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnhomeback.Location = new System.Drawing.Point(1060, 580);
+            this.btnhomeback.Location = new System.Drawing.Point(1071, 569);
             this.btnhomeback.Name = "btnhomeback";
             this.btnhomeback.Size = new System.Drawing.Size(132, 52);
             this.btnhomeback.TabIndex = 30;
@@ -161,11 +165,56 @@
             // roomControlBooking
             // 
             this.roomControlBooking.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("roomControlBooking.BackgroundImage")));
-            this.roomControlBooking.Location = new System.Drawing.Point(501, 12);
+            this.roomControlBooking.Location = new System.Drawing.Point(565, -35);
             this.roomControlBooking.Name = "roomControlBooking";
             this.roomControlBooking.RoomNo = 0;
             this.roomControlBooking.Size = new System.Drawing.Size(580, 514);
             this.roomControlBooking.TabIndex = 31;
+            // 
+            // txtAddress
+            // 
+            this.txtAddress.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtAddress.Font = new System.Drawing.Font("Lucida Sans", 14.25F);
+            this.txtAddress.ForeColor = System.Drawing.Color.Black;
+            this.txtAddress.Location = new System.Drawing.Point(268, 247);
+            this.txtAddress.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.txtAddress.Multiline = true;
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(221, 117);
+            this.txtAddress.TabIndex = 45;
+            // 
+            // lblAddress
+            // 
+            this.lblAddress.AutoSize = true;
+            this.lblAddress.BackColor = System.Drawing.Color.Transparent;
+            this.lblAddress.Font = new System.Drawing.Font("Lucida Sans", 14.25F);
+            this.lblAddress.Location = new System.Drawing.Point(65, 250);
+            this.lblAddress.Name = "lblAddress";
+            this.lblAddress.Size = new System.Drawing.Size(91, 22);
+            this.lblAddress.TabIndex = 44;
+            this.lblAddress.Text = "Address:";
+            // 
+            // txtCountry
+            // 
+            this.txtCountry.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCountry.Font = new System.Drawing.Font("Lucida Sans", 14.25F);
+            this.txtCountry.ForeColor = System.Drawing.Color.Black;
+            this.txtCountry.Location = new System.Drawing.Point(268, 167);
+            this.txtCountry.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.txtCountry.Name = "txtCountry";
+            this.txtCountry.Size = new System.Drawing.Size(221, 30);
+            this.txtCountry.TabIndex = 43;
+            // 
+            // lblCountry
+            // 
+            this.lblCountry.AutoSize = true;
+            this.lblCountry.BackColor = System.Drawing.Color.Transparent;
+            this.lblCountry.Font = new System.Drawing.Font("Lucida Sans", 14.25F);
+            this.lblCountry.Location = new System.Drawing.Point(65, 175);
+            this.lblCountry.Name = "lblCountry";
+            this.lblCountry.Size = new System.Drawing.Size(92, 22);
+            this.lblCountry.TabIndex = 42;
+            this.lblCountry.Text = "Country:";
             // 
             // NewUserBooking
             // 
@@ -173,17 +222,21 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1215, 633);
+            this.Controls.Add(this.txtAddress);
+            this.Controls.Add(this.lblAddress);
+            this.Controls.Add(this.txtCountry);
+            this.Controls.Add(this.lblCountry);
             this.Controls.Add(this.roomControlBooking);
             this.Controls.Add(this.btnhomeback);
-            this.Controls.Add(this.txtID);
+            this.Controls.Add(this.txtTc);
             this.Controls.Add(this.txtMail);
             this.Controls.Add(this.txtTelephone);
-            this.Controls.Add(this.btnLogin);
-            this.Controls.Add(this.txtFirstName);
+            this.Controls.Add(this.btnSignIn);
+            this.Controls.Add(this.txtNameSurname);
             this.Controls.Add(this.LblTelephone);
             this.Controls.Add(this.LblMail);
-            this.Controls.Add(this.LblID);
-            this.Controls.Add(this.lblFirstName);
+            this.Controls.Add(this.LblTc);
+            this.Controls.Add(this.lblNameSurname);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -198,17 +251,21 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblFirstName;
-        private System.Windows.Forms.Label LblID;
+        private System.Windows.Forms.Label lblNameSurname;
+        private System.Windows.Forms.Label LblTc;
         private System.Windows.Forms.Label LblMail;
         private System.Windows.Forms.Label LblTelephone;
-        private System.Windows.Forms.TextBox txtFirstName;
-        private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.TextBox txtNameSurname;
+        private System.Windows.Forms.Button btnSignIn;
         private System.Windows.Forms.TextBox txtTelephone;
         private System.Windows.Forms.TextBox txtMail;
-        private System.Windows.Forms.TextBox txtID;
+        private System.Windows.Forms.TextBox txtTc;
         
         private System.Windows.Forms.Button btnhomeback;
         private roomControl roomControlBooking;
+        private System.Windows.Forms.TextBox txtAddress;
+        private System.Windows.Forms.Label lblAddress;
+        private System.Windows.Forms.TextBox txtCountry;
+        private System.Windows.Forms.Label lblCountry;
     }
 }

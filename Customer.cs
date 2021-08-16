@@ -9,27 +9,23 @@ namespace hotel
     public class Customer
     {
 
-
-
-        private int _id = 0;
-        private string _firstName;
-      
-        private string _mail;
+        private string _nameSurname;
         private long _telephone;
-        private long _TC;
-        private int _price;
-        
-   
+        private string _mail;
+        private string _country;
+        private long _Tc;
+        private string _address;
 
-        public string FirstName
+
+        public string NameSurname
         {
             get
             { 
-                return _firstName;
+                return _nameSurname;
             }
             set
             {
-                value = _firstName;
+                _nameSurname = value;
             }
         }
        
@@ -42,7 +38,7 @@ namespace hotel
             }
             set
             {
-                value = _mail;
+                _mail = value;
             }
         }
         public long Telephone
@@ -54,22 +50,44 @@ namespace hotel
             }
             set
             {
-                value = _telephone;
+                _telephone = value;
             }
         }
-        public long TC
+        public string Country
+        {
+            get
+            {
+                return _country;
+            }
+            set
+            {
+                _country = value;
+            }
+        }
+        public long Tc
         {
 
             get
             {
-                return _TC;
+                return _Tc;
             }
             set
             {
-                value = _TC ;
+                _Tc = value;
             }
         }
-       
-     
+        public string Address
+        {
+            get
+            {
+                return _address;
+            }
+            set
+            {
+                _address = value;
+            }
+        }
+
+
     }
 }
