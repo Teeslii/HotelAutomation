@@ -20,7 +20,6 @@ namespace hotel
             InitializeComponent();
         }
 
-        private string ConnectionString = ConfigurationManager.ConnectionStrings["hotel.Properties.Settings.Setting"].ConnectionString;
         private void showdata()
         {
            
@@ -44,20 +43,7 @@ namespace hotel
             
         }
        
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            using (var connection = new SqlConnection(ConnectionString))
-            {
-                    connection.Open();
-                    string DeleteQuery = "delete from customer where ID = @id";
-                    SqlCommand sqlCommand = new SqlCommand(DeleteQuery, connection);
-                    sqlCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@id", SqlDbType.Int, 3) { Value = id });
-                    sqlCommand.ExecuteNonQuery();
-                    connection.Close();
-                    showdata();
-            }
-            
-        }
+     
 
         private void btnClear_Click(object sender, EventArgs e)
         {
