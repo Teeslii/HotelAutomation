@@ -72,11 +72,11 @@
       <DependentUpon>CheckInOut.cs</DependentUpon>
     </Compile>
     <Compile Include="Customer.cs" />
-    <Compile Include="Customers.cs">
+    <Compile Include="CustomerInformation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Customers.Designer.cs">
-      <DependentUpon>Customers.cs</DependentUpon>
+    <Compile Include="CustomerInformation.Designer.cs">
+      <DependentUpon>CustomerInformation.cs</DependentUpon>
     </Compile>
     <Compile Include="DataAcces.cs" />
     <Compile Include="IDataAcces.cs" />
@@ -124,8 +124,8 @@
     <EmbeddedResource Include="CheckInOut.resx">
       <DependentUpon>CheckInOut.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Customers.resx">
-      <DependentUpon>Customers.cs</DependentUpon>
+    <EmbeddedResource Include="CustomerInformation.resx">
+      <DependentUpon>CustomerInformation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Invoice.resx">
       <DependentUpon>Invoice.cs</DependentUpon>

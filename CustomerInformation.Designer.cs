@@ -1,6 +1,6 @@
 ﻿namespace hotel
 {
-    partial class Customers
+    partial class CustomerInformation
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Customers));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerInformation));
             this.listShowdata = new System.Windows.Forms.ListView();
             this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.firstName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -385,7 +385,7 @@
             this.btnhomeback.UseVisualStyleBackColor = false;
             this.btnhomeback.Click += new System.EventHandler(this.btnhomeback_Click);
             // 
-            // Customers
+            // CustomerInformation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -419,9 +419,9 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Customers";
+            this.Name = "CustomerInformation";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Customers";
+            this.Text = "Customer Information";
             this.ResumeLayout(false);
             this.PerformLayout();
 

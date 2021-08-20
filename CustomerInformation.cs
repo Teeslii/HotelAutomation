@@ -12,10 +12,10 @@ using System.Data.Sql;
 using System.Data.SqlClient;
 namespace hotel
 {
-    public partial class Customers : Form
+    public partial class CustomerInformation : Form
     {
        
-        public Customers()
+        public CustomerInformation()
         {
             InitializeComponent();
         }
