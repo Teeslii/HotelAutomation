@@ -10,7 +10,7 @@ namespace hotel
     {
 
         private string _nameSurname;
-        private long _telephone;
+        private string _telephone;
         private string _mail;
         private string _country;
         private long _Tc;
@@ -41,7 +41,7 @@ namespace hotel
                 _mail = value;
             }
         }
-        public long Telephone
+        public string Telephone
         {
 
             get

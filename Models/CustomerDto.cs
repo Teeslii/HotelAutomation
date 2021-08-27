@@ -10,7 +10,7 @@ namespace hotel.Models
     {
        
         public string NameSurname { get; set; }
-        public long Telephone { get; set; }
+        public string Telephone { get; set; }
         public string Mail { get; set; }
         public string Country { get; set; }
         public long Tc { get; set; }

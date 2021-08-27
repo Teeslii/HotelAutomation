@@ -31,8 +31,7 @@ namespace hotel
         {
             customer.NameSurname = txtNameSurname.Text;
            
-            long.TryParse(txtTelephone.Text, out long Telephone);
-            customer.Telephone = Telephone;
+            customer.Telephone = txtTelephone.Text;
             
             customer.Mail = txtMail.Text;
 
