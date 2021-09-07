@@ -12,9 +12,11 @@ namespace hotel
 {
     public partial class MainPage : Form
     {
+        private readonly IDataAccess _dataAccess;
         public MainPage()
         {
             InitializeComponent();
+            _dataAccess = (IDataAccess)Program.ServiceProvider.GetService(typeof(IDataAccess));
         }
 
         private void btnAdminLogin_Click(object sender, EventArgs e)
@@ -26,7 +28,7 @@ namespace hotel
 
         private void btnNewUser_Reservation_Click(object sender, EventArgs e)
         {
-            NewUserBooking newUserBooking = new NewUserBooking(new SqlDataAccess());
+            NewUserBooking newUserBooking = new NewUserBooking(_dataAccess);
             newUserBooking.Show();
             this.Hide();
         }
