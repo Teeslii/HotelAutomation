@@ -37,7 +37,11 @@ namespace hotel
 
             customer.Country = txtCountry.Text;
 
-            long.TryParse(txtTc.Text, out long Tc);
+           if(!long.TryParse(txtTc.Text, out long Tc))
+            {
+                MessageBox.Show("An error occurred while entering TC. Please enter again your TC number.");
+                return;
+            }
             customer.Tc = Tc;
 
             customer.Address = txtAddress.Text;
