@@ -7,7 +7,7 @@ using hotel.Models;
 
 namespace hotel
 {
-     public interface IDataAcces
+     public interface IDataAccess
     {
         void SaveCustomer(CustomerDto customerDto);
     }

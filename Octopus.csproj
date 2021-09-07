@@ -78,8 +78,8 @@
     <Compile Include="CustomerInformation.Designer.cs">
       <DependentUpon>CustomerInformation.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataAcces.cs" />
-    <Compile Include="IDataAcces.cs" />
+    <Compile Include="SqlDataAccess.cs" />
+    <Compile Include="IDataAccess.cs" />
     <Compile Include="Invoice.cs">
       <SubType>Form</SubType>
     </Compile>

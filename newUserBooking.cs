@@ -17,11 +17,11 @@ namespace hotel
 {
     public partial class NewUserBooking : Form
     {
-        public IDataAcces dataAcces;
-        public NewUserBooking(IDataAcces dataAcces)
+        public IDataAccess _dataAccess;
+        public NewUserBooking(IDataAccess _dataAccess)
         {
             InitializeComponent();
-            this.dataAcces = dataAcces;
+            this._dataAccess = _dataAccess;
         }
 
         Customer customer = new Customer();
@@ -49,7 +49,7 @@ namespace hotel
             var config = new MapperConfiguration(cfg => cfg.CreateMap<Customer,CustomerDto>());
             var mapper = new Mapper(config);
             var customerDto = mapper.Map<CustomerDto>(customer);
-            dataAcces.SaveCustomer(customerDto);
+            _dataAccess.SaveCustomer(customerDto);
 
         }
 

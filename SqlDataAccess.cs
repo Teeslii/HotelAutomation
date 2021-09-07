@@ -11,7 +11,7 @@ using System.Data.SqlClient;
 
 namespace hotel
 {
-    public class DataAcces : IDataAcces
+    public class SqlDataAccess : IDataAccess
     {
 
         private string ConnectionString = ConfigurationManager.ConnectionStrings["hotel.Properties.Settings.Setting"].ConnectionString;
