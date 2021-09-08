@@ -8,86 +8,14 @@ namespace hotel
 {
     public class Customer
     {
+        public string NameSurname { get; set; }
+        public string Mail { get; set; }
+        public string Telephone { get; set; }
 
-        private string _nameSurname;
-        private string _telephone;
-        private string _mail;
-        private string _country;
-        private long _Tc;
-        private string _address;
-
-
-        public string NameSurname
-        {
-            get
-            { 
-                return _nameSurname;
-            }
-            set
-            {
-                _nameSurname = value;
-            }
-        }
+        public string Country { get; set; }
        
-        public string Mail
-        {
-
-            get
-            {
-                return _mail;
-            }
-            set
-            {
-                _mail = value;
-            }
-        }
-        public string Telephone
-        {
-
-            get
-            {
-                return _telephone;
-            }
-            set
-            {
-                _telephone = value;
-            }
-        }
-        public string Country
-        {
-            get
-            {
-                return _country;
-            }
-            set
-            {
-                _country = value;
-            }
-        }
-        public long Tc
-        {
-
-            get
-            {
-                return _Tc;
-            }
-            set
-            {
-                _Tc = value;
-            }
-        }
-        public string Address
-        {
-            get
-            {
-                return _address;
-            }
-            set
-            {
-                _address = value;
-            }
-        }
-
-
+        public long Tc { get; set; }
+        public string Address { get; set; }
+       
     }
 }
