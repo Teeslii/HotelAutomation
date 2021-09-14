@@ -53,10 +53,7 @@ namespace hotel
 
         }
 
-        private void txtExitDate_ValueChanged(object sender, EventArgs e)
-        {
-       
-        }
+      
         private void btnSignIn_Click(object sender, EventArgs e)
         {
             MapperCustomerDto();
@@ -75,11 +72,7 @@ namespace hotel
             this.Hide();
         }
 
-        private void cBoxChoose_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-
+      
         private void newUserBooking_Load(object sender, EventArgs e)
         {
             roomControlBooking.ColorTransition();
