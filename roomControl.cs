@@ -21,23 +21,13 @@ namespace hotel
             InitializeComponent();
         }
 
-        private int _roomNo;
-        public int RoomNo
-        {
-            get
-            {
-                return _roomNo;
-            }
-            set
-            {
-                _roomNo = value;
-            }
-        }
+       
+        public int RoomNo{  get;   set;  }
         public void ColorTransition()
         {
             foreach (roomControl roomIsDelete in RoomControlService.QueryIsDelete())
             {
-                switch (roomIsDelete._roomNo)
+                switch (roomIsDelete.RoomNo)
                 {
                     case 1:
                         Room1.BackColor = Color.Salmon;
@@ -76,12 +66,6 @@ namespace hotel
      
         public int CustomerId { get; set; }
         
-        
-        private int ConvertID()
-        {
-            int.TryParse(txtCustomerID.Text, out int customerID);
-            return customerID;
-        }
         private void Room1_Click(object sender, EventArgs e)
         {
            
