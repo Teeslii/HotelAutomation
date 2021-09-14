@@ -8,6 +8,7 @@ namespace hotel
 {
     public class Customer
     {
+        public int CustomerId { get; set; }
         public string NameSurname { get; set; }
         public string Mail { get; set; }
         public string Telephone { get; set; }

@@ -15,7 +15,7 @@ namespace hotel
     {
 
         private string ConnectionString = ConfigurationManager.ConnectionStrings["hotel.Properties.Settings.Setting"].ConnectionString;
-        public void SaveCustomer(CustomerDto customerDto)
+        public int SaveCustomer(CustomerDto customerDto)
         {
             using (var ConnectionSave = new SqlConnection(ConnectionString))
             {
@@ -31,7 +31,16 @@ namespace hotel
                 insertCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@Address", SqlDbType.NVarChar, 300) { Value = customerDto.Address });
                 insertCommand.ExecuteNonQuery();
 
+                var getIdQuery = "select @@IDENTITY";
+                var cmd = new SqlCommand(getIdQuery, ConnectionSave);
+                var saveCustomerId = cmd.ExecuteScalar();
+                if(!int.TryParse(saveCustomerId.ToString(), out int _customerId))
+                {
+                    System.Windows.Forms.MessageBox.Show("An error occurred while retrieving the registered customer's ID.");                   
+                }
+
                 ConnectionSave.Close();
+                return _customerId;
             }
         }
     }

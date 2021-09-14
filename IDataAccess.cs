@@ -9,6 +9,6 @@ namespace hotel
 {
      public interface IDataAccess
     {
-        void SaveCustomer(CustomerDto customerDto);
+        int SaveCustomer(CustomerDto customerDto);
     }
 }

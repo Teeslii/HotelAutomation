@@ -8,7 +8,7 @@ namespace hotel.Models
 {
     public class CustomerDto
     {
-       
+        public int CustomerId { get; set; }
         public string NameSurname { get; set; }
         public string Telephone { get; set; }
         public string Mail { get; set; }

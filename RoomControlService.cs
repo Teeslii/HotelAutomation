@@ -25,6 +25,7 @@ namespace hotel
                 Insert.ExecuteNonQuery();
                 connection.Close();
             }
+           
         }
         private static string ErrorMessage;
         public static List<roomControl> QueryIsDelete()

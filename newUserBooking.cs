@@ -49,7 +49,7 @@ namespace hotel
             var config = new MapperConfiguration(cfg => cfg.CreateMap<Customer,CustomerDto>());
             var mapper = new Mapper(config);
             var customerDto = mapper.Map<CustomerDto>(customer);
-            _dataAccess.SaveCustomer(customerDto);
+            customer.CustomerId = _dataAccess.SaveCustomer(customerDto);
 
         }
 
@@ -60,8 +60,13 @@ namespace hotel
         private void btnSignIn_Click(object sender, EventArgs e)
         {
             MapperCustomerDto();
+           CheckInOut checkInOut = new CheckInOut();
+            checkInOut.TransferId(customer.CustomerId);
+            checkInOut.Show();
+            this.Hide();
+
         }
-       
+
 
         private void btnhomeback_Click(object sender, EventArgs e)
         {
