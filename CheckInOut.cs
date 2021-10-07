@@ -22,6 +22,10 @@ namespace hotel
         }
         private string ConnectionString = ConfigurationManager.ConnectionStrings["hotel.Properties.Settings.Setting"].ConnectionString;
 
+        public void TransferId(int SaveCustomerId)
+        {
+            roomControlCheck.CustomerId = SaveCustomerId;
+        }
         private int convertID;
        
         private void btnResearch_Click(object sender, EventArgs e)

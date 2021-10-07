@@ -21,23 +21,13 @@ namespace hotel
             InitializeComponent();
         }
 
-        private int _roomNo;
-        public int RoomNo
-        {
-            get
-            {
-                return _roomNo;
-            }
-            set
-            {
-                _roomNo = value;
-            }
-        }
+       
+        public int RoomNo{  get;   set;  }
         public void ColorTransition()
         {
-            foreach (roomControl roomIsDelete in RoomControlService.UpdateColor())
+            foreach (roomControl roomIsDelete in RoomControlService.QueryIsDelete())
             {
-               switch(roomIsDelete._roomNo)
+                switch (roomIsDelete.RoomNo)
                 {
                     case 1:
                         Room1.BackColor = Color.Salmon;
@@ -73,17 +63,15 @@ namespace hotel
             }
 
         }
-        private int _convertID()
-        {
-            int.TryParse(txtCustomerID.Text, out int customerID);
-            return customerID;
-        }
+     
+        public int CustomerId { get; set; }
+        
         private void Room1_Click(object sender, EventArgs e)
         {
            
             if (Room1.BackColor == Color.Lime)
             {
-                RoomControlService.AddingRoom(1, _convertID());
+                RoomControlService.AddingRoom(1, CustomerId);
                 Room1.BackColor = Color.Salmon;
             }
             else
@@ -97,7 +85,7 @@ namespace hotel
         {
             if (Room2.BackColor == Color.Lime)
             {
-                RoomControlService.AddingRoom(2, _convertID());
+                RoomControlService.AddingRoom(2, CustomerId);
                 Room2.BackColor = Color.Salmon;
             }
             else
@@ -111,7 +99,7 @@ namespace hotel
         {
             if (Room3.BackColor == Color.Lime)
             {
-                RoomControlService.AddingRoom(3, _convertID());
+                RoomControlService.AddingRoom(3, CustomerId);
                 Room3.BackColor = Color.Salmon;
             }
             else
@@ -126,7 +114,7 @@ namespace hotel
 
             if (Room4.BackColor == Color.Lime)
             {
-                RoomControlService.AddingRoom(4, _convertID());
+                RoomControlService.AddingRoom(4, CustomerId);
                 Room4.BackColor = Color.Salmon;
             }
             else
@@ -140,7 +128,7 @@ namespace hotel
         {
             if (Room5.BackColor == Color.Lime)
             {
-                RoomControlService.AddingRoom(5, _convertID());
+                RoomControlService.AddingRoom(5, CustomerId);
                 Room5.BackColor = Color.Salmon;
             }
             else
@@ -154,7 +142,7 @@ namespace hotel
         {
             if (Room6.BackColor == Color.Lime)
             {
-                RoomControlService.AddingRoom(6, _convertID());
+                RoomControlService.AddingRoom(6, CustomerId);
                 Room6.BackColor = Color.Salmon;
             }
             else
@@ -168,7 +156,7 @@ namespace hotel
         {
             if (Room7.BackColor == Color.Lime)
             {
-                RoomControlService.AddingRoom(7, _convertID());
+                RoomControlService.AddingRoom(7, CustomerId);
                 Room7.BackColor = Color.Salmon;
             }
             else
@@ -182,7 +170,7 @@ namespace hotel
         {
             if (Room8.BackColor == Color.Lime)
             {
-                RoomControlService.AddingRoom(8, _convertID());
+                RoomControlService.AddingRoom(8, CustomerId);
                 Room8.BackColor = Color.Salmon;
             }
             else
@@ -196,7 +184,7 @@ namespace hotel
         {
             if (Room9.BackColor == Color.Lime)
             {
-                RoomControlService.AddingRoom(9, _convertID());
+                RoomControlService.AddingRoom(9, CustomerId);
                 Room9.BackColor = Color.Salmon;
             }
             else
