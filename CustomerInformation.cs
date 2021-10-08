@@ -52,20 +52,7 @@ namespace hotel
             AssignShowInfoList();
         }
 
-        private int id = 0;
-        private void listCustomerInformation_DoubleClick(object sender, EventArgs e)
-        {
-            id = int.Parse(listCustomerInformation.SelectedItems[0].SubItems[0].Text);
-            txtNameSurname.Text  = listCustomerInformation.SelectedItems[0].SubItems[1].Text;
-            txtTelephone.Text = listCustomerInformation.SelectedItems[0].SubItems[2].Text;
-            txtMail.Text = listCustomerInformation.SelectedItems[0].SubItems[3].Text;
-            txtCountry.Text = listCustomerInformation.SelectedItems[0].SubItems[4].Text;
-            txtTc.Text = listCustomerInformation.SelectedItems[0].SubItems[5].Text;
-            txtAddress.Text = listCustomerInformation.SelectedItems[0].SubItems[6].Text;
-        }
-
-
-
+      
         private void btnClear_Click(object sender, EventArgs e)
         {
          

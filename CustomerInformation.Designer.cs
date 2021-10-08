@@ -80,7 +80,7 @@
             this.listCustomerInformation.UseCompatibleStateImageBehavior = false;
             this.listCustomerInformation.View = System.Windows.Forms.View.Details;
             this.listCustomerInformation.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.listCustomerInformation_ItemCheck);
-            this.listCustomerInformation.DoubleClick += new System.EventHandler(this.listCustomerInformation_DoubleClick);
+  
             // 
             // Id
             // 
