@@ -14,10 +14,11 @@ namespace hotel
 {
     public partial class CustomerInformation : Form
     {
-       
-        public CustomerInformation()
+        private readonly IDataAccess _dataAccess;
+        public CustomerInformation(IDataAccess _dataAccess)
         {
             InitializeComponent();
+            this._dataAccess = _dataAccess;
         }
 
         private void showdata()
