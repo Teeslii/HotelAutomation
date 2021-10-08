@@ -120,5 +120,27 @@ namespace hotel
 
         }
 
+        public void UpdateCustomer(CustomerDto customerDto)
+        {
+            using (var ConnectionSave = new SqlConnection(ConnectionString))
+            {
+                ConnectionSave.Open();
+
+                string updateQuery = "Update Customer set NameSurname = @NameSurname, Telephone= @Telephone, Mail = @Mail, Country = @Country, Tc = @Tc, Address = @Address  where Id = @Id";
+                SqlCommand cmd = new SqlCommand(updateQuery, ConnectionSave);
+
+                cmd.Parameters.Add(new System.Data.SqlClient.SqlParameter("@Id", SqlDbType.Int) { Value = customerDto.CustomerId });
+                cmd.Parameters.Add(new System.Data.SqlClient.SqlParameter("@NameSurname", SqlDbType.NVarChar, 250) { Value = customerDto.NameSurname });
+                cmd.Parameters.Add(new System.Data.SqlClient.SqlParameter("@Telephone", SqlDbType.VarChar, 16) { Value = customerDto.Telephone });
+                cmd.Parameters.Add(new System.Data.SqlClient.SqlParameter("@Mail", SqlDbType.NVarChar, 80) { Value = customerDto.Mail });
+                cmd.Parameters.Add(new System.Data.SqlClient.SqlParameter("@Country", SqlDbType.NVarChar, 80) { Value = customerDto.Country });
+                cmd.Parameters.Add(new System.Data.SqlClient.SqlParameter("@Tc", SqlDbType.VarChar, 11) { Value = customerDto.Tc });
+                cmd.Parameters.Add(new System.Data.SqlClient.SqlParameter("@Address", SqlDbType.NVarChar, 300) { Value = customerDto.Address });
+                cmd.ExecuteNonQuery();
+
+                ConnectionSave.Close();
+
+            }
+        }
     }
 }
