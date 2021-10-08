@@ -17,7 +17,7 @@ namespace hotel
 
         private readonly string ConnectionString = ConfigurationManager.ConnectionStrings["hotel.Properties.Settings.Setting"].ConnectionString;
 
-       
+
         public int SaveCustomer(CustomerDto customerDto)
         {
             using (var ConnectionSave = new SqlConnection(ConnectionString))
@@ -37,16 +37,16 @@ namespace hotel
                 var getIdQuery = "select @@IDENTITY";
                 var cmd = new SqlCommand(getIdQuery, ConnectionSave);
                 var saveCustomerId = cmd.ExecuteScalar();
-                if(!int.TryParse(saveCustomerId.ToString(), out int _customerId))
+                if (!int.TryParse(saveCustomerId.ToString(), out int _customerId))
                 {
-                    System.Windows.Forms.MessageBox.Show("An error occurred while retrieving the registered customer's ID.");                   
+                    System.Windows.Forms.MessageBox.Show("An error occurred while retrieving the registered customer's ID.");
                 }
 
                 ConnectionSave.Close();
                 return _customerId;
             }
-        } 
-       
+        }
+
         public List<CustomerDto> MapperShowInfo()
         {
             var config = new MapperConfiguration(cfg => cfg.CreateMap<Customer, CustomerDto>());
@@ -80,6 +80,44 @@ namespace hotel
                 connectionInfo.Close();
                 return customer;
             }
+        }
+
+        public List<CustomerDto> GetCustomersInfo(string _nameSurname)
+        {
+            using (var connectionInfo = new SqlConnection(ConnectionString))
+            {
+                connectionInfo.Open();
+                List<Customer> customer = new List<Customer>();
+                var searchQuery = "select Id, NameSurname, Telephone, Mail, Country, Tc, Address from Customer where NameSurname Like '%'+ @NameSurname +'%' ";
+                var cmd = new SqlCommand(searchQuery, connectionInfo);
+                cmd.Parameters.Add(new System.Data.SqlClient.SqlParameter("@NameSurname", SqlDbType.NVarChar, 250) { Value = _nameSurname });
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    if (!int.TryParse(reader["Id"].ToString(), out int _customerId))
+                    {
+                        System.Windows.Forms.MessageBox.Show("An error occurred while retrieving the registered customer's ID.");
+                    }
+                    if (!long.TryParse(reader["Tc"].ToString(), out long _Tc))
+                    {
+                        System.Windows.Forms.MessageBox.Show("An error occurred while retrieving the registered customer's TC.");
+                    }
+                    customer.Add(new Customer() { CustomerId = _customerId, NameSurname = reader["NameSurname"].ToString(), Telephone = reader["Telephone"].ToString(), Mail = reader["Mail"].ToString(), Country = reader["Country"].ToString(), Tc = _Tc, Address = reader["Address"].ToString() });
+                }
+
+                connectionInfo.Close();
+                return MapperResultSearch(customer);
+            }
+        }
+
+        public List<CustomerDto> MapperResultSearch(List<Customer> customers)
+        {
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<Customer, CustomerDto>());
+            var mapper = new Mapper(config);
+            List<CustomerDto> customerDto = mapper.Map<List<Customer>, List<CustomerDto>>(customers);
+            return customerDto;
+
         }
 
     }

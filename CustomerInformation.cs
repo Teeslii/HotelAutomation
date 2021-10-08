@@ -83,9 +83,33 @@ namespace hotel
             txtAddress.Text = listCustomerInformation.Items[e.Index].SubItems[6].Text;
         }
 
-        private void btnResearch_Click(object sender, EventArgs e)
+        private void AssignResultSearchList()
         {
-          
+            listCustomerInformation.Items.Clear();
+
+            List<CustomerDto> customerDto;
+            customerDto = _dataAccess.GetCustomersInfo(txtSearchNameSurname.Text);
+
+            foreach (CustomerDto getCustomersInfo in customerDto)
+            {
+                ListViewItem addItems = new ListViewItem();
+
+                addItems.Text = getCustomersInfo.CustomerId.ToString();
+                addItems.SubItems.Add(getCustomersInfo.NameSurname);
+                addItems.SubItems.Add(getCustomersInfo.Telephone);
+                addItems.SubItems.Add(getCustomersInfo.Mail);
+                addItems.SubItems.Add(getCustomersInfo.Country);
+                addItems.SubItems.Add(getCustomersInfo.Tc.ToString());
+                addItems.SubItems.Add(getCustomersInfo.Address);
+
+                listCustomerInformation.Items.Add(addItems);
+
+            }
+
+        }
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            AssignResultSearchList();
         }
            
         
