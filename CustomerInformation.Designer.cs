@@ -34,6 +34,9 @@
             this.NameSurname = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Telephone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Mail = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Country = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Tc = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Address = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnShowInformation = new System.Windows.Forms.Button();
             this.btnResearch = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
@@ -53,15 +56,13 @@
             this.lblAddress = new System.Windows.Forms.Label();
             this.txtCountry = new System.Windows.Forms.TextBox();
             this.lblCountry = new System.Windows.Forms.Label();
-            this.Country = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Tc = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Address = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // listCustomerInformation
             // 
             this.listCustomerInformation.BackColor = System.Drawing.Color.Gainsboro;
             this.listCustomerInformation.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listCustomerInformation.CheckBoxes = true;
             this.listCustomerInformation.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Id,
             this.NameSurname,
@@ -78,12 +79,13 @@
             this.listCustomerInformation.TabIndex = 0;
             this.listCustomerInformation.UseCompatibleStateImageBehavior = false;
             this.listCustomerInformation.View = System.Windows.Forms.View.Details;
+            this.listCustomerInformation.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.listCustomerInformation_ItemCheck);
             this.listCustomerInformation.DoubleClick += new System.EventHandler(this.listCustomerInformation_DoubleClick);
             // 
             // Id
             // 
             this.Id.Text = "ID";
-            this.Id.Width = 44;
+            this.Id.Width = 74;
             // 
             // NameSurname
             // 
@@ -99,6 +101,21 @@
             // 
             this.Mail.Text = "Mail";
             this.Mail.Width = 180;
+            // 
+            // Country
+            // 
+            this.Country.Text = "Country";
+            this.Country.Width = 113;
+            // 
+            // Tc
+            // 
+            this.Tc.Text = "TC";
+            this.Tc.Width = 180;
+            // 
+            // Address
+            // 
+            this.Address.Text = "Address";
+            this.Address.Width = 266;
             // 
             // btnShowInformation
             // 
@@ -301,21 +318,6 @@
             this.lblCountry.Size = new System.Drawing.Size(92, 22);
             this.lblCountry.TabIndex = 56;
             this.lblCountry.Text = "Country:";
-            // 
-            // Country
-            // 
-            this.Country.Text = "Country";
-            this.Country.Width = 113;
-            // 
-            // Tc
-            // 
-            this.Tc.Text = "TC";
-            this.Tc.Width = 180;
-            // 
-            // Address
-            // 
-            this.Address.Text = "Address";
-            this.Address.Width = 266;
             // 
             // CustomerInformation
             // 

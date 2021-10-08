@@ -83,7 +83,19 @@ namespace hotel
            
         }
 
-       
+        Customer customer = new Customer();
+
+        private void listCustomerInformation_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            customer.CustomerId = int.Parse(listCustomerInformation.Items[e.Index].SubItems[0].Text);
+            txtNameSurname.Text = listCustomerInformation.Items[e.Index].SubItems[1].Text;
+            txtTelephone.Text = listCustomerInformation.Items[e.Index].SubItems[2].Text;
+            txtMail.Text = listCustomerInformation.Items[e.Index].SubItems[3].Text;
+            txtCountry.Text = listCustomerInformation.Items[e.Index].SubItems[4].Text;
+            txtTc.Text = listCustomerInformation.Items[e.Index].SubItems[5].Text;
+            txtAddress.Text = listCustomerInformation.Items[e.Index].SubItems[6].Text;
+        }
+
         private void btnResearch_Click(object sender, EventArgs e)
         {
           
@@ -96,6 +108,7 @@ namespace hotel
             mainPage.Show();
             this.Hide();
         }
-       
+
+        
     }
 }
