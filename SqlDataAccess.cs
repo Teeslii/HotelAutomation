@@ -8,13 +8,16 @@ using System.Configuration;
 using System.Data;
 using System.Data.Sql;
 using System.Data.SqlClient;
+using AutoMapper;
 
 namespace hotel
 {
     public class SqlDataAccess : IDataAccess
     {
 
-        private string ConnectionString = ConfigurationManager.ConnectionStrings["hotel.Properties.Settings.Setting"].ConnectionString;
+        private readonly string ConnectionString = ConfigurationManager.ConnectionStrings["hotel.Properties.Settings.Setting"].ConnectionString;
+
+       
         public int SaveCustomer(CustomerDto customerDto)
         {
             using (var ConnectionSave = new SqlConnection(ConnectionString))
@@ -42,6 +45,42 @@ namespace hotel
                 ConnectionSave.Close();
                 return _customerId;
             }
+        } 
+       
+        public List<CustomerDto> MapperShowInfo()
+        {
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<Customer, CustomerDto>());
+            var mapper = new Mapper(config);
+            List<CustomerDto> customerDto = mapper.Map<List<Customer>, List<CustomerDto>>(GetCustomersInfo());
+            return customerDto;
         }
+        public List<Customer> GetCustomersInfo()
+        {
+            using (var connectionInfo = new SqlConnection(ConnectionString))
+            {
+                connectionInfo.Open();
+                List<Customer> customer = new List<Customer>();
+                var customerQuery = "select Id, NameSurname, Telephone, Mail, Country, Tc, Address from Customer";
+                var cmd = new SqlCommand(customerQuery, connectionInfo);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    if (!int.TryParse(reader["Id"].ToString(), out int _customerId))
+                    {
+                        System.Windows.Forms.MessageBox.Show("An error occurred while retrieving the registered customer's ID.");
+                    }
+                    if (!long.TryParse(reader["Tc"].ToString(), out long _Tc))
+                    {
+                        System.Windows.Forms.MessageBox.Show("An error occurred while retrieving the registered customer's TC.");
+                    }
+                    customer.Add(new Customer() { CustomerId = _customerId, NameSurname = reader["NameSurname"].ToString(), Telephone = reader["Telephone"].ToString(), Mail = reader["Mail"].ToString(), Country = reader["Country"].ToString(), Tc = _Tc, Address = reader["Address"].ToString() });
+                }
+
+                connectionInfo.Close();
+                return customer;
+            }
+        }
+
     }
 }

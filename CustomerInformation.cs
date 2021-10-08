@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.Configuration;
 using System.Data.Sql;
 using System.Data.SqlClient;
+using hotel.Models;
+
 namespace hotel
 {
     public partial class CustomerInformation : Form
@@ -21,12 +23,34 @@ namespace hotel
             this._dataAccess = _dataAccess;
         }
 
-        private void showdata()
+        private void AssignShowInfoList()
         {
-           
+            listCustomerInformation.Items.Clear();
+
+            List<CustomerDto> customerDto;
+            customerDto = _dataAccess.MapperShowInfo();
+
+            foreach (CustomerDto getCustomersInfo in customerDto)
+            {
+                ListViewItem addItems = new ListViewItem();
+
+                addItems.Text = getCustomersInfo.CustomerId.ToString();
+                addItems.SubItems.Add(getCustomersInfo.NameSurname);
+                addItems.SubItems.Add(getCustomersInfo.Telephone);
+                addItems.SubItems.Add(getCustomersInfo.Mail);
+                addItems.SubItems.Add(getCustomersInfo.Country);
+                addItems.SubItems.Add(getCustomersInfo.Tc.ToString());
+                addItems.SubItems.Add(getCustomersInfo.Address);
+
+                listCustomerInformation.Items.Add(addItems);
+
+            }
         }
 
-       
+         private void btnShowInformation_Click(object sender, EventArgs e)
+        {
+            AssignShowInfoList();
+        }
 
         private int id = 0;
         private void listCustomerInformation_DoubleClick(object sender, EventArgs e)
@@ -59,6 +83,7 @@ namespace hotel
            
         }
 
+       
         private void btnResearch_Click(object sender, EventArgs e)
         {
           
@@ -71,12 +96,6 @@ namespace hotel
             mainPage.Show();
             this.Hide();
         }
-
-        private void btnShowInformation_Click(object sender, EventArgs e)
-        {
-
-        }
-
        
     }
 }

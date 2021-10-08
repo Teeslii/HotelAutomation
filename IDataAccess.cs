@@ -7,8 +7,13 @@ using hotel.Models;
 
 namespace hotel
 {
-     public interface IDataAccess
+    public interface IDataAccess
     {
         int SaveCustomer(CustomerDto customerDto);
+
+        List<CustomerDto> MapperShowInfo();
+        List<Customer> GetCustomersInfo();
+
+       
     }
 }
