@@ -29,7 +29,7 @@ namespace hotel
             listCustomerInformation.Items.Clear();
 
             List<CustomerDto> customerDto;
-            customerDto = _dataAccess.MapperShowInfo();
+            customerDto = MapperResult();
 
             foreach (CustomerDto getCustomersInfo in customerDto)
             {
@@ -50,6 +50,7 @@ namespace hotel
 
          private void btnShowInformation_Click(object sender, EventArgs e)
         {
+            txtSearchNameSurname.Text ="";
             AssignShowInfoList();
         }
 
@@ -113,12 +114,22 @@ namespace hotel
             txtAddress.Text = listCustomerInformation.Items[e.Index].SubItems[6].Text;
         }
 
+        public List<CustomerDto> MapperResult()
+        {
+            List<Customer> customers = _dataAccess.GetCustomersInfo(txtSearchNameSurname.Text);
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<Customer, CustomerDto>());
+            var mapper = new Mapper(config);
+            List<CustomerDto> customerDto = mapper.Map<List<Customer>, List<CustomerDto>>(customers);
+            return customerDto;
+
+        }
+
         private void AssignResultSearchList()
         {
             listCustomerInformation.Items.Clear();
 
             List<CustomerDto> customerDto;
-            customerDto = _dataAccess.GetCustomersInfo(txtSearchNameSurname.Text);
+            customerDto = MapperResult();
 
             foreach (CustomerDto getCustomersInfo in customerDto)
             {

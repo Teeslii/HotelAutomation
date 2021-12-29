@@ -47,23 +47,34 @@ namespace hotel
             }
         }
 
-        public List<CustomerDto> MapperShowInfo()
-        {
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<Customer, CustomerDto>());
-            var mapper = new Mapper(config);
-            List<CustomerDto> customerDto = mapper.Map<List<Customer>, List<CustomerDto>>(GetCustomersInfo());
-            return customerDto;
-        }
-        public List<Customer> GetCustomersInfo()
+        
+
+        public List<Customer> GetCustomersInfo(string _nameSurname)
         {
             using (var connectionInfo = new SqlConnection(ConnectionString))
             {
                 connectionInfo.Open();
                 List<Customer> customer = new List<Customer>();
-                var customerQuery = "select Id, NameSurname, Telephone, Mail, Country, Tc, Address from Customer";
-                var cmd = new SqlCommand(customerQuery, connectionInfo);
+                string searchQuery;
 
+                if (_nameSurname == "")
+                {
+                    searchQuery = "select Id, NameSurname, Telephone, Mail, Country, Tc, Address from Customer";
+                }
+                else
+                {
+                    searchQuery = "select Id, NameSurname, Telephone, Mail, Country, Tc, Address from Customer where NameSurname Like '%'+ @NameSurname +'%' ";
+                }
+                var cmd = new SqlCommand(searchQuery, connectionInfo);
+
+              
+                if (_nameSurname != "")
+                {
+                    cmd.Parameters.Add(new System.Data.SqlClient.SqlParameter("@NameSurname", SqlDbType.NVarChar, 250) { Value = _nameSurname });
+                }
+               
                 SqlDataReader reader = cmd.ExecuteReader();
+
                 while (reader.Read())
                 {
                     if (!int.TryParse(reader["Id"].ToString(), out int _customerId))
@@ -82,43 +93,7 @@ namespace hotel
             }
         }
 
-        public List<CustomerDto> GetCustomersInfo(string _nameSurname)
-        {
-            using (var connectionInfo = new SqlConnection(ConnectionString))
-            {
-                connectionInfo.Open();
-                List<Customer> customer = new List<Customer>();
-                var searchQuery = "select Id, NameSurname, Telephone, Mail, Country, Tc, Address from Customer where NameSurname Like '%'+ @NameSurname +'%' ";
-                var cmd = new SqlCommand(searchQuery, connectionInfo);
-                cmd.Parameters.Add(new System.Data.SqlClient.SqlParameter("@NameSurname", SqlDbType.NVarChar, 250) { Value = _nameSurname });
-
-                SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    if (!int.TryParse(reader["Id"].ToString(), out int _customerId))
-                    {
-                        System.Windows.Forms.MessageBox.Show("An error occurred while retrieving the registered customer's ID.");
-                    }
-                    if (!long.TryParse(reader["Tc"].ToString(), out long _Tc))
-                    {
-                        System.Windows.Forms.MessageBox.Show("An error occurred while retrieving the registered customer's TC.");
-                    }
-                    customer.Add(new Customer() { CustomerId = _customerId, NameSurname = reader["NameSurname"].ToString(), Telephone = reader["Telephone"].ToString(), Mail = reader["Mail"].ToString(), Country = reader["Country"].ToString(), Tc = _Tc, Address = reader["Address"].ToString() });
-                }
-
-                connectionInfo.Close();
-                return MapperResultSearch(customer);
-            }
-        }
-
-        public List<CustomerDto> MapperResultSearch(List<Customer> customers)
-        {
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<Customer, CustomerDto>());
-            var mapper = new Mapper(config);
-            List<CustomerDto> customerDto = mapper.Map<List<Customer>, List<CustomerDto>>(customers);
-            return customerDto;
-
-        }
+       
 
         public void UpdateCustomer(CustomerDto customerDto)
         {

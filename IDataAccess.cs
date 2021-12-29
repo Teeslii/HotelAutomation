@@ -10,12 +10,10 @@ namespace hotel
     public interface IDataAccess
     {
         int SaveCustomer(CustomerDto customerDto);
+ 
 
-        List<CustomerDto> MapperShowInfo();
-        List<Customer> GetCustomersInfo();
-
-        List<CustomerDto> GetCustomersInfo(string _nameSurname);
-        List<CustomerDto> MapperResultSearch(List<Customer> customers);
+        List<Customer> GetCustomersInfo(string _nameSurname);
+        
 
         void UpdateCustomer(CustomerDto customerDto);
 
