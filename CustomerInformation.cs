@@ -17,19 +17,20 @@ namespace hotel
 {
     public partial class CustomerInformation : Form
     {
-        private readonly IDataAccess _dataAccess;
-        public CustomerInformation(IDataAccess _dataAccess)
+        private MapperCustomer _mapperCustomer;
+        public CustomerInformation(MapperCustomer mapperCustomer)
         {
             InitializeComponent();
-            this._dataAccess = _dataAccess;
+            this._mapperCustomer =mapperCustomer;
         }
 
+        
         private void AssignShowInfoList()
         {
             listCustomerInformation.Items.Clear();
 
             List<CustomerDto> customerDto;
-            customerDto = MapperResult();
+            customerDto = _mapperCustomer.MapperResultProfile("");
 
             foreach (CustomerDto getCustomersInfo in customerDto)
             {
@@ -73,34 +74,34 @@ namespace hotel
 
             AssignShowInfoList();
         }
-        private void MapperUpdateCustomer()
+         private void MapperUpdateCustomer()
         {
 
-            customer.NameSurname = txtNameSurname.Text;
+        //    customer.NameSurname = txtNameSurname.Text;
 
-            customer.Telephone = txtTelephone.Text;
+        //    customer.Telephone = txtTelephone.Text;
 
-            customer.Mail = txtMail.Text;
+        //    customer.Mail = txtMail.Text;
 
-            customer.Country = txtCountry.Text;
+        //    customer.Country = txtCountry.Text;
 
-            if (!long.TryParse(txtTc.Text, out long Tc))
-            {
-                MessageBox.Show("An error occurred while entering TC. Please enter again your TC number.");
-                return;
-            }
-            customer.Tc = Tc;
+        //    if (!long.TryParse(txtTc.Text, out long Tc))
+        //    {
+        //        MessageBox.Show("An error occurred while entering TC. Please enter again your TC number.");
+        //        return;
+        //    }
+        //    customer.Tc = Tc;
 
-            customer.Address = txtAddress.Text;
+        //    customer.Address = txtAddress.Text;
 
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<Customer, CustomerDto>());
-            var mapper = new Mapper(config);
-            var customerDto = mapper.Map<CustomerDto>(customer);
+        //    var config = new MapperConfiguration(cfg => cfg.CreateMap<Customer, CustomerDto>());
+        //    var mapper = new Mapper(config);
+        //    var customerDto = mapper.Map<CustomerDto>(customer);
 
-            _dataAccess.UpdateCustomer(customerDto);
+        //    _dataAccess.UpdateCustomer(customerDto);
 
 
-        }
+         }
         Customer customer = new Customer();
 
         private void listCustomerInformation_ItemCheck(object sender, ItemCheckEventArgs e)
@@ -114,22 +115,22 @@ namespace hotel
             txtAddress.Text = listCustomerInformation.Items[e.Index].SubItems[6].Text;
         }
 
-        public List<CustomerDto> MapperResult()
-        {
-            List<Customer> customers = _dataAccess.GetCustomersInfo(txtSearchNameSurname.Text);
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<Customer, CustomerDto>());
-            var mapper = new Mapper(config);
-            List<CustomerDto> customerDto = mapper.Map<List<Customer>, List<CustomerDto>>(customers);
-            return customerDto;
+        //public List<CustomerDto> MapperResult()
+        //{
+        //    List<Customer> customers = _dataAccess.GetCustomersInfo(txtSearchNameSurname.Text);
+        //    var config = new MapperConfiguration(cfg => cfg.CreateMap<Customer, CustomerDto>());
+        //    var mapper = new Mapper(config);
+        //    List<CustomerDto> customerDto = mapper.Map<List<Customer>, List<CustomerDto>>(customers);
+        //    return customerDto;
 
-        }
+        //}
 
         private void AssignResultSearchList()
         {
             listCustomerInformation.Items.Clear();
 
             List<CustomerDto> customerDto;
-            customerDto = MapperResult();
+            customerDto = _mapperCustomer.MapperResultProfile(txtSearchNameSurname.Text);
 
             foreach (CustomerDto getCustomersInfo in customerDto)
             {
