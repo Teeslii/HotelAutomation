@@ -15,7 +15,7 @@ namespace hotel
         List<Customer> GetCustomersInfo(string _nameSurname);
         
 
-        void UpdateCustomer(CustomerDto customerDto);
+        void UpdateCustomer(Customer customer);
 
     }
 }

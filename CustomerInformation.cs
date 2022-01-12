@@ -69,38 +69,32 @@ namespace hotel
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            MapperUpdateCustomer();
+            GetUpdateCustomerInfo();
 
             AssignShowInfoList();
         }
-         private void MapperUpdateCustomer()
+         private void GetUpdateCustomerInfo()
         {
+             
+            customer.NameSurname = txtNameSurname.Text;
 
-        //    customer.NameSurname = txtNameSurname.Text;
+            customer.Telephone = txtTelephone.Text;
 
-        //    customer.Telephone = txtTelephone.Text;
+            customer.Mail = txtMail.Text;
 
-        //    customer.Mail = txtMail.Text;
+            customer.Country = txtCountry.Text;
 
-        //    customer.Country = txtCountry.Text;
-
-        //    if (!long.TryParse(txtTc.Text, out long Tc))
-        //    {
-        //        MessageBox.Show("An error occurred while entering TC. Please enter again your TC number.");
-        //        return;
-        //    }
-        //    customer.Tc = Tc;
-
-        //    customer.Address = txtAddress.Text;
-
-        //    var config = new MapperConfiguration(cfg => cfg.CreateMap<Customer, CustomerDto>());
-        //    var mapper = new Mapper(config);
-        //    var customerDto = mapper.Map<CustomerDto>(customer);
-
-        //    _dataAccess.UpdateCustomer(customerDto);
-
-
-         }
+            if (!long.TryParse(txtTc.Text, out long Tc))
+            {
+                MessageBox.Show("An error occurred while entering TC. Please enter again your TC number.");
+                return;
+            }
+            customer.Tc = Tc;
+          
+            customer.Address = txtAddress.Text;
+            
+            _dataAccess.UpdateCustomer(customer);
+        }
         Customer customer = new Customer();
 
         private void listCustomerInformation_ItemCheck(object sender, ItemCheckEventArgs e)
