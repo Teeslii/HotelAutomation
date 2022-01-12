@@ -49,7 +49,9 @@ namespace hotel
 
         private void btnCustomers_Click(object sender, EventArgs e)
         {
-            CustomerInformation customers = new CustomerInformation();
+            
+            CustomerInformation customers = new CustomerInformation(_dataAccess);
+            
             customers.Show();
             this.Hide();
         }

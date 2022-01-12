@@ -167,7 +167,7 @@
             this.roomControlBooking.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("roomControlBooking.BackgroundImage")));
             this.roomControlBooking.Location = new System.Drawing.Point(565, -35);
             this.roomControlBooking.Name = "roomControlBooking";
-            this.roomControlBooking.RoomNo = 0;
+          
             this.roomControlBooking.Size = new System.Drawing.Size(580, 514);
             this.roomControlBooking.TabIndex = 31;
             // 

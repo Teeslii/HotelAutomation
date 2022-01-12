@@ -34,8 +34,11 @@
             this.NameSurname = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Telephone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Mail = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Country = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Tc = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Address = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnShowInformation = new System.Windows.Forms.Button();
-            this.btnResearch = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.LblNameSurname = new System.Windows.Forms.Label();
             this.LblTelephone = new System.Windows.Forms.Label();
@@ -47,21 +50,19 @@
             this.txtMail = new System.Windows.Forms.TextBox();
             this.txtTelephone = new System.Windows.Forms.TextBox();
             this.txtNameSurname = new System.Windows.Forms.TextBox();
-            this.txtResearchID = new System.Windows.Forms.TextBox();
+            this.txtSearchNameSurname = new System.Windows.Forms.TextBox();
             this.btnHomeBack = new System.Windows.Forms.Button();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.lblAddress = new System.Windows.Forms.Label();
             this.txtCountry = new System.Windows.Forms.TextBox();
             this.lblCountry = new System.Windows.Forms.Label();
-            this.Country = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Tc = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Address = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // listCustomerInformation
             // 
             this.listCustomerInformation.BackColor = System.Drawing.Color.Gainsboro;
             this.listCustomerInformation.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listCustomerInformation.CheckBoxes = true;
             this.listCustomerInformation.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Id,
             this.NameSurname,
@@ -72,18 +73,18 @@
             this.Address});
             this.listCustomerInformation.Font = new System.Drawing.Font("Lucida Sans", 14.25F);
             this.listCustomerInformation.HideSelection = false;
-            this.listCustomerInformation.Location = new System.Drawing.Point(50, 93);
+            this.listCustomerInformation.Location = new System.Drawing.Point(50, 100);
             this.listCustomerInformation.Name = "listCustomerInformation";
             this.listCustomerInformation.Size = new System.Drawing.Size(1119, 212);
             this.listCustomerInformation.TabIndex = 0;
             this.listCustomerInformation.UseCompatibleStateImageBehavior = false;
             this.listCustomerInformation.View = System.Windows.Forms.View.Details;
-            this.listCustomerInformation.DoubleClick += new System.EventHandler(this.listCustomerInformation_DoubleClick);
+            this.listCustomerInformation.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.listCustomerInformation_ItemCheck);
             // 
             // Id
             // 
             this.Id.Text = "ID";
-            this.Id.Width = 44;
+            this.Id.Width = 74;
             // 
             // NameSurname
             // 
@@ -100,6 +101,21 @@
             this.Mail.Text = "Mail";
             this.Mail.Width = 180;
             // 
+            // Country
+            // 
+            this.Country.Text = "Country";
+            this.Country.Width = 113;
+            // 
+            // Tc
+            // 
+            this.Tc.Text = "TC";
+            this.Tc.Width = 180;
+            // 
+            // Address
+            // 
+            this.Address.Text = "Address";
+            this.Address.Width = 266;
+            // 
             // btnShowInformation
             // 
             this.btnShowInformation.BackColor = System.Drawing.Color.Transparent;
@@ -112,17 +128,17 @@
             this.btnShowInformation.UseVisualStyleBackColor = false;
             this.btnShowInformation.Click += new System.EventHandler(this.btnShowInformation_Click);
             // 
-            // btnResearch
+            // btnSearch
             // 
-            this.btnResearch.BackColor = System.Drawing.Color.Transparent;
-            this.btnResearch.Font = new System.Drawing.Font("Lucida Sans", 14.25F);
-            this.btnResearch.Location = new System.Drawing.Point(336, 26);
-            this.btnResearch.Name = "btnResearch";
-            this.btnResearch.Size = new System.Drawing.Size(140, 47);
-            this.btnResearch.TabIndex = 2;
-            this.btnResearch.Text = "Research";
-            this.btnResearch.UseVisualStyleBackColor = false;
-            this.btnResearch.Click += new System.EventHandler(this.btnResearch_Click);
+            this.btnSearch.BackColor = System.Drawing.Color.Transparent;
+            this.btnSearch.Font = new System.Drawing.Font("Lucida Sans", 14.25F);
+            this.btnSearch.Location = new System.Drawing.Point(515, 26);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(140, 47);
+            this.btnSearch.TabIndex = 2;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnUpdate
             // 
@@ -185,11 +201,11 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Lucida Sans", 14.25F);
-            this.label1.Location = new System.Drawing.Point(46, 39);
+            this.label1.Location = new System.Drawing.Point(55, 36);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 22);
+            this.label1.Size = new System.Drawing.Size(155, 22);
             this.label1.TabIndex = 40;
-            this.label1.Text = "ID:";
+            this.label1.Text = "Name Surname:";
             // 
             // btnClear
             // 
@@ -235,13 +251,13 @@
             this.txtNameSurname.Size = new System.Drawing.Size(200, 30);
             this.txtNameSurname.TabIndex = 46;
             // 
-            // txtResearchID
+            // txtSearchNameSurname
             // 
-            this.txtResearchID.Font = new System.Drawing.Font("Lucida Sans", 14.25F);
-            this.txtResearchID.Location = new System.Drawing.Point(90, 36);
-            this.txtResearchID.Name = "txtResearchID";
-            this.txtResearchID.Size = new System.Drawing.Size(200, 30);
-            this.txtResearchID.TabIndex = 51;
+            this.txtSearchNameSurname.Font = new System.Drawing.Font("Lucida Sans", 14.25F);
+            this.txtSearchNameSurname.Location = new System.Drawing.Point(269, 36);
+            this.txtSearchNameSurname.Name = "txtSearchNameSurname";
+            this.txtSearchNameSurname.Size = new System.Drawing.Size(200, 30);
+            this.txtSearchNameSurname.TabIndex = 51;
             // 
             // btnHomeBack
             // 
@@ -302,21 +318,6 @@
             this.lblCountry.TabIndex = 56;
             this.lblCountry.Text = "Country:";
             // 
-            // Country
-            // 
-            this.Country.Text = "Country";
-            this.Country.Width = 113;
-            // 
-            // Tc
-            // 
-            this.Tc.Text = "TC";
-            this.Tc.Width = 180;
-            // 
-            // Address
-            // 
-            this.Address.Text = "Address";
-            this.Address.Width = 266;
-            // 
             // CustomerInformation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -328,7 +329,7 @@
             this.Controls.Add(this.txtAddress);
             this.Controls.Add(this.lblAddress);
             this.Controls.Add(this.btnHomeBack);
-            this.Controls.Add(this.txtResearchID);
+            this.Controls.Add(this.txtSearchNameSurname);
             this.Controls.Add(this.txtTc);
             this.Controls.Add(this.txtMail);
             this.Controls.Add(this.txtTelephone);
@@ -340,7 +341,7 @@
             this.Controls.Add(this.LblMail);
             this.Controls.Add(this.LblID);
             this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.btnResearch);
+            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnShowInformation);
             this.Controls.Add(this.listCustomerInformation);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -362,7 +363,7 @@
         private System.Windows.Forms.ColumnHeader Telephone;
         private System.Windows.Forms.ColumnHeader Mail;
         private System.Windows.Forms.Button btnShowInformation;
-        private System.Windows.Forms.Button btnResearch;
+        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Label LblNameSurname;
         private System.Windows.Forms.Label LblTelephone;
@@ -374,7 +375,7 @@
         private System.Windows.Forms.TextBox txtMail;
         private System.Windows.Forms.TextBox txtTelephone;
         private System.Windows.Forms.TextBox txtNameSurname;
-        private System.Windows.Forms.TextBox txtResearchID;
+        private System.Windows.Forms.TextBox txtSearchNameSurname;
         private System.Windows.Forms.Button btnHomeBack;
         private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.Label lblAddress;

@@ -10,37 +10,51 @@ using System.Windows.Forms;
 using System.Configuration;
 using System.Data.Sql;
 using System.Data.SqlClient;
+
+
 namespace hotel
 {
     public partial class CustomerInformation : Form
-    {
-       
-        public CustomerInformation()
+    { 
+        private readonly IDataAccess _dataAccess;
+        public CustomerInformation(IDataAccess _dataAccess)
         {
             InitializeComponent();
+            this._dataAccess = _dataAccess;
         }
 
-        private void showdata()
+        
+        private void AssignShowInfoList()
         {
-           
+            listCustomerInformation.Items.Clear();
+
+            List<Customer> customer;
+            customer = _dataAccess.GetCustomersInfo(txtSearchNameSurname.Text);
+
+            foreach (Customer getCustomersInfo in customer)
+            {
+                ListViewItem addItems = new ListViewItem();
+
+                addItems.Text = getCustomersInfo.CustomerId.ToString();
+                addItems.SubItems.Add(getCustomersInfo.NameSurname);
+                addItems.SubItems.Add(getCustomersInfo.Telephone);
+                addItems.SubItems.Add(getCustomersInfo.Mail);
+                addItems.SubItems.Add(getCustomersInfo.Country);
+                addItems.SubItems.Add(getCustomersInfo.Tc.ToString());
+                addItems.SubItems.Add(getCustomersInfo.Address);
+
+                listCustomerInformation.Items.Add(addItems);
+
+            }
         }
 
-       
-
-        private int id = 0;
-        private void listCustomerInformation_DoubleClick(object sender, EventArgs e)
+         private void btnShowInformation_Click(object sender, EventArgs e)
         {
-            id = int.Parse(listCustomerInformation.SelectedItems[0].SubItems[0].Text);
-            txtNameSurname.Text  = listCustomerInformation.SelectedItems[0].SubItems[1].Text;
-            txtTelephone.Text = listCustomerInformation.SelectedItems[0].SubItems[2].Text;
-            txtMail.Text = listCustomerInformation.SelectedItems[0].SubItems[3].Text;
-            txtCountry.Text = listCustomerInformation.SelectedItems[0].SubItems[4].Text;
-            txtTc.Text = listCustomerInformation.SelectedItems[0].SubItems[5].Text;
-            txtAddress.Text = listCustomerInformation.SelectedItems[0].SubItems[6].Text;
+            txtSearchNameSurname.Text ="";
+            AssignShowInfoList();
         }
 
-
-
+      
         private void btnClear_Click(object sender, EventArgs e)
         {
          
@@ -55,12 +69,74 @@ namespace hotel
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-           
+            GetUpdateCustomerInfo();
+
+            AssignShowInfoList();
+        }
+         private void GetUpdateCustomerInfo()
+        {
+             
+            customer.NameSurname = txtNameSurname.Text;
+
+            customer.Telephone = txtTelephone.Text;
+
+            customer.Mail = txtMail.Text;
+
+            customer.Country = txtCountry.Text;
+
+            if (!long.TryParse(txtTc.Text, out long Tc))
+            {
+                MessageBox.Show("An error occurred while entering TC. Please enter again your TC number.");
+                return;
+            }
+            customer.Tc = Tc;
+          
+            customer.Address = txtAddress.Text;
+            
+            _dataAccess.UpdateCustomer(customer);
+        }
+        Customer customer = new Customer();
+
+        private void listCustomerInformation_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            customer.CustomerId = int.Parse(listCustomerInformation.Items[e.Index].SubItems[0].Text);
+            txtNameSurname.Text = listCustomerInformation.Items[e.Index].SubItems[1].Text;
+            txtTelephone.Text = listCustomerInformation.Items[e.Index].SubItems[2].Text;
+            txtMail.Text = listCustomerInformation.Items[e.Index].SubItems[3].Text;
+            txtCountry.Text = listCustomerInformation.Items[e.Index].SubItems[4].Text;
+            txtTc.Text = listCustomerInformation.Items[e.Index].SubItems[5].Text;
+            txtAddress.Text = listCustomerInformation.Items[e.Index].SubItems[6].Text;
         }
 
-        private void btnResearch_Click(object sender, EventArgs e)
+        
+
+        private void AssignResultSearchList()
         {
-          
+            listCustomerInformation.Items.Clear();
+
+            List<Customer> customer;
+            customer = _dataAccess.GetCustomersInfo(txtSearchNameSurname.Text);
+
+            foreach (Customer getCustomersInfo in customer)
+            {
+                ListViewItem addItems = new ListViewItem();
+
+                addItems.Text = getCustomersInfo.CustomerId.ToString();
+                addItems.SubItems.Add(getCustomersInfo.NameSurname);
+                addItems.SubItems.Add(getCustomersInfo.Telephone);
+                addItems.SubItems.Add(getCustomersInfo.Mail);
+                addItems.SubItems.Add(getCustomersInfo.Country);
+                addItems.SubItems.Add(getCustomersInfo.Tc.ToString());
+                addItems.SubItems.Add(getCustomersInfo.Address);
+
+                listCustomerInformation.Items.Add(addItems);
+
+            }
+
+        }
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            AssignResultSearchList();
         }
            
         
@@ -71,11 +147,6 @@ namespace hotel
             this.Hide();
         }
 
-        private void btnShowInformation_Click(object sender, EventArgs e)
-        {
-
-        }
-
-       
+        
     }
 }
