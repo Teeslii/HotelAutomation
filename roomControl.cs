@@ -14,9 +14,9 @@ using System.Data.SqlClient;
 
 namespace hotel
 {
-    public partial class roomControl : UserControl
+    public partial class RoomControl : UserControl
     {
-        public roomControl()
+        public RoomControl()
         {
             InitializeComponent();
         }
@@ -25,7 +25,7 @@ namespace hotel
         public int RoomNo{  get;   set;  }
         public void ColorTransition()
         {
-            foreach (roomControl roomIsDelete in RoomControlService.QueryIsDelete())
+            foreach (RoomControl roomIsDelete in RoomControlService.QueryIsDelete())
             {
                 switch (roomIsDelete.RoomNo)
                 {

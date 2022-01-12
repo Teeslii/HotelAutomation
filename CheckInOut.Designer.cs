@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CheckInOut));
             this.btnhomeback = new System.Windows.Forms.Button();
-            this.roomControlCheck = new hotel.roomControl();
+            this.roomControlCheck = new hotel.RoomControl();
             this.SuspendLayout();
             // 
             // btnhomeback
@@ -75,6 +75,6 @@
 
         #endregion
         private System.Windows.Forms.Button btnhomeback;
-        private roomControl roomControlCheck;
+        private RoomControl roomControlCheck;
     }
 }
