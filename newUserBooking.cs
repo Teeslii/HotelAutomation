@@ -10,8 +10,7 @@ using System.Windows.Forms;
 using System.Configuration;
 using System.Data.Sql;
 using System.Data.SqlClient;
-using AutoMapper;
-using hotel.Models;
+
 
 namespace hotel
 {
@@ -27,7 +26,7 @@ namespace hotel
         Customer customer = new Customer();
 
 
-        private void MapperCustomerDto()
+        private void SaveCustomerInfo()
         {
             customer.NameSurname = txtNameSurname.Text;
            
@@ -45,18 +44,14 @@ namespace hotel
             customer.Tc = Tc;
 
             customer.Address = txtAddress.Text;
-
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<Customer,CustomerDto>());
-            var mapper = new Mapper(config);
-            var customerDto = mapper.Map<CustomerDto>(customer);
-            customer.CustomerId = _dataAccess.SaveCustomer(customerDto);
+            customer.CustomerId = _dataAccess.SaveCustomer(customer);
 
         }
 
       
         private void btnSignIn_Click(object sender, EventArgs e)
         {
-            MapperCustomerDto();
+            SaveCustomerInfo();
            CheckInOut checkInOut = new CheckInOut();
             checkInOut.TransferId(customer.CustomerId);
             checkInOut.Show();
