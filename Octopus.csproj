@@ -93,7 +93,6 @@
     <Compile Include="CustomerInformation.Designer.cs">
       <DependentUpon>CustomerInformation.cs</DependentUpon>
     </Compile>
-    <Compile Include="MapperCustomer.cs" />
     <Compile Include="SqlDataAccess.cs" />
     <Compile Include="IDataAccess.cs" />
     <Compile Include="Invoice.cs">

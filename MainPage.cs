@@ -49,8 +49,8 @@ namespace hotel
 
         private void btnCustomers_Click(object sender, EventArgs e)
         {
-            MapperCustomer mapperCustomer = new MapperCustomer(_dataAccess);
-            CustomerInformation customers = new CustomerInformation(mapperCustomer);
+            
+            CustomerInformation customers = new CustomerInformation(_dataAccess);
             
             customers.Show();
             this.Hide();

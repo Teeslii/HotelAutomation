@@ -87,7 +87,7 @@ namespace hotel
                     }
                     customer.Add(new Customer() { CustomerId = _customerId, NameSurname = reader["NameSurname"].ToString(), Telephone = reader["Telephone"].ToString(), Mail = reader["Mail"].ToString(), Country = reader["Country"].ToString(), Tc = _Tc, Address = reader["Address"].ToString() });
                 }
-
+                 
                 connectionInfo.Close();
                 return customer;
             }

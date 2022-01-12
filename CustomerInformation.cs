@@ -10,18 +10,17 @@ using System.Windows.Forms;
 using System.Configuration;
 using System.Data.Sql;
 using System.Data.SqlClient;
-using hotel.Models;
-using AutoMapper;
+
 
 namespace hotel
 {
     public partial class CustomerInformation : Form
-    {
-        private MapperCustomer _mapperCustomer;
-        public CustomerInformation(MapperCustomer mapperCustomer)
+    { 
+        private readonly IDataAccess _dataAccess;
+        public CustomerInformation(IDataAccess _dataAccess)
         {
             InitializeComponent();
-            this._mapperCustomer =mapperCustomer;
+            this._dataAccess = _dataAccess;
         }
 
         
@@ -29,10 +28,10 @@ namespace hotel
         {
             listCustomerInformation.Items.Clear();
 
-            List<CustomerDto> customerDto;
-            customerDto = _mapperCustomer.MapperResultProfile("");
+            List<Customer> customer;
+            customer = _dataAccess.GetCustomersInfo(txtSearchNameSurname.Text);
 
-            foreach (CustomerDto getCustomersInfo in customerDto)
+            foreach (Customer getCustomersInfo in customer)
             {
                 ListViewItem addItems = new ListViewItem();
 
@@ -115,24 +114,16 @@ namespace hotel
             txtAddress.Text = listCustomerInformation.Items[e.Index].SubItems[6].Text;
         }
 
-        //public List<CustomerDto> MapperResult()
-        //{
-        //    List<Customer> customers = _dataAccess.GetCustomersInfo(txtSearchNameSurname.Text);
-        //    var config = new MapperConfiguration(cfg => cfg.CreateMap<Customer, CustomerDto>());
-        //    var mapper = new Mapper(config);
-        //    List<CustomerDto> customerDto = mapper.Map<List<Customer>, List<CustomerDto>>(customers);
-        //    return customerDto;
-
-        //}
+        
 
         private void AssignResultSearchList()
         {
             listCustomerInformation.Items.Clear();
 
-            List<CustomerDto> customerDto;
-            customerDto = _mapperCustomer.MapperResultProfile(txtSearchNameSurname.Text);
+            List<Customer> customer;
+            customer = _dataAccess.GetCustomersInfo(txtSearchNameSurname.Text);
 
-            foreach (CustomerDto getCustomersInfo in customerDto)
+            foreach (Customer getCustomersInfo in customer)
             {
                 ListViewItem addItems = new ListViewItem();
 

@@ -10,8 +10,8 @@ namespace hotel
     public interface IDataAccess
     {
         int SaveCustomer(CustomerDto customerDto);
- 
 
+        
         List<Customer> GetCustomersInfo(string _nameSurname);
         
 
