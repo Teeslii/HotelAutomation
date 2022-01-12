@@ -113,7 +113,6 @@
     <Compile Include="MainPage.Designer.cs">
       <DependentUpon>MainPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\CustomerDto.cs" />
     <Compile Include="NewUserBooking.cs">
       <SubType>Form</SubType>
     </Compile>
