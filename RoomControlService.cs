@@ -13,16 +13,31 @@ namespace hotel
     public static class RoomControlService
     {
         private static string _connectionString = ConfigurationManager.ConnectionStrings["hotel.Properties.Settings.Setting"].ConnectionString;
-        public static void AddingRoom(int RoomNo, int ID)
+        public static void AddingRoom(int _roomNo, Booking booking)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
-                string insertRoom = "Insert into Room(ID, roomNo, checkIn, IsDelete) values ( @ID, @roomNo, GETDATE(), 'False')";
-                SqlCommand Insert = new SqlCommand(insertRoom, connection);
-                Insert.Parameters.Add(new System.Data.SqlClient.SqlParameter("@ID", SqlDbType.Int) { Value = ID });
-                Insert.Parameters.Add(new System.Data.SqlClient.SqlParameter("@roomNo", SqlDbType.Int) { Value = RoomNo });
-                Insert.ExecuteNonQuery();
+
+                var getRoomIdQuery = "select RoomId from Room where RoomNo = @RoomNo ";
+                var cmd = new SqlCommand(getRoomIdQuery, connection);
+                cmd.Parameters.Add(new System.Data.SqlClient.SqlParameter("@RoomNo", SqlDbType.Int) { Value = _roomNo });
+                var saveRoomId = cmd.ExecuteScalar();
+                if (!int.TryParse(saveRoomId.ToString(), out int _roomId))
+                {
+                    System.Windows.Forms.MessageBox.Show("An error occurred while retrieving the registered customer's ID.");
+                }
+
+                booking.RoomId = _roomId;
+
+                var InsertBookingQuery = "Insert into Booking(CheckIn, CheckOut, RoomId, CustomerId) values(@CheckIn, @CheckOut, @RoomId, @CustomerId)";
+                var cmdInsert = new SqlCommand(InsertBookingQuery, connection);
+                cmdInsert.Parameters.Add(new System.Data.SqlClient.SqlParameter("@CheckIn", SqlDbType.Date) { Value = booking.CheckIn });
+                cmdInsert.Parameters.Add(new System.Data.SqlClient.SqlParameter("@CheckOut", SqlDbType.Date) { Value = booking.CheckOut });
+                cmdInsert.Parameters.Add(new System.Data.SqlClient.SqlParameter("@RoomId", SqlDbType.Int) { Value = booking.RoomId });
+                cmdInsert.Parameters.Add(new System.Data.SqlClient.SqlParameter("@CustomerId", SqlDbType.Int) { Value = booking.CustomerId });
+                cmdInsert.ExecuteNonQuery();
+
                 connection.Close();
             }
            

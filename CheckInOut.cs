@@ -24,7 +24,7 @@ namespace hotel
 
         public void TransferId(int SaveCustomerId)
         {
-            roomControlCheck.CustomerId = SaveCustomerId;
+            booking.CustomerId = SaveCustomerId;
         }
 
 

@@ -75,53 +75,66 @@ namespace hotel
             }
 
         }
-     
-         
-        
+
+        private Color ClickedRoomColorQuery(Color _roomColor, int _roomNo)
+        {
+            CheckInOut checkInOut = this.Parent as CheckInOut;
+            if (_roomColor == Color.Lime)
+            {
+                RoomControlService.AddingRoom(_roomNo, checkInOut.GetDate());
+                return Color.Salmon;
+            }
+            else
+            {
+                
+                return Color.Lime;
+            }
+        }
+
         private void Room1_Click(object sender, EventArgs e)
         {
-            
+            Room1.BackColor = ClickedRoomColorQuery(Room1.BackColor, 1);
         }
 
         private void Room2_Click(object sender, EventArgs e)
         {
-            
+            Room2.BackColor = ClickedRoomColorQuery(Room2.BackColor, 2);
         }
 
         private void Room3_Click(object sender, EventArgs e)
         {
-            
+            Room3.BackColor = ClickedRoomColorQuery(Room3.BackColor, 3);
         }
 
         private void Room4_Click(object sender, EventArgs e)
         {
+            Room4.BackColor = ClickedRoomColorQuery(Room4.BackColor, 4);
 
-            
         }
 
         private void Room5_Click(object sender, EventArgs e)
         {
-            
+            Room5.BackColor = ClickedRoomColorQuery(Room5.BackColor, 5);
         }
 
         private void Room6_Click(object sender, EventArgs e)
         {
-             
+            Room6.BackColor = ClickedRoomColorQuery(Room6.BackColor, 6);
         }
 
         private void Room7_Click(object sender, EventArgs e)
         {
-             
+            Room7.BackColor = ClickedRoomColorQuery(Room7.BackColor, 7);
         }
 
         private void Room8_Click(object sender, EventArgs e)
         {
-             
+            Room8.BackColor = ClickedRoomColorQuery(Room8.BackColor, 8);
         }
 
         private void Room9_Click(object sender, EventArgs e)
         {
-             
+            Room9.BackColor = ClickedRoomColorQuery(Room9.BackColor, 9);
         }
     }
 }

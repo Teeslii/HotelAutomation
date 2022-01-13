@@ -54,7 +54,7 @@
             // roomControlCheck
             // 
             this.roomControlCheck.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("roomControlCheck.BackgroundImage")));
-            this.roomControlCheck.CustomerId = 0;
+            
             this.roomControlCheck.Location = new System.Drawing.Point(585, 12);
             this.roomControlCheck.Name = "roomControlCheck";
             this.roomControlCheck.Size = new System.Drawing.Size(580, 514);
