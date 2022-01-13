@@ -80,6 +80,7 @@
     <Compile Include="AdminLogin.Designer.cs">
       <DependentUpon>AdminLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Booking.cs" />
     <Compile Include="CheckInOut.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +94,7 @@
     <Compile Include="CustomerInformation.Designer.cs">
       <DependentUpon>CustomerInformation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Room.cs" />
     <Compile Include="SqlDataAccess.cs" />
     <Compile Include="IDataAccess.cs" />
     <Compile Include="Invoice.cs">

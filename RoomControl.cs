@@ -37,7 +37,7 @@ namespace hotel
         public int RoomNo{  get;   set;  }
         public void ColorTransition()
         {
-            foreach (RoomControl roomIsDelete in RoomControlService)
+            foreach (RoomControl roomIsDelete in RoomControlService.QueryIsDelete())
             {
                 switch (roomIsDelete.RoomNo)
                 {
