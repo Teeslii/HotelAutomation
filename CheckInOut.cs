@@ -26,9 +26,25 @@ namespace hotel
         {
             roomControlCheck.CustomerId = SaveCustomerId;
         }
-       
-       
-       
+
+
+        Booking booking = new Booking();
+
+        public Booking GetDate()
+        {
+            booking.CheckIn = CalendarCheckOut.SelectionStart;
+            booking.CheckOut = CalendarCheckOut.SelectionEnd;
+
+            return booking;
+        }
+
+        public void StartSelectionDate()
+        {
+            CalendarCheckOut.SelectionStart = CalendarCheckIn.SelectionStart;
+            CalendarCheckOut.SelectionEnd = CalendarCheckIn.SelectionRange.Start.AddDays(6);
+
+            roomControlCheck.ColorTransition(GetDate());
+        }
 
         private void btnhomeback_Click(object sender, EventArgs e)
         {
@@ -37,8 +53,16 @@ namespace hotel
             this.Hide();
         }
 
-         
+        private void CheckInOut_Load(object sender, EventArgs e)
+        {
+            StartSelectionDate();
+        }
 
-        
+        private void CalendarCheckOut_DateSelected(object sender, DateRangeEventArgs e)
+        {
+            CalendarCheckOut.SelectionStart = CalendarCheckIn.SelectionStart;
+
+            roomControlCheck.ColorTransition(GetDate());
+        }
     }
 }

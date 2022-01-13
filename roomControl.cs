@@ -34,10 +34,10 @@ namespace hotel
             Room9.BackColor = Color.Transparent;
         }
 
-        public int RoomNo{  get;   set;  }
-        public void ColorTransition()
+         
+        public void ColorTransition(Booking booking)
         {
-            foreach (RoomControl roomIsDelete in RoomControlService.QueryIsDelete())
+            foreach (Room roomIsDelete in RoomControlService.GetFullRooms(booking))
             {
                 switch (roomIsDelete.RoomNo)
                 {

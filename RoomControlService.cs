@@ -27,7 +27,38 @@ namespace hotel
             }
            
         }
-        
+        public static List<Room> GetFullRooms(Booking  booking)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+
+                List<Room> ResultFullRooms = new List<Room>();
+
+                string queryRoomsCheck = "select Room.RoomNo from Booking join Room on Booking.RoomId = Room.RoomId where (CheckIn <= @CheckOut) and (CheckOut >= @CheckIn)";
+
+                SqlCommand cmd = new SqlCommand(queryRoomsCheck, connection);
+
+                cmd.Parameters.Add(new System.Data.SqlClient.SqlParameter("@CheckIn", SqlDbType.Date) { Value = booking.CheckIn });
+                cmd.Parameters.Add(new System.Data.SqlClient.SqlParameter("@CheckOut", SqlDbType.Date) { Value = booking.CheckOut });
+
+                SqlDataReader readerQuery = cmd.ExecuteReader();
+
+                while (readerQuery.Read())
+                {
+                    if (!int.TryParse(readerQuery["roomNo"].ToString(), out int _roomNo))
+                    {
+                        System.Windows.Forms.MessageBox.Show("Data processing error has occurred when processing Room Number data.");
+                    }
+                    ResultFullRooms.Add(new Room() { RoomNo = _roomNo });
+                }
+                readerQuery.Close();
+                connection.Close();
+                return ResultFullRooms;
+
+            }
+
+        }
 
         public static void DeleteRoom(int _roomNo)
         {
