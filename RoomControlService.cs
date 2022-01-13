@@ -27,33 +27,7 @@ namespace hotel
             }
            
         }
-        private static string ErrorMessage;
-        public static List<RoomControl> QueryIsDelete()
-        {
-            using (var connectionIsDelete = new SqlConnection(_connectionString))
-            {
-                connectionIsDelete.Open();
-
-                List<RoomControl> isDeleteRead = new List<RoomControl>();
-                string queryIsDelete = "select roomNo from Room where IsDelete= 'False'";
-                SqlCommand query = new SqlCommand(queryIsDelete, connectionIsDelete);
-                SqlDataReader readerQuery = query.ExecuteReader();
-                while (readerQuery.Read())
-                {
-                    if (!int.TryParse(readerQuery["roomNo"].ToString(), out int roomNo))
-                    {
-                        ErrorMessage = "Data processing error has occurred when processing Room Number data.";
-                        System.Windows.Forms.MessageBox.Show(ErrorMessage);
-                    }
-                    isDeleteRead.Add(new RoomControl() { RoomNo = roomNo });
-                }
-                readerQuery.Close();
-                connectionIsDelete.Close();
-                return isDeleteRead;
-
-            }
-
-        }
+        
 
         public static void DeleteRoom(int _roomNo)
         {
