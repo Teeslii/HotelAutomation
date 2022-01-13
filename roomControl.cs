@@ -21,7 +21,19 @@ namespace hotel
             InitializeComponent();
         }
 
-       
+        public void DefaultColor()
+        {
+            Room1.BackColor = Color.Transparent;
+            Room2.BackColor = Color.Transparent;
+            Room3.BackColor = Color.Transparent;
+            Room4.BackColor = Color.Transparent;
+            Room5.BackColor = Color.Transparent;
+            Room6.BackColor = Color.Transparent;
+            Room7.BackColor = Color.Transparent;
+            Room8.BackColor = Color.Transparent;
+            Room9.BackColor = Color.Transparent;
+        }
+
         public int RoomNo{  get;   set;  }
         public void ColorTransition()
         {
