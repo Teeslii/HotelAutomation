@@ -20,40 +20,30 @@ namespace hotel
             InitializeComponent();
            
         }
-        private string ConnectionString = ConfigurationManager.ConnectionStrings["hotel.Properties.Settings.Setting"].ConnectionString;
+        
 
         public void TransferId(int SaveCustomerId)
         {
-            roomControlCheck.CustomerId = SaveCustomerId;
+            booking.CustomerId = SaveCustomerId;
         }
-        private int convertID;
-       
-        private void btnResearch_Click(object sender, EventArgs e)
+
+
+        Booking booking = new Booking();
+
+        public Booking GetDate()
         {
-            convertID = Convert.ToInt32(txtResearchRoom.Text);
+            booking.CheckIn = CalendarCheckOut.SelectionStart;
+            booking.CheckOut = CalendarCheckOut.SelectionEnd;
 
-            using (var connection = new SqlConnection(ConnectionString))
-            {  
-                connection.Open();
-                string ResearchChart = " select firstName, lastName, telephone, price, howManyDay, Room.roomNo from customer inner join Room  on customer.ID = Room.ID where Room.roomNo= @convertID ";
-                SqlCommand sqlCommand = new SqlCommand(ResearchChart, connection);
-                sqlCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@convertID", SqlDbType.Int, 3) { Value = convertID });
-                sqlCommand.ExecuteNonQuery();
-                SqlDataReader readerInOut =  sqlCommand.ExecuteReader();
-                while (readerInOut.Read())
-                {
-                    txtFirstName.Text = readerInOut["firstName"].ToString();
-                    txtLastName.Text = readerInOut["lastName"].ToString();
-                    txtTelephone.Text = readerInOut["telephone"].ToString();
+            return booking;
+        }
 
-                    txtPrice.Text = readerInOut["price"].ToString();
-                    txthowManyDay.Text = readerInOut["howManyDay"].ToString();
-                    txtRoomNo.Text = readerInOut["roomNo"].ToString();
-                }
-                readerInOut.Close();
-                connection.Close();
-            }
-             
+        public void StartSelectionDate()
+        {
+            CalendarCheckOut.SelectionStart = CalendarCheckIn.SelectionStart;
+            CalendarCheckOut.SelectionEnd = CalendarCheckIn.SelectionRange.Start.AddDays(6);
+
+            roomControlCheck.ColorTransition(GetDate());
         }
 
         private void btnhomeback_Click(object sender, EventArgs e)
@@ -63,8 +53,16 @@ namespace hotel
             this.Hide();
         }
 
-         
+        private void CheckInOut_Load(object sender, EventArgs e)
+        {
+            StartSelectionDate();
+        }
 
-        
+        private void CalendarCheckOut_DateSelected(object sender, DateRangeEventArgs e)
+        {
+            CalendarCheckOut.SelectionStart = CalendarCheckIn.SelectionStart;
+
+            roomControlCheck.ColorTransition(GetDate());
+        }
     }
 }

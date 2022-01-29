@@ -39,7 +39,7 @@
             this.txtMail = new System.Windows.Forms.TextBox();
             this.txtTc = new System.Windows.Forms.TextBox();
             this.btnhomeback = new System.Windows.Forms.Button();
-            this.roomControlBooking = new hotel.roomControl();
+            this.roomControlBooking = new hotel.RoomControl();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.lblAddress = new System.Windows.Forms.Label();
             this.txtCountry = new System.Windows.Forms.TextBox();
@@ -262,7 +262,7 @@
         private System.Windows.Forms.TextBox txtTc;
         
         private System.Windows.Forms.Button btnhomeback;
-        private roomControl roomControlBooking;
+        private RoomControl roomControlBooking;
         private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.Label lblAddress;
         private System.Windows.Forms.TextBox txtCountry;

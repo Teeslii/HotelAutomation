@@ -80,6 +80,7 @@
     <Compile Include="AdminLogin.Designer.cs">
       <DependentUpon>AdminLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Booking.cs" />
     <Compile Include="CheckInOut.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +94,7 @@
     <Compile Include="CustomerInformation.Designer.cs">
       <DependentUpon>CustomerInformation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Room.cs" />
     <Compile Include="SqlDataAccess.cs" />
     <Compile Include="IDataAccess.cs" />
     <Compile Include="Invoice.cs">
@@ -121,11 +123,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="roomControl.cs">
+    <Compile Include="RoomControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="roomControl.Designer.cs">
-      <DependentUpon>roomControl.cs</DependentUpon>
+    <Compile Include="RoomControl.Designer.cs">
+      <DependentUpon>RoomControl.cs</DependentUpon>
     </Compile>
     <Compile Include="RoomControlService.cs" />
     <Compile Include="Staff.cs" />
@@ -162,8 +164,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="roomControl.resx">
-      <DependentUpon>roomControl.cs</DependentUpon>
+    <EmbeddedResource Include="RoomControl.resx">
+      <DependentUpon>RoomControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

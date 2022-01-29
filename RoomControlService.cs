@@ -13,43 +13,63 @@ namespace hotel
     public static class RoomControlService
     {
         private static string _connectionString = ConfigurationManager.ConnectionStrings["hotel.Properties.Settings.Setting"].ConnectionString;
-        public static void AddingRoom(int RoomNo, int ID)
+        public static void AddingRoom(int _roomNo, Booking booking)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
-                string insertRoom = "Insert into Room(ID, roomNo, checkIn, IsDelete) values ( @ID, @roomNo, GETDATE(), 'False')";
-                SqlCommand Insert = new SqlCommand(insertRoom, connection);
-                Insert.Parameters.Add(new System.Data.SqlClient.SqlParameter("@ID", SqlDbType.Int) { Value = ID });
-                Insert.Parameters.Add(new System.Data.SqlClient.SqlParameter("@roomNo", SqlDbType.Int) { Value = RoomNo });
-                Insert.ExecuteNonQuery();
+
+                var getRoomIdQuery = "select RoomId from Room where RoomNo = @RoomNo ";
+                var cmd = new SqlCommand(getRoomIdQuery, connection);
+                cmd.Parameters.Add(new System.Data.SqlClient.SqlParameter("@RoomNo", SqlDbType.Int) { Value = _roomNo });
+                var saveRoomId = cmd.ExecuteScalar();
+                if (!int.TryParse(saveRoomId.ToString(), out int _roomId))
+                {
+                    System.Windows.Forms.MessageBox.Show("An error occurred while retrieving the registered customer's ID.");
+                }
+
+                booking.RoomId = _roomId;
+
+                var InsertBookingQuery = "Insert into Booking(CheckIn, CheckOut, RoomId, CustomerId) values(@CheckIn, @CheckOut, @RoomId, @CustomerId)";
+                var cmdInsert = new SqlCommand(InsertBookingQuery, connection);
+                cmdInsert.Parameters.Add(new System.Data.SqlClient.SqlParameter("@CheckIn", SqlDbType.Date) { Value = booking.CheckIn });
+                cmdInsert.Parameters.Add(new System.Data.SqlClient.SqlParameter("@CheckOut", SqlDbType.Date) { Value = booking.CheckOut });
+                cmdInsert.Parameters.Add(new System.Data.SqlClient.SqlParameter("@RoomId", SqlDbType.Int) { Value = booking.RoomId });
+                cmdInsert.Parameters.Add(new System.Data.SqlClient.SqlParameter("@CustomerId", SqlDbType.Int) { Value = booking.CustomerId });
+                cmdInsert.ExecuteNonQuery();
+
                 connection.Close();
             }
            
         }
-        private static string ErrorMessage;
-        public static List<roomControl> QueryIsDelete()
+        public static List<Room> GetFullRooms(Booking  booking)
         {
-            using (var connectionIsDelete = new SqlConnection(_connectionString))
+            using (var connection = new SqlConnection(_connectionString))
             {
-                connectionIsDelete.Open();
+                connection.Open();
 
-                List<roomControl> isDeleteRead = new List<roomControl>();
-                string queryIsDelete = "select roomNo from Room where IsDelete= 'False'";
-                SqlCommand query = new SqlCommand(queryIsDelete, connectionIsDelete);
-                SqlDataReader readerQuery = query.ExecuteReader();
+                List<Room> ResultFullRooms = new List<Room>();
+
+                string queryRoomsCheck = "select Room.RoomNo from Booking join Room on Booking.RoomId = Room.RoomId where (CheckIn <= @CheckOut) and (CheckOut >= @CheckIn)";
+
+                SqlCommand cmd = new SqlCommand(queryRoomsCheck, connection);
+
+                cmd.Parameters.Add(new System.Data.SqlClient.SqlParameter("@CheckIn", SqlDbType.Date) { Value = booking.CheckIn });
+                cmd.Parameters.Add(new System.Data.SqlClient.SqlParameter("@CheckOut", SqlDbType.Date) { Value = booking.CheckOut });
+
+                SqlDataReader readerQuery = cmd.ExecuteReader();
+
                 while (readerQuery.Read())
                 {
-                    if (!int.TryParse(readerQuery["roomNo"].ToString(), out int roomNo))
+                    if (!int.TryParse(readerQuery["roomNo"].ToString(), out int _roomNo))
                     {
-                        ErrorMessage = "Data processing error has occurred when processing Room Number data.";
-                        System.Windows.Forms.MessageBox.Show(ErrorMessage);
+                        System.Windows.Forms.MessageBox.Show("Data processing error has occurred when processing Room Number data.");
                     }
-                    isDeleteRead.Add(new roomControl() { RoomNo = roomNo });
+                    ResultFullRooms.Add(new Room() { RoomNo = _roomNo });
                 }
                 readerQuery.Close();
-                connectionIsDelete.Close();
-                return isDeleteRead;
+                connection.Close();
+                return ResultFullRooms;
 
             }
 
