@@ -27,13 +27,13 @@ namespace hotel
         {
             if (cbFeePayable.SelectedIndex==0)
             {
-                btnPaid.Visible = true;
+                btnCashPayment.Visible = true;
                 pnlCard.Visible = false;
             }
             else if (cbFeePayable.SelectedIndex==1)
             {
                 pnlCard.Visible = true;
-                btnPaid.Visible = false;
+                btnCashPayment.Visible = false;
             }
         }
 
@@ -46,7 +46,7 @@ namespace hotel
 
         private void btnResearch_Click(object sender, EventArgs e)
         {
-            RoomNoInvoice = Convert.ToInt32(txtResearchRoom.Text);
+            
             connectionString.Open();
             SqlCommand roomFee = new SqlCommand("select price from customer join Room on customer.ID = Room.ID where Room.roomNo= @roomNo", connectionString);
             roomFee.Parameters.Add(new System.Data.SqlClient.SqlParameter("@roomNo", SqlDbType.Int, 5) { Value = RoomNoInvoice });
@@ -55,7 +55,7 @@ namespace hotel
 
             while(dataReader.Read())
             {
-               TxtFeePayable.Text = dataReader["price"].ToString();
+               lblPaymentAmountText.Text = dataReader["price"].ToString();
             }
             dataReader.Close();
             connectionString.Close();
