@@ -61,7 +61,7 @@ namespace hotel
 
                 while (readerQuery.Read())
                 {
-                    if (!int.TryParse(readerQuery["roomNo"].ToString(), out int _roomNo))
+                    if (!int.TryParse(readerQuery["RoomNo"].ToString(), out int _roomNo))
                     {
                         System.Windows.Forms.MessageBox.Show("Data processing error has occurred when processing Room Number data.");
                     }
@@ -74,7 +74,52 @@ namespace hotel
             }
 
         }
+        public static Booking GetBasePrice(int _roomNo, Booking booking)
+        {
+            using(var connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
 
+                string BasePriceQuery = "select BasePrice, CheckIn, CheckOut From Room Join Booking on Room.RoomId = Booking.RoomId where  ((CheckIn <=  @CheckOut) and (CheckOut >= @CheckIn)) and RoomNo = @RoomNo";
+                var cmd = new SqlCommand(BasePriceQuery, connection);
+                cmd.Parameters.Add(new System.Data.SqlClient.SqlParameter("@RoomNo", SqlDbType.Int) { Value = _roomNo });
+                cmd.Parameters.Add(new System.Data.SqlClient.SqlParameter("@CheckIn", SqlDbType.Date) { Value = booking.CheckIn });
+                cmd.Parameters.Add(new System.Data.SqlClient.SqlParameter("@CheckOut", SqlDbType.Date) { Value = booking.CheckOut });
+
+                SqlDataReader readerQuery = cmd.ExecuteReader();
+
+                float _basePrice;
+
+                while (readerQuery.Read())
+                {
+         
+                    if (!DateTime.TryParse(readerQuery["CheckIn"].ToString(), out DateTime _checkIn))
+                    {
+                        System.Windows.Forms.MessageBox.Show("Data processing error has occurred when processing Check-In data.");
+                    }
+                    booking.CheckIn = _checkIn;
+
+                    if (!DateTime.TryParse(readerQuery["CheckOut"].ToString(), out DateTime _checkOut))
+                    {
+                        System.Windows.Forms.MessageBox.Show("Data processing error has occurred when processing Check-Out data.");
+                    }
+                    booking.CheckOut = _checkOut;
+
+                    if (!float.TryParse(readerQuery["BasePrice"].ToString(), out _basePrice))
+                    {
+                        System.Windows.Forms.MessageBox.Show("Data processing error has occurred when processing Check-Out data.");
+                    }
+                    booking = booking.AccountAmount(booking, _basePrice);
+                }
+                 
+                readerQuery.Close();
+
+                connection.Close();
+               return booking;
+            }
+            
+           
+        }
         public static void DeleteRoom(int _roomNo)
         {
             using (var connectionDelete = new SqlConnection(_connectionString))

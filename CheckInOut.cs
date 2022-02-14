@@ -38,6 +38,12 @@ namespace hotel
             return booking;
         }
 
+        public void CheckOutRoomEvent(int _roomNo)
+        {
+            booking = RoomControlService.GetBasePrice(_roomNo, GetDate());
+           
+        }
+     
         public void StartSelectionDate()
         {
             CalendarCheckOut.SelectionStart = CalendarCheckIn.SelectionStart;
