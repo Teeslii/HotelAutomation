@@ -20,7 +20,7 @@ namespace hotel
         }
       
          
-        private int RoomNoInvoice;
+       
         private void cbFeePayable_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbFeePayable.SelectedIndex==0)
@@ -49,18 +49,12 @@ namespace hotel
 
         private void btnPaid_Click(object sender, EventArgs e)
         {
-            invoiceAddPage pageShow = new invoiceAddPage();
-            pageShow.room = RoomNoInvoice;
-            pageShow.Show();
-            this.Hide();
+           
         }
 
         private void btnCardPayment_Click(object sender, EventArgs e)
         {
-            invoiceAddPage pageShow = new invoiceAddPage();
-            pageShow.room = RoomNoInvoice;
-            pageShow.Show();
-            this.Hide();
+            
         }
     }
 }
