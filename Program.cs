@@ -10,13 +10,20 @@ namespace hotel
     static class Program
     {
         public static IServiceProvider ServiceProvider { get; set; }
+        public static IServiceProvider ServiceProviderPayment { get; set; }
         static void ConfigureServices()
         {
             var services = new ServiceCollection();
             services.AddTransient<IDataAccess, SqlDataAccess>();
             ServiceProvider = services.BuildServiceProvider();
+
+            var servicesPayment = new ServiceCollection();
+            servicesPayment.AddTransient<IPayment, Payment>();
+            ServiceProviderPayment = servicesPayment.BuildServiceProvider();
         }
 
+
+       
         /// <summary>
         /// Uygulamanın ana girdi noktası.
         /// </summary>

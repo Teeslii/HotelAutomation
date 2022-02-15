@@ -94,6 +94,8 @@
     <Compile Include="CustomerInformation.Designer.cs">
       <DependentUpon>CustomerInformation.cs</DependentUpon>
     </Compile>
+    <Compile Include="IPayment.cs" />
+    <Compile Include="Payment.cs" />
     <Compile Include="Room.cs" />
     <Compile Include="SqlDataAccess.cs" />
     <Compile Include="IDataAccess.cs" />

@@ -14,13 +14,18 @@ namespace hotel
 {
     public partial class Invoice : Form
     {
-        public Invoice()
+        private readonly IPayment _payment;
+        public Invoice(IPayment _payment)
         {
             InitializeComponent();
+            this._payment = _payment;
         }
-      
-         
-       
+
+        public void WriteSumAmount(Booking booking)
+        {
+            lblPaymentAmountText.Text = booking.Amount.ToString();
+        }
+
         private void cbFeePayable_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbFeePayable.SelectedIndex==0)
@@ -49,7 +54,7 @@ namespace hotel
 
         private void btnPaid_Click(object sender, EventArgs e)
         {
-           
+            
         }
 
         private void btnCardPayment_Click(object sender, EventArgs e)
