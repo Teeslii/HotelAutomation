@@ -40,12 +40,7 @@ namespace hotel
             this.Hide();
         }
 
-        private void btninvoice_Click(object sender, EventArgs e)
-        {
-            Invoice invoice = new Invoice();
-            invoice.Show();
-            this.Hide();
-        }
+     
 
         private void btnCustomers_Click(object sender, EventArgs e)
         {
