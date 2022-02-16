@@ -88,7 +88,7 @@
             this.btnCashPayment.Text = "Pay";
             this.btnCashPayment.UseVisualStyleBackColor = false;
             this.btnCashPayment.Visible = false;
-            this.btnCashPayment.Click += new System.EventHandler(this.btnPaid_Click);
+            this.btnCashPayment.Click += new System.EventHandler(this.btnCashPayment_Click);
             // 
             // pnlCard
             // 

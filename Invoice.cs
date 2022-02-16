@@ -47,15 +47,7 @@ namespace hotel
             this.Hide();
         }
 
-        private void btnResearch_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void btnPaid_Click(object sender, EventArgs e)
-        {
-            
-        }
+       
         
         public void GetCardInfo()
         {
@@ -93,6 +85,11 @@ namespace hotel
         {
 
             GetCardInfo();
+        }
+
+        private void btnCashPayment_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Your payment transaction has been completed successfully.");
         }
     }
 }
