@@ -56,10 +56,43 @@ namespace hotel
         {
             
         }
+        
+        public void GetCardInfo()
+        {
+            Card card = new Card();
+
+            card.NameSurname = txtNameOfCard.Text;
+            card.NumberCard = txtCardPart1.Text + txtCardPart2.Text + txtCardPart3.Text + txtCardPart4.Text;
+
+            
+                if (!int.TryParse(txtMMNumber.Text, out int _month))
+                {
+                    MessageBox.Show("An error occurred while entering month . Please enter again your month .");
+                    return;
+                }
+                card.Month = _month;
+
+                if (!int.TryParse(txtYYNumber.Text, out int _year))
+                {
+                    MessageBox.Show("An error occurred while entering year. Please enter again your year.");
+                    return;
+                }
+                card.Year = _year;
+ 
+
+                if (!int.TryParse(txtCVCNumber.Text, out int _Cvc))
+                {
+                    MessageBox.Show("An error occurred while entering CVC. Please enter again your CVC.");
+                    return;
+                }
+                card.Cvc = _Cvc;
+            _payment.VerificationCard(card);
+        }
 
         private void btnCardPayment_Click(object sender, EventArgs e)
         {
-            
+
+            GetCardInfo();
         }
     }
 }

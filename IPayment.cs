@@ -8,6 +8,6 @@ namespace hotel
 {
     public interface IPayment
     {
-     
+        void VerificationCard(Card card);
     }
 }
