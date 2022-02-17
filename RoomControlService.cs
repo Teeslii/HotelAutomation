@@ -120,19 +120,6 @@ namespace hotel
             
            
         }
-        public static void DeleteRoom(int _roomNo)
-        {
-            using (var connectionDelete = new SqlConnection(_connectionString))
-            {
-                connectionDelete.Open();
-
-                string updateQuery = "update Room set IsDelete='True', checkOut=GETDATE() where roomNo = @_roomNo";
-                SqlCommand delete = new SqlCommand(updateQuery, connectionDelete);
-                delete.Parameters.Add(new System.Data.SqlClient.SqlParameter("@_roomNo", SqlDbType.Int) { Value = _roomNo });
-                delete.ExecuteNonQuery();
-
-                connectionDelete.Close();
-            }
-        }
+        
     }
 }
