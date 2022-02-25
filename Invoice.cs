@@ -70,14 +70,8 @@ namespace hotel
                     return;
                 }
                 card.Year = _year;
- 
+            card.Cvc = txtCVCNumber.Text;
 
-                if (!int.TryParse(txtCVCNumber.Text, out int _Cvc))
-                {
-                    MessageBox.Show("An error occurred while entering CVC. Please enter again your CVC.");
-                    return;
-                }
-                card.Cvc = _Cvc;
             _payment.VerificationCard(card);
         }
 

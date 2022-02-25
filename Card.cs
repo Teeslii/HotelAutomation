@@ -12,6 +12,6 @@ namespace hotel
         public string NumberCard { get; set; }
         public int Month { get; set; }
         public int Year { get; set; }
-        public int Cvc { get; set; }
+        public string Cvc { get; set; }
     }
 }

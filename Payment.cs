@@ -10,7 +10,7 @@ namespace hotel
     {
        public void VerificationCard(Card card)
        {
-           if(card.NameSurname != null && card.NumberCard != null )
+           if(card.NameSurname != null && card.NumberCard != null && card.Cvc != null)
             {
                 System.Windows.Forms.MessageBox.Show("Your payment transaction has been completed successfully.");
             }
