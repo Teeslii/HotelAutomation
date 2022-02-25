@@ -10,13 +10,26 @@ namespace hotel
     {
        public void VerificationCard(Card card)
        {
-           if(card.NameSurname != null && card.NumberCard != null && card.Cvc != null)
-            {
-                System.Windows.Forms.MessageBox.Show("Your payment transaction has been completed successfully.");
-            }
-           else
+            card.NameSurname = card.NameSurname.Trim();
+            card.NumberCard = card.NumberCard.Trim();
+            card.Cvc = card.Cvc.Trim();
+
+            if(string.IsNullOrEmpty(card.NameSurname))
             {
                 System.Windows.Forms.MessageBox.Show("Your payment transaction has failed.");
+            }
+           
+            else if(string.IsNullOrEmpty(card.NumberCard))
+            {
+                System.Windows.Forms.MessageBox.Show("Your payment transaction has failed.");
+            }
+            else if(string.IsNullOrEmpty(card.Cvc))
+            {
+                System.Windows.Forms.MessageBox.Show("Your payment transaction has failed.");
+            }
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("Your payment transaction has been completed successfully.");
             }
        }
     }
