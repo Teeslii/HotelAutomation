@@ -21,9 +21,9 @@ namespace hotel
             this._payment = _payment;
         }
 
-        public void WriteSumAmount(Booking booking)
+        public void WriteSumAmount(decimal _amount)
         {
-            lblPaymentAmountText.Text = booking.Amount.ToString();
+            lblPaymentAmountText.Text = _amount.ToString();
         }
 
         private void cbFeePayable_SelectedIndexChanged(object sender, EventArgs e)

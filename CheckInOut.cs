@@ -41,10 +41,10 @@ namespace hotel
 
         public void CheckOutRoomEvent(int _roomNo)
         {
-            booking = RoomControlService.GetBasePrice(_roomNo, GetDate());
+             
             Invoice invoice = new Invoice(_payment);
             invoice.Show();
-            invoice.WriteSumAmount(booking);
+            invoice.WriteSumAmount(RoomControlService.GetBasePrice(_roomNo, GetDate()));
             this.Hide();
         }
      

@@ -74,7 +74,7 @@ namespace hotel
             }
 
         }
-        public static Booking GetBasePrice(int _roomNo, Booking booking)
+        public static decimal GetBasePrice(int _roomNo, Booking booking)
         {
             using(var connection = new SqlConnection(_connectionString))
             {
@@ -88,7 +88,7 @@ namespace hotel
 
                 SqlDataReader readerQuery = cmd.ExecuteReader();
 
-                float _basePrice;
+                decimal _basePrice;
 
                 while (readerQuery.Read())
                 {
@@ -105,17 +105,17 @@ namespace hotel
                     }
                     booking.CheckOut = _checkOut;
 
-                    if (!float.TryParse(readerQuery["BasePrice"].ToString(), out _basePrice))
+                    if (!decimal.TryParse(readerQuery["BasePrice"].ToString(), out _basePrice))
                     {
                         System.Windows.Forms.MessageBox.Show("Data processing error has occurred when processing Check-Out data.");
                     }
-                    booking = booking.AccountAmount(booking, _basePrice);
+                    booking.Amount = booking.AccountAmount(booking, _basePrice);
                 }
                  
                 readerQuery.Close();
 
                 connection.Close();
-               return booking;
+               return booking.Amount;
             }
             
            

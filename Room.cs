@@ -10,6 +10,6 @@ namespace hotel
     {
         public int RoomId { get; set; }
         public int RoomNo { get; set; }
-        public long BasePrice { get; set; }
+        public decimal BasePrice { get; set; }
     }
 }
