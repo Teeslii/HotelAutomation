@@ -32,7 +32,6 @@
             this.btnAdminLogin = new System.Windows.Forms.Button();
             this.btnNewUser_Reservation = new System.Windows.Forms.Button();
             this.btnCheck = new System.Windows.Forms.Button();
-            this.btninvoice = new System.Windows.Forms.Button();
             this.btnCustomers = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnAboutUs = new System.Windows.Forms.Button();
@@ -80,20 +79,6 @@
             this.btnCheck.Text = "Check in / out ";
             this.btnCheck.UseVisualStyleBackColor = false;
             this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
-            // 
-            // btninvoice
-            // 
-            this.btninvoice.BackColor = System.Drawing.Color.Transparent;
-            this.btninvoice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btninvoice.Font = new System.Drawing.Font("Lucida Sans", 14.25F);
-            this.btninvoice.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btninvoice.Location = new System.Drawing.Point(859, 240);
-            this.btninvoice.Name = "btninvoice";
-            this.btninvoice.Size = new System.Drawing.Size(242, 89);
-            this.btninvoice.TabIndex = 16;
-            this.btninvoice.Text = "Invoice";
-            this.btninvoice.UseVisualStyleBackColor = false;
-            this.btninvoice.Click += new System.EventHandler(this.btninvoice_Click);
             // 
             // btnCustomers
             // 
@@ -143,7 +128,6 @@
             this.Controls.Add(this.btnAboutUs);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnCustomers);
-            this.Controls.Add(this.btninvoice);
             this.Controls.Add(this.btnCheck);
             this.Controls.Add(this.btnNewUser_Reservation);
             this.Controls.Add(this.btnAdminLogin);
@@ -162,7 +146,6 @@
         private System.Windows.Forms.Button btnAdminLogin;
         private System.Windows.Forms.Button btnNewUser_Reservation;
         private System.Windows.Forms.Button btnCheck;
-        private System.Windows.Forms.Button btninvoice;
         private System.Windows.Forms.Button btnCustomers;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnAboutUs;

@@ -8,32 +8,36 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
-using System.Data.Sql;
-using System.Data.SqlClient;
+
+
 
 namespace hotel
 {
     public partial class Invoice : Form
     {
-        public Invoice()
+        private readonly IPayment _payment;
+        public Invoice(IPayment _payment)
         {
             InitializeComponent();
+            this._payment = _payment;
         }
-      
-        SqlConnection connectionString = new SqlConnection(ConfigurationManager.ConnectionStrings["hotel.Properties.Settings.Setting"].ConnectionString);
-      
-        private int RoomNoInvoice;
+
+        public void WriteSumAmount(decimal _amount)
+        {
+            lblPaymentAmountText.Text = _amount.ToString();
+        }
+
         private void cbFeePayable_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbFeePayable.SelectedIndex==0)
             {
-                btnPaid.Visible = true;
+                btnCashPayment.Visible = true;
                 pnlCard.Visible = false;
             }
             else if (cbFeePayable.SelectedIndex==1)
             {
                 pnlCard.Visible = true;
-                btnPaid.Visible = false;
+                btnCashPayment.Visible = false;
             }
         }
 
@@ -44,37 +48,51 @@ namespace hotel
             this.Hide();
         }
 
-        private void btnResearch_Click(object sender, EventArgs e)
+       
+        
+        public void GetCardInfo()
         {
-            RoomNoInvoice = Convert.ToInt32(txtResearchRoom.Text);
-            connectionString.Open();
-            SqlCommand roomFee = new SqlCommand("select price from customer join Room on customer.ID = Room.ID where Room.roomNo= @roomNo", connectionString);
-            roomFee.Parameters.Add(new System.Data.SqlClient.SqlParameter("@roomNo", SqlDbType.Int, 5) { Value = RoomNoInvoice });
-            roomFee.ExecuteNonQuery();
-            SqlDataReader dataReader = roomFee.ExecuteReader();
+            Card card = new Card();
 
-            while(dataReader.Read())
+            card.NameSurname = txtNameOfCard.Text;
+            card.NumberCard = txtCardPart1.Text + txtCardPart2.Text + txtCardPart3.Text + txtCardPart4.Text;
+
+            
+                if (!int.TryParse(txtMMNumber.Text, out int _month))
+                {
+                    MessageBox.Show("An error occurred while entering month . Please enter again your month .");
+                    return;
+                }
+                card.Month = _month;
+
+                if (!int.TryParse(txtYYNumber.Text, out int _year))
+                {
+                    MessageBox.Show("An error occurred while entering year. Please enter again your year.");
+                    return;
+                }
+                card.Year = _year;
+            card.Cvc = txtCVCNumber.Text;
+
+
+            try
             {
-               TxtFeePayable.Text = dataReader["price"].ToString();
+               MessageBox.Show(_payment.VerificationCard(card));
             }
-            dataReader.Close();
-            connectionString.Close();
-        }
-
-        private void btnPaid_Click(object sender, EventArgs e)
-        {
-            invoiceAddPage pageShow = new invoiceAddPage();
-            pageShow.room = RoomNoInvoice;
-            pageShow.Show();
-            this.Hide();
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
         }
 
         private void btnCardPayment_Click(object sender, EventArgs e)
         {
-            invoiceAddPage pageShow = new invoiceAddPage();
-            pageShow.room = RoomNoInvoice;
-            pageShow.Show();
-            this.Hide();
+
+            GetCardInfo();
+        }
+
+        private void btnCashPayment_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Your payment transaction has been completed successfully.");
         }
     }
 }

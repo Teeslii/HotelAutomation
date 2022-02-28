@@ -15,10 +15,11 @@ namespace hotel
 {
     public partial class CheckInOut : Form
     {
+        private readonly IPayment _payment;
         public CheckInOut()
         {
             InitializeComponent();
-           
+            _payment = (IPayment)Program.ServiceProviderPayment.GetService(typeof(IPayment));
         }
         
 
@@ -38,6 +39,15 @@ namespace hotel
             return booking;
         }
 
+        public void CheckOutRoomEvent(int _roomNo)
+        {
+             
+            Invoice invoice = new Invoice(_payment);
+            invoice.Show();
+            invoice.WriteSumAmount(RoomControlService.GetBasePrice(_roomNo, GetDate()));
+            this.Hide();
+        }
+     
         public void StartSelectionDate()
         {
             CalendarCheckOut.SelectionStart = CalendarCheckIn.SelectionStart;

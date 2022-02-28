@@ -86,7 +86,7 @@ namespace hotel
             }
             else
             {
-                
+                checkInOut.CheckOutRoomEvent(_roomNo);
                 return Color.Lime;
             }
         }

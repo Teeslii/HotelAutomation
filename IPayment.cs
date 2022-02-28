@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace hotel
 {
-    public class Room
+    public interface IPayment
     {
-        public int RoomId { get; set; }
-        public int RoomNo { get; set; }
-        public decimal BasePrice { get; set; }
+        string VerificationCard(Card card);
     }
 }
