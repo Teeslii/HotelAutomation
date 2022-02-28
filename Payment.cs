@@ -8,7 +8,7 @@ namespace hotel
 {
     public class Payment : IPayment
     {
-       public void VerificationCard(Card card)
+       public string  VerificationCard(Card card)
        {
             card.NameSurname = card.NameSurname.Trim();
             card.NumberCard = card.NumberCard.Trim();
@@ -26,7 +26,7 @@ namespace hotel
 
             else
             {
-                System.Windows.Forms.MessageBox.Show("Your payment transaction has been completed successfully.");
+                return "Your payment transaction has been completed successfully.";
             }
        }
     }

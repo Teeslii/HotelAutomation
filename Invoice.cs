@@ -76,7 +76,7 @@ namespace hotel
 
             try
             {
-                _payment.VerificationCard(card);
+               MessageBox.Show(_payment.VerificationCard(card));
             }
             catch (Exception ex)
             {
