@@ -14,19 +14,16 @@ namespace hotel
             card.NumberCard = card.NumberCard.Trim();
             card.Cvc = card.Cvc.Trim();
 
-            if(string.IsNullOrEmpty(card.NameSurname))
-            {
-                System.Windows.Forms.MessageBox.Show("Your payment transaction has failed.");
-            }
-           
+            
+            if (string.IsNullOrEmpty(card.NameSurname))
+              throw new ArgumentException("Holder Of Card:");
+         
             else if(string.IsNullOrEmpty(card.NumberCard))
-            {
-                System.Windows.Forms.MessageBox.Show("Your payment transaction has failed.");
-            }
+                throw new ArgumentException("Number Of Card:");
+
             else if(string.IsNullOrEmpty(card.Cvc))
-            {
-                System.Windows.Forms.MessageBox.Show("Your payment transaction has failed.");
-            }
+                throw new ArgumentException("Valid Thru:");
+
             else
             {
                 System.Windows.Forms.MessageBox.Show("Your payment transaction has been completed successfully.");

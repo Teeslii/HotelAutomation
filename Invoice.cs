@@ -8,7 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
- 
+
+
 
 namespace hotel
 {
@@ -72,7 +73,15 @@ namespace hotel
                 card.Year = _year;
             card.Cvc = txtCVCNumber.Text;
 
-            _payment.VerificationCard(card);
+
+            try
+            {
+                _payment.VerificationCard(card);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
         }
 
         private void btnCardPayment_Click(object sender, EventArgs e)
