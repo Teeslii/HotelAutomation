@@ -80,6 +80,7 @@
     <Compile Include="AdminLogin.Designer.cs">
       <DependentUpon>AdminLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminLoginService.cs" />
     <Compile Include="Booking.cs" />
     <Compile Include="Card.cs" />
     <Compile Include="CheckInOut.cs">
