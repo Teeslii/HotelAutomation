@@ -54,7 +54,6 @@
             // roomControlCheck
             // 
             this.roomControlCheck.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("roomControlCheck.BackgroundImage")));
-            
             this.roomControlCheck.Location = new System.Drawing.Point(585, 12);
             this.roomControlCheck.Name = "roomControlCheck";
             this.roomControlCheck.Size = new System.Drawing.Size(580, 514);
@@ -110,6 +109,7 @@
             this.Controls.Add(this.btnhomeback);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CheckInOut";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
             this.Load += new System.EventHandler(this.CheckInOut_Load);
             this.ResumeLayout(false);
