@@ -8,11 +8,7 @@ namespace hotel
 {
      public  class Staff
     {
-        private string _name;
-        private string _surname;
-        private string password;
-        private string _workingArea;
-        private string _workingID;
-
+        public string UserName { get; set; }
+        public string Password { get; set; }
     }
 }
