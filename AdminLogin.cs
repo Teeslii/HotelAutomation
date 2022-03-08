@@ -21,25 +21,26 @@ namespace hotel
         
         public void VerifyUserLogin()
         {
-            string _userName = userNameTxt.Text.Trim();
-            string _password = txtPassword.Text.Trim();
+            Staff staff = new Staff();
+             staff.UserName = userNameTxt.Text.Trim();
+             staff.Password = txtPassword.Text.Trim();
 
-            if (string.IsNullOrEmpty(userNameTxt.Text))
+            if (string.IsNullOrEmpty(staff.UserName))
                 throw new ArgumentException("User Name: ");
 
-            if (string.IsNullOrEmpty(txtPassword.Text))
+            if (string.IsNullOrEmpty(staff.Password))
                 throw new ArgumentException("Password: ");
 
             SHA1 sha = new SHA1CryptoServiceProvider();
 
-            byte[] bytes  = sha.ComputeHash(Encoding.UTF8.GetBytes(_password));
+            byte[] bytes  = sha.ComputeHash(Encoding.UTF8.GetBytes(staff.Password));
 
             StringBuilder builder = new StringBuilder();
             foreach(var item in bytes)
             {
                 builder.Append(item.ToString("x2"));
             }
-            bool ResultVerification = AdminLoginService.VerificationUser(builder.ToString(), _userName);
+            bool ResultVerification = AdminLoginService.VerificationUser(builder.ToString(), staff.UserName);
 
             if (ResultVerification == true)
             {
