@@ -280,6 +280,7 @@
             this.Controls.Add(this.lblPaymentAmount);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Invoice";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Invoice";
             this.pnlCard.ResumeLayout(false);
             this.pnlCard.PerformLayout();

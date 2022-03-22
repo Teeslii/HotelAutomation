@@ -44,7 +44,7 @@
             this.lblAboutUs.Size = new System.Drawing.Size(1137, 352);
             this.lblAboutUs.TabIndex = 0;
             this.lblAboutUs.Text = resources.GetString("lblAboutUs.Text");
-             // 
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
@@ -65,6 +65,7 @@
             this.Controls.Add(this.lblAboutUs);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AboutUs";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AboutUs";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
