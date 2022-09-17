@@ -1,7 +1,10 @@
-Octopus Hotel Automation :octopus: 
-<h1>
-  <h3> About :chopsticks: </h3>
+<h3> Octopus Hotel Automation :octopus: </h3>
 
+![octopus-logo](https://user-images.githubusercontent.com/60256102/190877525-18aa8318-f702-46bd-95eb-bbcfd185f798.png)
+
+<h1>
+<h3> About :chopsticks: </h3>
+ 
 <p> Hotel Automation enables the reception desk to manage the room check-in and check-out processes. Developed with C# Windows Forms App technology. </p>
 
 <br/>
