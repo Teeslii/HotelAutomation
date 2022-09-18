@@ -30,4 +30,13 @@
   Customer information can be listed and updated.
 ![CustomerInfo](https://user-images.githubusercontent.com/60256102/190928022-bb9fe7a1-567e-47e5-a1aa-5a7e992d9721.gif)
 
+<h3> Technologies :computer: </h3>
   
+  - C# 
+  - Windows Forms App
+  - SQL
+<h3> Built :thread:  </h3>
+
+1. Visual studio program must be installed.
+2. ``` git clone <repository link> ```
+3. It is started by starting it through Visual Studio.
