@@ -17,7 +17,14 @@ namespace hotel
             InitializeComponent();
         }
 
-       // take lblAboutUs text https://crimsonhotel.com/mactan/about-us
-        
+        private void btnHomeBack_Click(object sender, EventArgs e)
+        { 
+                MainPage mainPage = new MainPage();
+                mainPage.Show();
+                this.Hide();
+        }
+
+        // take lblAboutUs text https://crimsonhotel.com/mactan/about-us
+
     }
 }

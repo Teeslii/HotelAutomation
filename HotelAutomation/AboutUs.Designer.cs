@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutUs));
             this.lblAboutUs = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnHomeBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,12 +56,27 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
+            // btnHomeBack
+            // 
+            this.btnHomeBack.BackColor = System.Drawing.Color.Transparent;
+            this.btnHomeBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHomeBack.Font = new System.Drawing.Font("Lucida Sans", 14.25F);
+            this.btnHomeBack.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnHomeBack.Location = new System.Drawing.Point(1056, 560);
+            this.btnHomeBack.Name = "btnHomeBack";
+            this.btnHomeBack.Size = new System.Drawing.Size(132, 52);
+            this.btnHomeBack.TabIndex = 54;
+            this.btnHomeBack.Text = "Home Back";
+            this.btnHomeBack.UseVisualStyleBackColor = false;
+            this.btnHomeBack.Click += new System.EventHandler(this.btnHomeBack_Click);
+            // 
             // AboutUs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1215, 633);
+            this.Controls.Add(this.btnHomeBack);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblAboutUs);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -77,5 +93,6 @@
 
         private System.Windows.Forms.Label lblAboutUs;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnHomeBack;
     }
 }
