@@ -37,6 +37,7 @@
   - SQL
 <h3> Built :thread:  </h3>
 
-1. Visual studio program must be installed.
+1. Visual Studio program must be installed.
 2. ``` git clone <repository link> ```
-3. It is started by starting it through Visual Studio.
+3. Datasets need to be added before running the project.
+4. It is started by starting it through Visual Studio.
